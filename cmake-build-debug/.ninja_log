@@ -1,0 +1,21 @@
+# ninja log v5
+1	144	6988918397382315	build.ninja	8d0902dc4e7656f
+4	691	6988261245507042	CMakeFiles/Skipt.dir/main.cpp.obj	4597270c6ee0a93e
+4	392	6977193272812345	CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.obj	b59a8cb31c85eac5
+23	674	6988098886858416	CMakeFiles/Skipt.dir/Compiler/Classes/Reference.cpp.obj	be0a12ab21675033
+5	415	6977250653160888	CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.obj	abffccdd0c56f941
+18	640	6988098886428420	CMakeFiles/Skipt.dir/Compiler/Token.cpp.obj	d11dcfc98b004204
+14	540	6988028025716263	CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj	989ce6f134eb7129
+994	1273	6988917097050114	Skipt.exe	29d0eff31df12e12
+3	994	6988917094300124	CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj	49328ad26ab81a8
+21	657	6981107252018864	CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.obj	202210b720722044
+9	739	6988242673183623	CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj	c18a74a55944377c
+13	609	6981107251538854	CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.obj	d8f4bac5e9f16fb9
+15	611	6987931259614115	CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Parser.cpp.obj	cfee545bc6592a0
+12	154	6983190094679448	CMakeFiles/Skipt.dir/Compiler/MongoFunctions.cpp.obj	56a0fbf669fca88
+11	63	6987988840001844	CMakeFiles/Skipt.dir/Compiler/Classes/ReferenceFile.cpp.obj	ede9797c94f8346
+28	673	6988098886858416	CMakeFiles/Skipt.dir/Compiler/Classes/Functions.cpp.obj	d0be5bba76f38aa5
+7	382	6988921558339238	CMakeFiles/Skipt.dir/Compiler/MathConstants.cpp.obj	d7585960913fd13b
+3	708	6988921561589249	CMakeFiles/Skipt.dir/main.cpp.obj	4597270c6ee0a93e
+3	576	6988921815550133	CMakeFiles/Skipt.dir/main.cpp.obj	4597270c6ee0a93e
+576	821	6988921817960143	Skipt.exe	c4abad3a94218a4a

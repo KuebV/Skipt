@@ -1,0 +1,9 @@
+CLASS:math.skipt
+
+func d:calculateCircumference(double radius)
+{
+    d:pi = 3.1415
+    d:circle = 2 * pi * radius
+
+    return circle
+}
