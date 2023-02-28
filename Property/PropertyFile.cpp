@@ -28,12 +28,26 @@ PropertyReference PropertyFile::ReadPropertyFile(std::string _file) {
 
             // We have to parse this as a whole string
             if (value[0] == '\"'){
-                std::size_t dividerValue = line.find(" = \"") + 4; // Apply an offset of 4 characters as not to include = in the final string
-                std::string strValue = line.substr(dividerValue);
 
-                value = strValue;
+                std::string parsedString = "";
+                size_t firstInstance = line.find('"');
+                if (firstInstance == std::string::npos){
+                    exit(1);
+                }
+
+                size_t lastInstance = line.find_last_of('"');
+                if (lastInstance == std::string::npos){
+                    exit(1);
+                }
+
+                firstInstance++;
+                parsedString = line.substr(firstInstance, (lastInstance - firstInstance));
+                propRef.appendKeyPair(key, parsedString);
             }
-            propRef.appendKeyPair(key, value);
+            else{
+                propRef.appendKeyPair(key, value);
+            }
+
         }
     }
 

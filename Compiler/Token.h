@@ -126,6 +126,14 @@ public:
         }
     }
 
+    static bool DeleteToken(std::string tokenName){
+        if (tokenMap.find(tokenName) == tokenMap.end())
+            return false;
+
+        tokenMap.erase(tokenName);
+        return true;
+    }
+
     static std::map<std::string, Token> tokenMap;
     static std::map<std::string, Token> ConditionalTokenMap;
 };

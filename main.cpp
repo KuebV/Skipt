@@ -3,7 +3,6 @@
 #include "Compiler/DefaultFiles.h"
 #include "Extensions/String.h"
 #include "Compiler/Compile.h"
-#include "Compiler/MathConstants.h"
 
 static PropertyReference propRef;
 static const std::string CompilerPropertiesFile = "compiler.properties";

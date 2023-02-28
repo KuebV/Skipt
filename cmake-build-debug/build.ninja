@@ -109,12 +109,6 @@ build CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.obj: CXX_COM
   OBJECT_DIR = CMakeFiles\Skipt.dir
   OBJECT_FILE_DIR = CMakeFiles\Skipt.dir\Compiler\ExpressionParser
 
-build CMakeFiles/Skipt.dir/Compiler/MathConstants.cpp.obj: CXX_COMPILER__Skipt_Debug C$:/Users/bobwt/CLionProjects/Skipt/Compiler/MathConstants.cpp || cmake_object_order_depends_target_Skipt
-  DEP_FILE = CMakeFiles\Skipt.dir\Compiler\MathConstants.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles\Skipt.dir
-  OBJECT_FILE_DIR = CMakeFiles\Skipt.dir\Compiler
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Skipt
@@ -123,7 +117,7 @@ build CMakeFiles/Skipt.dir/Compiler/MathConstants.cpp.obj: CXX_COMPILER__Skipt_D
 #############################################
 # Link the executable Skipt.exe
 
-build Skipt.exe: CXX_EXECUTABLE_LINKER__Skipt_Debug CMakeFiles/Skipt.dir/main.cpp.obj CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.obj CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.obj CMakeFiles/Skipt.dir/Compiler/Token.cpp.obj CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Parser.cpp.obj CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.obj CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.obj CMakeFiles/Skipt.dir/Compiler/MathConstants.cpp.obj
+build Skipt.exe: CXX_EXECUTABLE_LINKER__Skipt_Debug CMakeFiles/Skipt.dir/main.cpp.obj CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.obj CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.obj CMakeFiles/Skipt.dir/Compiler/Token.cpp.obj CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Parser.cpp.obj CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.obj CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Skipt.dir

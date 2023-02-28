@@ -1,5 +1,7 @@
+d:totalSum = 134705.0
+d:num = 0
+num = 536 + 63 + 123 + 123
 
-d:pi = 0
-pi = PI
-
-> pi
+d:sum = 0
+sum = num / totalSum
+> sum

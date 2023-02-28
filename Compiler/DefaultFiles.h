@@ -18,8 +18,10 @@ public:
         Property SkiptFile("FileToCompile", "example.skipt", "Defines what file that the compiler should read from");
         Property GenerateNewFile("GenerateNewFile", "true", "If the \"FileToCompile\" file is not found, then should the program create a new file with basic arithmetic?");
         Property DebugMode("debugMode", "true", "If enabled, the compiler will return console messages of what exactly it's working on");
+        Property GarbageCollection("garbageCollection", "true", "If enabled, the compiler will look ahead of the program and check if the variable is called again or not, if not, the compiler will recycle the variable");
+        Property ExitMessage("exitMessage", "Skipt has exited (%code%) with message %message%", "What the compiler prints out to the console when the application is exited");
 
-        std::vector<Property> properties = {SkiptFile, GenerateNewFile, DebugMode};
+        std::vector<Property> properties = {SkiptFile, GenerateNewFile, DebugMode, GarbageCollection, ExitMessage};
         PropertyFile::WritePropertyFile("compiler.properties", properties);
     }
 

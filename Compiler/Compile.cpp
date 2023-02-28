@@ -55,7 +55,7 @@ void Compile::Run(std::string fileName, bool asReference) {
             line = String::Strip(line); // Holy fuck,  this is critical to having the conditional statements work
         }
 
-        if (String::Contains(line, ":")){ // We're defining a variable
+        if (String::Contains(line, ":") && String::Split(line, ":")[0].length() <= 2){ // We're defining a variable
             std::string tokenInitalizer;
             std::string tokenValue;
             std::string equalsValue;
@@ -66,7 +66,7 @@ void Compile::Run(std::string fileName, bool asReference) {
                 char type = tokenVector[0][0];
 
                 if (Token::tokenExists(tokenVector[1])){ // Recast Variable to a new type
-                    std::cout << "[DEBUG MODE] [Compile.cpp] : Preparing to Recast Variable : " << tokenVector[1] << "\n";
+                    std::cout << "\n[DEBUG MODE] [Compile.cpp] : Preparing to Recast Variable : " << tokenVector[1] << "\n";
 
                     switch (type){
                         case 'i': // Recast to type integer
@@ -81,7 +81,7 @@ void Compile::Run(std::string fileName, bool asReference) {
                             if (tokenValue[0] == '*') { // Store the previous variable
                                 Token temp = Token::getAllTokens(tokenVector[1]);
                                 Token::recastVariable(tokenVector[1], Token::dataTypes::t_integer, temp.value);
-                                std::cout << "[DEBUG MODE] [Compile.cpp] : Recasting Variable with previous data value\n";
+                                std::cout << "\n[DEBUG MODE] [Compile.cpp] : Recasting Variable with previous data value\n";
                             }
                             else{
                                 Token::recastVariable(tokenVector[1], Token::dataTypes::t_integer, tokenValue);
@@ -110,7 +110,7 @@ void Compile::Run(std::string fileName, bool asReference) {
                     }
                 }
                 else{
-                    std::cout << "[DEBUG MODE] [Compile.cpp] : Preparing to define variable\n";
+                    std::cout << "\n[DEBUG MODE] [Compile.cpp] : Preparing to define variable\n";
 
                     switch (type){
                         case 'i': { // type integer
@@ -191,7 +191,8 @@ void Compile::Run(std::string fileName, bool asReference) {
 
         // Modify Variable
         if (Token::tokenExists(String::Split(line, " = ")[0]) && !String::Contains(line, ":")){
-            std::cout << "[DEBUG MODE] [Compile.cpp] : Modifying Variable Value\n";
+
+            std::cout << "\n[DEBUG MODE] [Compile.cpp] : Modifying Variable Value\n";
 
 
             Token token = Token::getToken(String::Split(line, " = ")[0]);
@@ -205,7 +206,6 @@ void Compile::Run(std::string fileName, bool asReference) {
             size_t equals = line.find('=');
             std::string str = line.substr(equals + 1, lineLength - 1);
 
-            std::cout << String::Strip(str) << "\n";
 
             if (String::Split(str, " ").size() <= 1){
                 Token::modifyToken(token, str);
@@ -218,7 +218,7 @@ void Compile::Run(std::string fileName, bool asReference) {
                 size_t equals = line.find('=');
                 std::string str = line.substr(equals + 1, lineLength - 1);
 
-                std::cout << "[DEBUG MODE] [Compile.cpp] : Expression Parser for equation " << str << "\n";
+                std::cout << "\n[DEBUG MODE] [Compile.cpp] : Expression Parser for equation " << str << "\n";
 
 
                 str = ExpressionParser::ReplaceVariableNames(str);
@@ -246,17 +246,18 @@ void Compile::Run(std::string fileName, bool asReference) {
                 continue;
             }
 
+
             if (String::Contains(line, "\"")){
-                std::cout << ">> " << parseString(line, i) << "\n";
+                std::cout << ">> " << parseString(line, i);
             }
             else{
                 if (ifStatement){
                     Token token = Token::getAllTokens(String::Split(line, " ")[1]);
-                    std::cout << ">> " << token.value << "\n";
+                    std::cout << ">> " << token.value;
                 }
                 else{
                     Token token = Token::getToken(String::Split(line, " ")[1]);
-                    std::cout << ">> " << token.value << "\n";
+                    std::cout << ">> " << token.value;
                 }
 
             }
@@ -272,7 +273,8 @@ void Compile::Run(std::string fileName, bool asReference) {
         }
 
         if (String::Contains(line, "if")){
-            std::cout << "[DEBUG MODE] [Compile.cpp] : Preparing for Conditional Statement of If Statement\n";
+
+            std::cout << "\n[DEBUG MODE] [Compile.cpp] : Preparing for Conditional Statement of If Statement\n";
 
             std::string expression = "";
             size_t firstInstance = line.find('(');
@@ -305,7 +307,7 @@ void Compile::Run(std::string fileName, bool asReference) {
                     Token::dataTypes primitiveType = Token::GetPrimitiveType(tempVariableTwo.dataType);
                     tokenOne.name = "conditionalVariable_1"; tokenOne.dataType = primitiveType; tokenOne.value = variableOne;
 
-                    std::cout << "[DEBUG MODE] [Compile.cpp] : " << tempVariableTwo.name << " has been created as a placeholder token for the conditional statement\n";
+                    std::cout << "\n[DEBUG MODE] [Compile.cpp] : " << tempVariableTwo.name << " has been created as a placeholder token for the conditional statement\n";
                 }
 
                 if (Token::tokenExists(variableTwo)){
@@ -316,11 +318,12 @@ void Compile::Run(std::string fileName, bool asReference) {
                 }
 
                 Operator::Operators parsedOperator = Operator::ParseOperator(_operator);
-                std::cout << "[DEBUG MODE] [Compile.cpp] : Parsing Operator for Conditional Statement\n";
+
+                std::cout << "\n[DEBUG MODE] [Compile.cpp] : Parsing Operator for Conditional Statement\n";
 
 
                 if (Operator::Condition(tokenOne, tokenTwo, parsedOperator)){
-                    std::cout << "[DEBUG MODE] [Compile.cpp] : Conditional Statement has returned true\n";
+                    std::cout << "\n[DEBUG MODE] [Compile.cpp] : Conditional Statement has returned true\n";
 
                     ifStatement = true;
                     ifStatementStarts = i + 1;
@@ -342,6 +345,22 @@ void Compile::Run(std::string fileName, bool asReference) {
                 std::cout << "Line (" << i + 1 << ") contains an error: " << "Conditional Statement isn't expected on this line!\n";
                 std::cout << ifStatementStarts << " != " << i << "\n";
                 std::cout << "Reference Line: " << line << "\n";
+            }
+        }
+
+        if (String::Contains(line, "free")){
+            std::istringstream iss(line);
+
+            std::string op;
+            std::string token;
+
+            if (iss >> op >> token){
+                if (op == "free"){
+                    bool x = Token::DeleteToken(token);
+                    if (!x){
+                        std::cout << token << " was unable to be freed from memory\n";
+                    }
+                }
             }
         }
 
@@ -385,8 +404,10 @@ std::string Compile::parseString(std::string line, int lineNumber) {
         if (c == '\\'){ // Literal
             switch (parsedString[i + 1]){
                 case 'n':
-                    std::cout << "\n";
-                    String::Replace(parsedString, "\\n", "");
+
+                    // Jesus christ, I'm stupid. Parsed String wasn't being set to the newly replaced string.
+                    // Possibly change String::Replace to contain the & modify operator?
+                    parsedString = String::Replace(parsedString, "\\n", "\n");
                     break;
                 default:
                     break;
