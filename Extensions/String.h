@@ -131,6 +131,19 @@ public:
 
         return returnString;
     }
+
+    static std::string Substring(std::string line, std::string startString, std::string endString){
+        size_t start = line.find(startString);
+        if (start == std::string::npos){
+            return "";
+        }
+
+        size_t end = line.find(endString);
+        if (end == std::string::npos){
+            return "";
+        }
+        return line.substr(start + 1, (end - start) - 1);
+    }
 };
 
 #endif //SKIPT_STRING_H

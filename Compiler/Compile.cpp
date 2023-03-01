@@ -9,6 +9,7 @@
 #include "ExpressionParser.h"
 #include "../Compiler/ExpressionParser/Expression.h"
 #include "Conditional/Operator.h"
+#include "Function/Functions.h"
 #include <string>
 #include <cstring>
 #include <unordered_map>
@@ -55,7 +56,7 @@ void Compile::Run(std::string fileName, bool asReference) {
             line = String::Strip(line); // Holy fuck,  this is critical to having the conditional statements work
         }
 
-        if (String::Contains(line, ":") && String::Split(line, ":")[0].length() <= 2){ // We're defining a variable
+        if (String::Contains(line, ":") && String::Split(line, ":")[0].length() <= 2 && !String::Contains(line, "::")){ // We're defining a variable
             std::string tokenInitalizer;
             std::string tokenValue;
             std::string equalsValue;
@@ -194,7 +195,7 @@ void Compile::Run(std::string fileName, bool asReference) {
 
             std::cout << "\n[DEBUG MODE] [Compile.cpp] : Modifying Variable Value\n";
 
-
+            // Get the token that is being modified
             Token token = Token::getToken(String::Split(line, " = ")[0]);
 
             if (token.dataType == Token::t_string){
@@ -206,11 +207,13 @@ void Compile::Run(std::string fileName, bool asReference) {
             size_t equals = line.find('=');
             std::string str = line.substr(equals + 1, lineLength - 1);
 
+            str = ExpressionParser::ReplaceVariableNames(str);
+            str = String::Strip(str);
 
             if (String::Split(str, " ").size() <= 1){
                 Token::modifyToken(token, str);
-                std::cout << str << "\n";
             }
+
 
             // Expression Parser
             if (String::Contains(line, "+") || String::Contains(line, "-") || String::Contains(line, "*") || String::Contains(line, "/")){
@@ -218,11 +221,9 @@ void Compile::Run(std::string fileName, bool asReference) {
                 size_t equals = line.find('=');
                 std::string str = line.substr(equals + 1, lineLength - 1);
 
-                std::cout << "\n[DEBUG MODE] [Compile.cpp] : Expression Parser for equation " << str << "\n";
-
-
                 str = ExpressionParser::ReplaceVariableNames(str);
 
+                std::cout << "\n[DEBUG MODE] [Compile.cpp] : Expression Parser for equation " << str << "\n";
                 char* char_array = new char[str.length() + 1];
                 std::strcpy(char_array, str.c_str());
 
@@ -334,10 +335,8 @@ void Compile::Run(std::string fileName, bool asReference) {
         }
 
         if (String::Contains(line, "ref")){
-            std::string refVariableName = String::Split(line, " ")[1];
-            std::string refVariableValue = parseString(line, i);
-
-            std::cout << "Reference Called: " << refVariableName << "\n" << "Reference Value: " << refVariableValue << "\n";
+            std::string refVariableName = String::Split(line, " ")[0];
+            Token returnToken = Functions::HandleCallFunction(String::Split(line, " ")[1]);
         }
 
         if (line[0] == '{'){
@@ -434,8 +433,12 @@ std::vector<std::string> Compile::parseArray(std::string line, int i, Token::dat
         std::cout << "Line (" << i << ") contains an error: Array could not be defined!\n";
     }
 
-    firstInstance++;
     std::string parsedString = line.substr(firstInstance, (lastInstance - firstInstance));
+
+    firstInstance++;
+    if (String::Contains(parsedString, " ")){
+        parsedString = String::Replace(parsedString, " ", "");
+    }
     std::vector<std::string> values = String::Split(parsedString, ",");
     for (int i = 0; i < values.size(); i++){
 

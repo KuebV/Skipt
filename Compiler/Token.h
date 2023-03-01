@@ -27,7 +27,8 @@ public:
         t_floatArray,
         t_charArray,
         t_reference,
-        t_unknownArrayType
+        t_unknownArrayType,
+        t_empty
     };
 
     std::string name;

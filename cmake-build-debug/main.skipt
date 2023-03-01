@@ -1,7 +1,19 @@
-d:totalSum = 134705.0
-d:num = 0
-num = 536 + 63 + 123 + 123
+d:radius = 0.0
+d:circle = 0.0
 
-d:sum = 0
-sum = num / totalSum
-> sum
+> "What is the radius of the circle?\n"
+< radius
+
+#this is ideally what references and functions will look like
+#ref Math::CalculateCircumference(radius) << circle
+
+if (radius >= 5)
+{
+    > "Great!"
+    ref System::exit(0)
+}
+else
+{
+    > "Incorrect"
+    ref System::exit(1)
+}

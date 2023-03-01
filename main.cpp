@@ -3,6 +3,7 @@
 #include "Compiler/DefaultFiles.h"
 #include "Extensions/String.h"
 #include "Compiler/Compile.h"
+#include "Compiler/Function/Functions.h"
 
 static PropertyReference propRef;
 static const std::string CompilerPropertiesFile = "compiler.properties";
