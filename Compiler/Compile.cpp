@@ -17,28 +17,13 @@
 
 void Compile::Run(std::string fileName, bool asReference) {
     std::vector<std::string> fileContents = FileReader::Read(fileName);
-
-    bool ifStatement = false;
-    int ifStatementStarts = 0;
+    bool inConditional = false;
+    int inConditionalStarts = 0;
 
     bool whileStatement = false;
     int whileStatementStarts = 0;
 
-    std::string className = "main.skipt";
-
-    if (String::Contains(fileContents[0], "CLASS")){
-        className = String::Split(fileContents[0], ":")[1];
-    }
-    std::cout << fileName << " => Length: " << fileContents.size() << "=> Class : " << className << "\n";
-
-    std::unordered_map<char, Token::dataTypes> correspondingType;
-    correspondingType = {{'i', Token::dataTypes::t_integer},
-                         {'d', Token::dataTypes::t_double},
-                         {'s', Token::dataTypes::t_string},
-                         {'f', Token::dataTypes::t_float},
-                         {'a', Token::dataTypes::t_unknownArrayType}};
-
-
+    std::cout << fileName << " => Length: " << fileContents.size();
     for (int i = 0; i < fileContents.size(); i++){
         if (fileContents[i][0] == '#'){
             continue;
@@ -52,7 +37,7 @@ void Compile::Run(std::string fileName, bool asReference) {
 
         std::string line = fileContents[i];
 
-        if (isblank(fileContents[i][0]) && ifStatement){ // We dont need to strip the line if there's nothing to strip
+        if (isblank(fileContents[i][0]) && inConditional){ // We dont need to strip the line if there's nothing to strip
             line = String::Strip(line); // Holy fuck,  this is critical to having the conditional statements work
         }
 
@@ -93,7 +78,8 @@ void Compile::Run(std::string fileName, bool asReference) {
                             for (int i = 0; i < tokenValue.length(); i++){
                                 char x = tokenValue[i];
                                 if (isalpha(x)){
-                                    std::cout << "Line (" << i + 1 << ") contains an error: " << tokenValue << " cannot be casted to type double as it contains an alphabetical character!\n";
+                                    std::cout << "[Error] | [Compile.cpp] [Recast Variable]: " << tokenValue << " cannot be casted to type double as it contains an alphabetical character\n";
+                                    std::cout << "        |> " << line << "\n";
                                     exit(1);
                                 }
                             }
@@ -120,7 +106,7 @@ void Compile::Run(std::string fileName, bool asReference) {
                                 std::cout << "Reference Line: " << line << "\n";
                                 exit(1);
                             }
-                            if (ifStatement){
+                            if (inConditional){
                                 Token::DefineVariable(tokenVector[1], tokenValue, Token::t_integer, true);
                             } else{
                                 Token::DefineVariable(tokenVector[1], tokenValue, Token::t_integer, false);
@@ -138,7 +124,7 @@ void Compile::Run(std::string fileName, bool asReference) {
                                 exit(1);
                             }
 
-                            if (ifStatement){
+                            if (inConditional){
                                 Token::DefineVariable(tokenVector[1], tokenValue, Token::t_double, true);
                             } else{
                                 Token::DefineVariable(tokenVector[1], tokenValue, Token::t_double, false);
@@ -151,7 +137,7 @@ void Compile::Run(std::string fileName, bool asReference) {
                         }
                         case 's': { // type string
                             std::string parsedString = parseString(line, i);
-                            if (ifStatement) {
+                            if (inConditional) {
                                 Token::DefineVariable(tokenVector[1], parsedString, Token::t_string, true);
                             } else {
                                 Token::DefineVariable(tokenVector[1], parsedString, Token::t_string, false);
@@ -170,7 +156,7 @@ void Compile::Run(std::string fileName, bool asReference) {
                             valueForToken = valueForToken.substr(0, valueForToken.size() - 1);
 
                             int arrayOffset = (Token::dataTypes)arrayType + 5;
-                            if (ifStatement)
+                            if (inConditional)
                                 Token::DefineVariable(tokenVector[1], valueForToken, (Token::dataTypes)arrayOffset, true);
                             else
                                 Token::DefineVariable(tokenVector[1], valueForToken, (Token::dataTypes)arrayOffset, false);
@@ -180,12 +166,22 @@ void Compile::Run(std::string fileName, bool asReference) {
 
                             break;
                         }
+                        case 'b':{
+                            // Full fucking faith that you input a valid data-type
+                            if (inConditional) {
+                                Token::DefineVariable(tokenVector[1], tokenValue, Token::t_boolean, true);
+                            } else {
+                                Token::DefineVariable(tokenVector[1], tokenValue, Token::t_boolean, false);
+                            }
+                            break;
+                        }
                     }
                 }
             }
 
             if (iss.fail()){
-                std::cout << "[ERROR] [Line: " << i + 1 << "]" << ": " << line << " does not have any value!";
+                std::cout << "[Error] | [Compile.cpp] [Modifying Variable] : Variable does not contain any value!\n";
+                std::cout << "        |> " << line << "\n";
                 exit(1);
             }
         }
@@ -252,7 +248,7 @@ void Compile::Run(std::string fileName, bool asReference) {
                 std::cout << ">> " << parseString(line, i);
             }
             else{
-                if (ifStatement){
+                if (inConditional){
                     Token token = Token::getAllTokens(String::Split(line, " ")[1]);
                     std::cout << ">> " << token.value;
                 }
@@ -294,8 +290,8 @@ void Compile::Run(std::string fileName, bool asReference) {
                 Token tokenTwo;
 
                 if (!Token::tokenExists(variableOne) && !Token::tokenExists(variableTwo)){
-                    std::cout << "Line (" << i + 1 << ") contains an error: " << "Conditional operator does not contain a consistent token!\n";
-                    std::cout << "Reference Line: " << line << "\n";
+                    std::cout << "[Error] | [Compile.cpp] [Conditional Statement]: Conditional operator does not contain a consistent token!\n";
+                    std::cout << "        |> " << line << "\n";
                     exit(1);
                 }
 
@@ -326,24 +322,34 @@ void Compile::Run(std::string fileName, bool asReference) {
                 if (Operator::Condition(tokenOne, tokenTwo, parsedOperator)){
                     std::cout << "\n[DEBUG MODE] [Compile.cpp] : Conditional Statement has returned true\n";
 
-                    ifStatement = true;
-                    ifStatementStarts = i + 1;
+                    inConditional = true;
+                    inConditionalStarts = i + 1;
                 }
 
 
             }
         }
 
-        if (String::Contains(line, "ref")){
-            std::string refVariableName = String::Split(line, " ")[0];
+        if (String::Contains(line, "ref")){ // NIGHTMARE NIGHTMARE NIGHTMARE
+            std::string refVariableName = String::Split(line, " ")[1];
             Token returnToken = Functions::HandleCallFunction(String::Split(line, " ")[1]);
+            if (String::Contains(line, ">>") && returnToken.dataType != Token::t_empty){
+                std::string getTokenName = String::Split(line, ">>")[1];
+                getTokenName = String::Strip(getTokenName);
+                Token::modifyToken(Token::getToken(getTokenName), returnToken.value);
+            }
+            else if (String::Contains(line, ">>") && returnToken.dataType == Token::t_empty){
+                std::cout << "[Error] | [Compile.cpp] [Reference Handler]: There is no return value for " << refVariableName << "\n";
+                std::cout << "        |> " << line << "\n";
+                exit(1);
+            }
         }
 
         if (line[0] == '{'){
-            if (ifStatementStarts != i && ifStatement){
-                std::cout << "Line (" << i + 1 << ") contains an error: " << "Conditional Statement isn't expected on this line!\n";
-                std::cout << ifStatementStarts << " != " << i << "\n";
-                std::cout << "Reference Line: " << line << "\n";
+            if (inConditionalStarts != i && inConditional){
+                std::cout << "[Error] | [Compile.cpp] [Starting Conditional Statement Bracket]: Conditional Start Statement Bracket is not expected on this line!\n";
+                std::cout << "        |> " << line << "\n";
+                exit(1);
             }
         }
 
@@ -365,12 +371,12 @@ void Compile::Run(std::string fileName, bool asReference) {
 
 
         if (line[0] == '}'){
-            if (String::Contains(fileContents[i + 1], "else") && !ifStatement){
-                ifStatement = true;
-                ifStatementStarts = i + 2;
+            if (String::Contains(fileContents[i + 1], "else") && !inConditional){
+                inConditional = true;
+                inConditionalStarts = i + 2;
             }
             else{
-                ifStatement = false;
+                inConditional = false;
                 Token::ConditionalTokenMap.clear();
             }
         }

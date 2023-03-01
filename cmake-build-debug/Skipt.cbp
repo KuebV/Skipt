@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Skipt"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/mary/Desktop/Skipt/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Skipt">
+				<Option output="C:/Users/mary/Desktop/Skipt/cmake-build-debug/Skipt.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/mary/Desktop/Skipt/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 Skipt"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Skipt/fast">
+				<Option output="C:/Users/mary/Desktop/Skipt/cmake-build-debug/Skipt.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/mary/Desktop/Skipt/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 Skipt/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/mary/Desktop/Skipt/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/mary/Desktop/Skipt/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Compile.cpp">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Compile.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Conditional/Operator.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/DefaultFiles.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser.cpp">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Expression.cpp">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Expression.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Parser.cpp">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Parser.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Tokenizer.cpp">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Tokenizer.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/FileReader.cpp">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/FileReader.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/Functions.cpp">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/Functions.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/SystemFunction.cpp">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/SystemFunction.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Token.cpp">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Token.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Extensions/Array.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Extensions/String.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Property/Property.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Property/PropertyFile.cpp">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Property/PropertyFile.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Property/PropertyReference.cpp">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/main.cpp">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

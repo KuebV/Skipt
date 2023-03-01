@@ -74,45 +74,65 @@ public:
     // There has to be a better way of doing this?
     static bool Condition(Token t_one, Token t_two, Operators op){
 
-        double var1, var2;
-        var1 = String::ToDouble(t_one.value);
-        var2 = String::ToDouble(t_two.value);
+        if (t_one.dataType != Token::t_boolean || t_two.dataType != Token::t_boolean){
+            double var1, var2;
+            var1 = String::ToDouble(t_one.value);
+            var2 = String::ToDouble(t_two.value);
 
-        switch (op){
-            case Operators::GreaterThan:
-                if (var1 > var2)
-                    return true;
-                return false;
-            case Operators::GreaterEqualThan:
-                if (var1 >= var2)
-                    return true;
-                return false;
-            case Operators::EqualTo:
-                if (var1 == var2)
-                    return true;
-                return false;
-            case Operators::LessThan:
-                if (var1 < var2)
-                    return true;
-                return false;
-            case Operators::LessEqualThan:
-                if (var1 <= var2)
-                    return true;
-                return false;
-            case Operators::NotEqualTo:
-                if (var1 != var2)
-                    return true;
-                return false;
-            case Operators::In:{
-                switch (t_two.dataType){
-                    case Token::t_intArray:
-                        if (Array::Contains(String::ToIntVector(t_two.value), String::ToInteger(t_one.value)))
-                            return true;
-                        return false;
-                    case Token::t_doubleArray:
-                        if (Array::Contains(String::ToDoubleVector(t_two.value), String::ToDouble(t_one.value)))
-                            return true;
-                        return false;
+            switch (op){
+                case Operators::GreaterThan:
+                    if (var1 > var2)
+                        return true;
+                    return false;
+                case Operators::GreaterEqualThan:
+                    if (var1 >= var2)
+                        return true;
+                    return false;
+                case Operators::EqualTo:
+                    if (var1 == var2)
+                        return true;
+                    return false;
+                case Operators::LessThan:
+                    if (var1 < var2)
+                        return true;
+                    return false;
+                case Operators::LessEqualThan:
+                    if (var1 <= var2)
+                        return true;
+                    return false;
+                case Operators::NotEqualTo:
+                    if (var1 != var2)
+                        return true;
+                    return false;
+                case Operators::In:{
+                    switch (t_two.dataType){
+                        case Token::t_intArray:
+                            if (Array::Contains(String::ToIntVector(t_two.value), String::ToInteger(t_one.value)))
+                                return true;
+                            return false;
+                        case Token::t_doubleArray:
+                            if (Array::Contains(String::ToDoubleVector(t_two.value), String::ToDouble(t_one.value)))
+                                return true;
+                            return false;
+                    }
+                }
+            }
+        }
+        else if (t_one.dataType == Token::t_boolean || t_two.dataType == Token::t_boolean){
+            bool var1, var2;
+            var1 = String::ToBoolean(t_one.value);
+            var2 = String::ToBoolean(t_two.value);
+
+            switch (op){
+                case Operators::EqualTo:{
+                    if (var1 == var2)
+                        return true;
+                    return false;
+                }
+                case Operators::NotEqualTo:{
+                    if (var1 != var2)
+                        return true;
+                    return false;
                 }
             }
         }

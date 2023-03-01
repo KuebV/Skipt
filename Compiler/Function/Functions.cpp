@@ -4,6 +4,7 @@
 
 #include "Functions.h"
 #include "SystemFunction.h"
+#include "../ExpressionParser.h"
 
 enum ClassFunctions{
     System,
@@ -30,6 +31,7 @@ Token Functions::HandleCallFunction(std::string functionCall) {
     std::string methodFunction = String::Split(functionName, "::")[1];
 
     std::string arguments = String::Substring(functionCall, "(", ")");
+    arguments = ExpressionParser::ReplaceVariableNames(arguments);
 
     switch (HashString(classFunction)){
         case Null:{

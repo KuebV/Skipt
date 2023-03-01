@@ -28,7 +28,8 @@ public:
         t_charArray,
         t_reference,
         t_unknownArrayType,
-        t_empty
+        t_empty,
+        t_boolean
     };
 
     std::string name;
@@ -98,6 +99,8 @@ public:
                 return t_float;
             case 'a':
                 return t_unknownArrayType;
+            case 'b':
+                return t_boolean;
         }
     }
 

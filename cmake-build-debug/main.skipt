@@ -1,19 +1,7 @@
-d:radius = 0.0
-d:circle = 0.0
+s:fileName = ""
+b:success = false
 
-> "What is the radius of the circle?\n"
-< radius
-
-#this is ideally what references and functions will look like
-#ref Math::CalculateCircumference(radius) << circle
-
-if (radius >= 5)
 {
-    > "Great!"
-    ref System::exit(0)
-}
-else
-{
-    > "Incorrect"
-    ref System::exit(1)
-}
+
+> "Hello World"
+

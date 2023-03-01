@@ -4,6 +4,7 @@
 
 #include <unordered_map>
 #include <utility>
+#include <fstream>
 #include "SystemFunction.h"
 
 SystemFunction::MethodFunctions GetSystemFunction(std::string const& str){
@@ -13,7 +14,8 @@ SystemFunction::MethodFunctions GetSystemFunction(std::string const& str){
             { "file_delete", SystemFunction::MethodFunctions::FileDelete},
             { "file_write", SystemFunction::MethodFunctions::FileWrite},
             { "file_read", SystemFunction::MethodFunctions::FileRead},
-            { "file_append", SystemFunction::MethodFunctions::FileAppend}
+            { "file_append", SystemFunction::MethodFunctions::FileAppend},
+            { "file_exists", SystemFunction::MethodFunctions::FileExists}
     };
 
     auto it = functionTable.find(str);
@@ -27,11 +29,46 @@ SystemFunction::MethodFunctions GetSystemFunction(std::string const& str){
 }
 
 Token SystemFunction::HandleCall(std::string function, std::string arguments) {
+    Token emptyToken;
+    emptyToken.name = "voidToken";
+    emptyToken.value = "";
+    emptyToken.dataType = Token::t_empty;
+
     switch (GetSystemFunction(function)){
         case Exit:{
             exit(String::ToInteger(std::move(arguments)));
-            return {};
         }
+        case FileCreate:{
+            std::ofstream fstream;
+            fstream.open(arguments);
+            fstream.close();
+            return emptyToken;
+        }
+        case FileExists:{
+            Token returnFileExistsToken;
+            returnFileExistsToken.name = "booleanFileExists";
+            returnFileExistsToken.dataType = Token::t_boolean;
+            if (FILE *p_file = fopen(arguments.c_str(), "r")){
+                fclose(p_file);
+                returnFileExistsToken.value = "true";
+            }
+            else{
+                returnFileExistsToken.value = "false";
+            }
+            return returnFileExistsToken;
+        }
+        case FileDelete:{
+            std::remove(arguments.c_str());
+            return emptyToken;
+        }
+        case FileWrite:
+            break;
+        case FileRead:
+            break;
+        case FileAppend:
+            break;
+        case Null:
+            break;
     }
     return {};
 }

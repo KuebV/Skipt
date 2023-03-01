@@ -18,6 +18,7 @@ public:
         FileWrite,
         FileRead,
         FileAppend,
+        FileExists,
         Null
     };
 
