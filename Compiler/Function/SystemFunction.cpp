@@ -15,7 +15,8 @@ SystemFunction::MethodFunctions GetSystemFunction(std::string const& str){
             { "file_write", SystemFunction::MethodFunctions::FileWrite},
             { "file_read", SystemFunction::MethodFunctions::FileRead},
             { "file_append", SystemFunction::MethodFunctions::FileAppend},
-            { "file_exists", SystemFunction::MethodFunctions::FileExists}
+            { "file_exists", SystemFunction::MethodFunctions::FileExists},
+            { "out", SystemFunction::MethodFunctions::Out}
     };
 
     auto it = functionTable.find(str);
@@ -67,8 +68,12 @@ Token SystemFunction::HandleCall(std::string function, std::string arguments) {
             break;
         case FileAppend:
             break;
+        case Out:{
+
+        }
         case Null:
             break;
+
     }
     return {};
 }

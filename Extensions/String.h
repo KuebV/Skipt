@@ -144,6 +144,12 @@ public:
         }
         return line.substr(start + 1, (end - start) - 1);
     }
+
+    static size_t IndexOf(std::string line, std::string stringToFind){
+        size_t start = line.find(stringToFind);
+        if (start != std::string::npos)
+            return start;
+    }
 };
 
 #endif //SKIPT_STRING_H

@@ -15,6 +15,21 @@ public:
     std::string parseString(std::string line, int lineNumber);
     bool sameDataType(Token token, std::string value, int lineNumber);
 
+    enum VariableTypes{
+        Integer,
+        String,
+        Double,
+        Float,
+        Boolean,
+        Reference,
+        IntegerArray,
+        StringArray,
+        DoubleArray,
+        FloatArray,
+        BooleanArray,
+        Void
+    };
+
 private:
     std::vector<Token> tokenizer;
     static std::vector<std::string> parseArray(std::string line, int i, Token::dataTypes expectedType);

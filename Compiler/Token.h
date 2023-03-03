@@ -16,9 +16,9 @@
 class Token{
 public:
     enum dataTypes{
-        t_integer,
-        t_string,
-        t_double,
+        t_integer = 0,
+        t_string = 1,
+        t_double = 2,
         t_float,
         t_char,
         t_intArray,
@@ -43,6 +43,10 @@ public:
         }
         else
             tokenMap.insert({_name, newToken});
+    }
+
+    static void DefineVariable(Token token){
+        tokenMap.insert({token.name, token});
     }
 
     static void recastVariable(std::string name, dataTypes newType, std::string value){

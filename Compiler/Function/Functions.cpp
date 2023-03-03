@@ -5,6 +5,7 @@
 #include "Functions.h"
 #include "SystemFunction.h"
 #include "../ExpressionParser.h"
+#include "StringFunction.h"
 
 enum ClassFunctions{
     System,
@@ -24,14 +25,33 @@ ClassFunctions HashString(std::string const& str){
     else return Null;
 }
 
+// This is modified from ExpressionParser.cpp, for functions, we need to parse by commas, not by spaces
+std::string ModifiedReplaceVariableNames(std::string line){
+    std::string temp = line;
+    std::vector<std::string> values = String::Split(line, ",");
+
+    // Serialize them in case they contain any spaces
+    for (int i = 0; i < values.size(); i++){
+        values[i] = String::Strip(values[i]);
+
+        if (Token::tokenExists(values[i])){
+            temp = String::Replace(temp, values[i] ,Token::getToken(values[i]).value);
+        }
+    }
+    return temp;
+}
+
 Token Functions::HandleCallFunction(std::string functionCall) {
+
     size_t x = functionCall.find('(');
     std::string functionName = functionCall.substr(0, x);
-    std::string classFunction = String::Split(functionName, "::")[0];
-    std::string methodFunction = String::Split(functionName, "::")[1];
+
+    std::vector<std::string> functionElements = String::Split(functionName, "::");
+    std::string classFunction = functionElements[0];
+    std::string methodFunction = functionElements[1];
 
     std::string arguments = String::Substring(functionCall, "(", ")");
-    arguments = ExpressionParser::ReplaceVariableNames(arguments);
+    arguments = ModifiedReplaceVariableNames(arguments);
 
     switch (HashString(classFunction)){
         case Null:{
@@ -44,7 +64,7 @@ Token Functions::HandleCallFunction(std::string functionCall) {
         case Math:
             break;
         case String:
-            break;
+            return StringFunction::HandleCall(methodFunction, arguments);
         case Array:
             break;
         case Internal:

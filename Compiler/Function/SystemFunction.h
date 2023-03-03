@@ -19,7 +19,8 @@ public:
         FileRead,
         FileAppend,
         FileExists,
-        Null
+        Null,
+        Out
     };
 
     static Token HandleCall(std::string function, std::string arguments);

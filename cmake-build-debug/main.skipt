@@ -1,7 +1,27 @@
-s:fileName = ""
-b:success = false
+string name
+int age
+string gender
+double balance
+bool isAdult
 
+> "\nWhat is your name?\n"
+< name
+
+> "\nHow old are you?\n"
+< age
+
+> "\nGender: \n"
+< gender
+
+> "\nWhat's your current balance?:\n"
+< balance
+
+if (age >= 18)
 {
+    isAdult = true
+}
 
-> "Hello World"
+string formattedMessage = "Name: {0}\nAge: {1}\nGender: {2}\nBalance: {3}\nAdult?: {4}\n"
+ref String::format(formattedMessage, name, age, gender, balance, isAdult) >> formattedMessage
 
+> formattedMessage
