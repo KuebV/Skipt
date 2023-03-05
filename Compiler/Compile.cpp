@@ -62,6 +62,9 @@ void Compile::Run(std::string fileName, bool asReference) {
             line = String::Strip(line); // Holy fuck, this is critical to having the conditional statements work
         }
 
+        if (line.at(line.length() - 1) == ';') // Yet another string serialization
+            line.erase(line.length() - 1, 1);
+
         std::vector<std::string> lineElements = String::Split(line, " ");
         switch (GetVariableTypes(lineElements[0])){ // Defining a new variable
             case Integer:{
@@ -172,11 +175,11 @@ void Compile::Run(std::string fileName, bool asReference) {
                     intArrayElements[j] = String::Strip(intArrayElements[j]);
                 }
 
-                Token::DefineVariable(lineElements[1], "", Token::t_intArray, inConditional);
+                Token::DefineVariable(lineElements[1], intArraySubstring, Token::t_intArray, inConditional);
 
                 for (int j = 0; j < intArrayElements.size(); j++){
                     std::string variableName = lineElements[1] + "[" + std::to_string(j) + "]";
-                    std::string variableValue = lineElements[j];
+                    std::string variableValue = intArrayElements[j];
 
                     Token::DefineVariable(variableName, variableValue, Token::t_integer, inConditional);
                 }
@@ -230,7 +233,8 @@ void Compile::Run(std::string fileName, bool asReference) {
                     delete expression;
                 }
                 else{
-                    std::cout << "Unable to compute expression" << "\n";
+                    std::cout << "[Error] | [Compile.cpp] [Expression Parser]: Unable to compute expression!\n";
+                    std::cout << "        |> " << line << "\n";
                     exit(1);
                 }
             }
@@ -286,7 +290,7 @@ void Compile::Run(std::string fileName, bool asReference) {
                 Token tokenTwo;
 
                 if (!Token::tokenExists(variableOne) && !Token::tokenExists(variableTwo)){
-                    std::cout << "[Error] | [Compile.cpp] [Conditional Statement]: Conditional operator does not contain a consistent token!\n";
+                    std::cout << "[Error] | [Compile.cpp] [Conditional Statement(If)]: Conditional operator does not contain a consistent token!\n";
                     std::cout << "        |> " << line << "\n";
                     exit(1);
                 }
@@ -319,6 +323,56 @@ void Compile::Run(std::string fileName, bool asReference) {
             }
         }
 
+        if (String::Contains(line, "while")){
+            std::string expression = String::Substring(line, "(", ")");
+            std::istringstream iss(expression);
+
+            std::string variableOne, _operator, variableTwo;
+            if (iss >> variableOne >> _operator >> variableTwo){
+                Token tokenOne;
+                Token tokenTwo;
+
+                if (!Token::tokenExists(variableOne) && !Token::tokenExists(variableTwo)){
+                    std::cout << "[Error] | [Compile.cpp] [Conditional Statement(While)]: Conditional operator does not contain a consistent token!\n";
+                    std::cout << "        |> " << line << "\n";
+                    exit(1);
+                }
+
+                // This is exactly what the conditional statement for if does
+                if (Token::tokenExists(variableOne)){
+                    tokenOne = Token::getToken(variableOne);
+                }
+                else{
+                    Token tempVariableTwo;
+                    tempVariableTwo = Token::getToken(variableTwo);
+                    Token::dataTypes primitiveType = Token::GetPrimitiveType(tempVariableTwo.dataType);
+                    tokenOne.name = "conditionalVariable_1"; tokenOne.dataType = primitiveType; tokenOne.value = variableOne;
+                }
+
+                if (Token::tokenExists(variableTwo)){
+                    tokenTwo = Token::getToken(variableTwo);
+                }
+                else{
+                    tokenTwo.name = "conditionalVariable_2"; tokenTwo.dataType = tokenOne.dataType; tokenTwo.value = variableTwo;
+                }
+
+                Operator::Operators parsedOperator = Operator::ParseOperator(_operator);
+
+                if (Operator::Condition(tokenOne, tokenTwo, parsedOperator)){
+                    inConditional = true;
+                    inConditionalStarts = i + 1;
+                    whileStatement = true;
+                    whileStatementStarts = i - 1;
+                }
+                else{ // Whoops! Not having this causing an infinite loop!
+                    inConditional = false;
+                    whileStatement = false;
+                }
+
+            }
+
+        }
+
         if (String::Contains(line, "ref")){ // NIGHTMARE NIGHTMARE NIGHTMARE
             std::string refVariableName = String::Split(line, " ")[1];
 
@@ -342,7 +396,7 @@ void Compile::Run(std::string fileName, bool asReference) {
                 std::string getTokenName = String::Split(line, ">>")[1];
                 getTokenName = String::Strip(getTokenName);
 
-                Token getToken = Token::getToken(getTokenName);
+                Token getToken = Token::getAllTokens(getTokenName);
                 if (getToken.dataType != returnToken.dataType){
                     std::cout << "[Error] | [Compile.cpp] [Reference Handler]: Return Variable and Defined Variable are not the same data-type!\n";
                     std::cout << "        |> " << line << "\n";
@@ -381,6 +435,19 @@ void Compile::Run(std::string fileName, bool asReference) {
                 }
             }
         }
+
+        // Part of the While-Statement Condition
+        if ((i + 1) <= fileContents.size()){
+            try{
+                if (fileContents.at(i + 1)[0] == '}' && whileStatement){ // Peek ahead
+                    i = whileStatementStarts;
+                }
+            }
+            catch (std::out_of_range orr){
+                continue;
+            }
+        }
+
 
 
         if (line[0] == '}'){

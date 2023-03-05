@@ -6,6 +6,7 @@
 #include "SystemFunction.h"
 #include "../ExpressionParser.h"
 #include "StringFunction.h"
+#include "InternalFunction.h"
 
 enum ClassFunctions{
     System,
@@ -55,7 +56,8 @@ Token Functions::HandleCallFunction(std::string functionCall) {
 
     switch (HashString(classFunction)){
         case Null:{
-            std::cout << "There is no class function with the name of " << classFunction << "\n";
+            std::cout << "\n[Error] | [Functions.cpp] [HandleCallFunction]: No class function found!!\n";
+            std::cout << "        |> " << functionCall << "\n";
             return {};
         }
         case System:{
@@ -68,6 +70,7 @@ Token Functions::HandleCallFunction(std::string functionCall) {
         case Array:
             break;
         case Internal:
+            return InternalFunction::HandleCall(methodFunction,arguments);
             break;
     }
 

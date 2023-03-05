@@ -143,7 +143,7 @@ public:
         switch (op){
             case Operators::Modulo:
                 tempString = std::to_string(String::ToInteger(tempTokenOne.value) % String::ToInteger(tempTokenTwo.value));
-                break;
+                return tempString;
             case Operators::Increment:
                 break;
         }
