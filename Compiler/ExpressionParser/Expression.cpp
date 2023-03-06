@@ -4,6 +4,7 @@
 
 #include "Expression.h"
 #include <cmath>
+#include <iostream>
 
 std::map<std::string, double> Expression::vars;
 
@@ -68,6 +69,9 @@ double ArithmeticExpression::evaluate() {
             break;
         case '/':
             result = a / b;
+            break;
+        case '%':
+            result = int(a) % int(b);
             break;
         case '^':
             result = std::pow(a, b);

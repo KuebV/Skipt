@@ -130,6 +130,24 @@
 		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/Functions.h">
 			<Option target="Skipt"/>
 		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/InternalFunction.cpp">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/InternalFunction.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/MathFunction.cpp">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/MathFunction.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/StringFunction.cpp">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/StringFunction.h">
+			<Option target="Skipt"/>
+		</Unit>
 		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/SystemFunction.cpp">
 			<Option target="Skipt"/>
 		</Unit>

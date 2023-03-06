@@ -105,6 +105,15 @@ Expression* Parser::product()
                 lhs = nullptr;
             }
         }
+        else if (tokens->character('%')){
+            if (rhs=factor()){
+                lhs = new ArithmeticExpression('%', lhs, rhs);
+            }
+            else{
+                delete lhs;
+                lhs = nullptr;
+            }
+        }
         else
             break;
     }

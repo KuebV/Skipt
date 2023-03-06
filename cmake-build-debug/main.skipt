@@ -1,16 +1,19 @@
-string name
-int age
+int num = 0
+> "Enter a number\n"
+< num
 
-> "What is your name?\n"
-< name
+int mod = 0
+ref Math::mod(num, 2) >> mod
 
-> "\nHow old are you?\n"
-< age
->
-
-ref Internal::print_tokens()
-
-> "\nFree Age\n"
-free age
-
-ref Internal::print_tokens()
+if (mod == 0)
+{
+    >
+    > num
+    > " is even"
+}
+else
+{
+    >
+    > num
+    > " is odd"
+}

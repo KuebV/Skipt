@@ -7,6 +7,7 @@
 #include "../ExpressionParser.h"
 #include "StringFunction.h"
 #include "InternalFunction.h"
+#include "MathFunction.h"
 
 enum ClassFunctions{
     System,
@@ -64,7 +65,7 @@ Token Functions::HandleCallFunction(std::string functionCall) {
             return SystemFunction::HandleCall(methodFunction, arguments);
         }
         case Math:
-            break;
+            return MathFunction::HandleCall(methodFunction, arguments);
         case String:
             return StringFunction::HandleCall(methodFunction, arguments);
         case Array:

@@ -296,6 +296,78 @@ Compiler/Function/Functions.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.s
 .PHONY : Compiler/Function/Functions.cpp.s
 
+Compiler/Function/InternalFunction.obj: Compiler/Function/InternalFunction.cpp.obj
+.PHONY : Compiler/Function/InternalFunction.obj
+
+# target to build an object file
+Compiler/Function/InternalFunction.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj
+.PHONY : Compiler/Function/InternalFunction.cpp.obj
+
+Compiler/Function/InternalFunction.i: Compiler/Function/InternalFunction.cpp.i
+.PHONY : Compiler/Function/InternalFunction.i
+
+# target to preprocess a source file
+Compiler/Function/InternalFunction.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.i
+.PHONY : Compiler/Function/InternalFunction.cpp.i
+
+Compiler/Function/InternalFunction.s: Compiler/Function/InternalFunction.cpp.s
+.PHONY : Compiler/Function/InternalFunction.s
+
+# target to generate assembly for a file
+Compiler/Function/InternalFunction.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.s
+.PHONY : Compiler/Function/InternalFunction.cpp.s
+
+Compiler/Function/MathFunction.obj: Compiler/Function/MathFunction.cpp.obj
+.PHONY : Compiler/Function/MathFunction.obj
+
+# target to build an object file
+Compiler/Function/MathFunction.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.obj
+.PHONY : Compiler/Function/MathFunction.cpp.obj
+
+Compiler/Function/MathFunction.i: Compiler/Function/MathFunction.cpp.i
+.PHONY : Compiler/Function/MathFunction.i
+
+# target to preprocess a source file
+Compiler/Function/MathFunction.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.i
+.PHONY : Compiler/Function/MathFunction.cpp.i
+
+Compiler/Function/MathFunction.s: Compiler/Function/MathFunction.cpp.s
+.PHONY : Compiler/Function/MathFunction.s
+
+# target to generate assembly for a file
+Compiler/Function/MathFunction.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.s
+.PHONY : Compiler/Function/MathFunction.cpp.s
+
+Compiler/Function/StringFunction.obj: Compiler/Function/StringFunction.cpp.obj
+.PHONY : Compiler/Function/StringFunction.obj
+
+# target to build an object file
+Compiler/Function/StringFunction.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.obj
+.PHONY : Compiler/Function/StringFunction.cpp.obj
+
+Compiler/Function/StringFunction.i: Compiler/Function/StringFunction.cpp.i
+.PHONY : Compiler/Function/StringFunction.i
+
+# target to preprocess a source file
+Compiler/Function/StringFunction.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.i
+.PHONY : Compiler/Function/StringFunction.cpp.i
+
+Compiler/Function/StringFunction.s: Compiler/Function/StringFunction.cpp.s
+.PHONY : Compiler/Function/StringFunction.s
+
+# target to generate assembly for a file
+Compiler/Function/StringFunction.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.s
+.PHONY : Compiler/Function/StringFunction.cpp.s
+
 Compiler/Function/SystemFunction.obj: Compiler/Function/SystemFunction.cpp.obj
 .PHONY : Compiler/Function/SystemFunction.obj
 
@@ -446,6 +518,15 @@ help:
 	@echo ... Compiler/Function/Functions.obj
 	@echo ... Compiler/Function/Functions.i
 	@echo ... Compiler/Function/Functions.s
+	@echo ... Compiler/Function/InternalFunction.obj
+	@echo ... Compiler/Function/InternalFunction.i
+	@echo ... Compiler/Function/InternalFunction.s
+	@echo ... Compiler/Function/MathFunction.obj
+	@echo ... Compiler/Function/MathFunction.i
+	@echo ... Compiler/Function/MathFunction.s
+	@echo ... Compiler/Function/StringFunction.obj
+	@echo ... Compiler/Function/StringFunction.i
+	@echo ... Compiler/Function/StringFunction.s
 	@echo ... Compiler/Function/SystemFunction.obj
 	@echo ... Compiler/Function/SystemFunction.i
 	@echo ... Compiler/Function/SystemFunction.s

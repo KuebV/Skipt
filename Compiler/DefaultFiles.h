@@ -32,20 +32,15 @@ public:
 
         if (fstream.is_open()){
             fstream << "# Comments are indicated by the \'#\' character at the start of each line. They cannot be put at the end of a statement.\n";
-            fstream << "\n"
-                      "# You can define variables, by following the syntax of, data_type:variable_name\n"
-                      "# data_type can be a list of things, such as:\n"
-                      "# i : integer\n"
-                      "# f : float\n"
-                      "# d : double\n"
-                      "# str : string\n"
-                      "# b : bool\n"
-                      "# Combining this all together, you can create the following statements:\n\n";
-            fstream << "i32:personAge = 19\n";
-            fstream << "d:personBalance = 123.45\n\n";
-
-            fstream << "# Strings are defined as a singular double quotation mark at the start of the string, single quotation marks do not work.\n";
-            fstream << "str:personAge = \"Rob Thompson\n";
+            fstream << "# You can define variables by using the following data-types\n";
+            fstream << "# int, double, string, bool, int[], double[], string[], bool[]\n";
+            fstream << "# Why you would ever want to make an array of booleans is beyond me\n";
+            fstream << "# You must define a variable first before handling any sort of user input, calculation, or reference\n";
+            fstream << "# You're able to compute mathmatical expressions by doing the following\n";
+            fstream << "# int x = 0\n";
+            fstream << "# x = x + 2\n";
+            fstream << "# With Skipt, we're able to use conditional statements such as if-statements, and while-statements\n";
+            fstream << "# Please visit the Github to learn about proper-code styling\n";
 
             fstream.flush();
             fstream.close();
