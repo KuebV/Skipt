@@ -426,10 +426,31 @@ void Compile::Run(std::string fileName, bool asReference) {
 
             if (iss >> op >> token){
                 if (op == "free"){
-                    bool x = Token::DeleteToken(token);
-                    if (!x){
-                        std::cout << token << " was unable to be freed from memory\n";
+                    if (!Token::tokenExists(token)){
+                        std::cout << "[Error] | [Compile.cpp] [Freeing Variables]: Token was unable to be freed, because it does not exist!\n";
+                        std::cout << "        |> " << line << "\n";
+                        exit(1);
                     }
+                    Token t = Token::getToken(token);
+                    if (t.dataType == Token::t_intArray || t.dataType == Token::t_doubleArray ||
+                        t.dataType == Token::t_floatArray || t.dataType == Token::t_strArray){
+                        int totalTokens = String::Split(t.value, ",").size();
+                        for (int i = 0; i < totalTokens; i++){
+                            std::string *x = new std::string();
+                            *x = t.name + "[" + std::to_string(i) + "]";
+                            Token::DeleteToken(*x);
+                            free(x);
+                        }
+
+                        Token::DeleteToken(token);
+                    }
+                    else{
+                        bool x = Token::DeleteToken(token);
+                        if (!x){
+                            std::cout << token << " was unable to be freed from memory\n";
+                        }
+                    }
+
                 }
             }
         }
