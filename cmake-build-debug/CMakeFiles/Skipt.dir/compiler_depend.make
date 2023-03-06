@@ -1255,7 +1255,15 @@ CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj: C:/Users/mary/D
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/sstream \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/sstream.tcc \
   C:/Users/mary/Desktop/Skipt/Compiler/Compile.h \
-  C:/Users/mary/Desktop/Skipt/Compiler/Token.h
+  C:/Users/mary/Desktop/Skipt/Compiler/Token.h \
+  C:/Users/mary/Desktop/Skipt/Property/PropertyFile.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/fstream \
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/codecvt.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fstream.tcc \
+  C:/Users/mary/Desktop/Skipt/Property/Property.h \
+  C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h
 
 CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Function/MathFunction.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_map \
@@ -2732,13 +2740,13 @@ C:/Users/mary/Desktop/Skipt/Compiler/Function/MathFunction.h:
 
 C:/Users/mary/Desktop/Skipt/Compiler/Function/InternalFunction.cpp:
 
+C:/Users/mary/Desktop/Skipt/Property/Property.h:
+
 C:/Users/mary/Desktop/Skipt/Compiler/Function/MathFunction.cpp:
 
 C:/Users/mary/Desktop/Skipt/Compiler/Token.cpp:
 
 C:/Users/mary/Desktop/Skipt/Property/PropertyFile.cpp:
-
-C:/Users/mary/Desktop/Skipt/Property/Property.h:
 
 C:/Users/mary/Desktop/Skipt/Property/PropertyReference.cpp:
 

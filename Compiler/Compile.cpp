@@ -389,8 +389,6 @@ void Compile::Run(std::string fileName, bool asReference) {
                 functionCall = String::Strip(functionCall);
             }
 
-
-
             Token returnToken = Functions::HandleCallFunction(functionCall);
             if (String::Contains(line, ">>") && returnToken.dataType != Token::t_empty){
                 std::string getTokenName = String::Split(line, ">>")[1];

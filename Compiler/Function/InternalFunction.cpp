@@ -6,6 +6,7 @@
 #include <utility>
 #include "InternalFunction.h"
 #include "../Compile.h"
+#include "../../Property/PropertyFile.h"
 
 InternalFunction::MethodFunctions GetInternalFunction(std::string const& str){
     const std::unordered_map<std::string, InternalFunction::MethodFunctions> functionTable{
@@ -32,6 +33,12 @@ Token InternalFunction::HandleCall(std::string function, std::string arguments) 
 
     switch (GetInternalFunction(function)){
         case RunSkiptFile:{
+            if (!PropertyFile::fileExists(arguments)){
+                std::cout << "[Error] | [InternalFunction.cpp] [Execute-Skipt]: File does not exist!\n";
+                std::cout << "        |> " << arguments << "\n";
+                exit(1);
+            }
+
             Compile functionCompiler;
             functionCompiler.Run(std::move(arguments), false);
             return emptyToken;

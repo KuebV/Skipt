@@ -1,0 +1,22 @@
+int n = 0
+> "Enter entries\n";
+< n
+
+int count = 0
+int num1 = 0
+int num2 = 1
+
+int nth = 0
+
+while (count < n)
+{
+    >
+    > num1
+
+    nth = num1 + num2
+
+    num1 = num2 * 1
+    num2 = nth * 1
+
+    count = count + 1
+}

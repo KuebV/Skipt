@@ -47,5 +47,9 @@ Token MathFunction::HandleCall(std::string function, std::string arguments) {
 
             return moduloToken;
         }
+        case Null:
+            break;
+        case IsPrime:
+            break;
     }
 }
