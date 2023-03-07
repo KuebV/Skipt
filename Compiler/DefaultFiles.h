@@ -20,8 +20,9 @@ public:
         Property DebugMode("debugMode", "true", "If enabled, the compiler will return console messages of what exactly it's working on");
         Property GarbageCollection("garbageCollection", "true", "If enabled, the compiler will look ahead of the program and check if the variable is called again or not, if not, the compiler will recycle the variable");
         Property ExitMessage("exitMessage", "Skipt has exited (%code%) with message %message%", "What the compiler prints out to the console when the application is exited");
+        Property ExecutionTime("executionTime", "false", "Gets the time that the application takes to fully execute");
 
-        std::vector<Property> properties = {SkiptFile, GenerateNewFile, DebugMode, GarbageCollection, ExitMessage};
+        std::vector<Property> properties = {SkiptFile, GenerateNewFile, DebugMode, GarbageCollection, ExitMessage, ExecutionTime};
         PropertyFile::WritePropertyFile("compiler.properties", properties);
     }
 

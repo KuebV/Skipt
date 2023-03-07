@@ -1,6 +1,4 @@
-int n = 0
-> "Enter entries\n";
-< n
+int n = 100
 
 int count = 0
 int num1 = 0

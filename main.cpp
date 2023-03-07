@@ -1,4 +1,5 @@
 #include <iostream>
+#include <chrono>
 #include "Compiler/Token.h"
 #include "Compiler/DefaultFiles.h"
 #include "Extensions/String.h"
@@ -33,6 +34,19 @@ int main() {
     std::cout << CompilerPropertiesFile << " has been read, and stored\n";
 
     std::cout << "Reading Skipt File\n";
-    compiler.Run(propRef.getValue("FileToCompile"), false);
+
+    bool executionTime = String::ToBoolean(propRef.getValue("executionTime"));
+    if (executionTime){
+        auto stopwatchStart = std::chrono::high_resolution_clock::now();
+        compiler.Run(propRef.getValue("FileToCompile"), false);
+        auto stopwatchEnd = std::chrono::high_resolution_clock::now();
+        auto microseconds = std::chrono::duration_cast<std::chrono::microseconds>(stopwatchEnd - stopwatchStart);
+
+        std::cout << "\nFinished Executing in " << std::to_string(microseconds.count() / 1000) << "ms\n";
+    }
+    else{
+        compiler.Run(propRef.getValue("FileToCompile"), false);
+    }
+
 
 }

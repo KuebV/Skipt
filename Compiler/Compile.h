@@ -27,7 +27,10 @@ public:
         DoubleArray,
         FloatArray,
         BooleanArray,
-        Void
+        Void,
+        Free,
+        UnsafeFree,
+
     };
 
 private:

@@ -10,9 +10,13 @@
 #include "../Compiler/ExpressionParser/Expression.h"
 #include "Conditional/Operator.h"
 #include "Function/Functions.h"
+#include "../Property/PropertyReference.h"
+#include "../Property/PropertyFile.h"
+#include "ExitMessage.h"
 #include <string>
 #include <cstring>
 #include <unordered_map>
+#include <chrono>
 
 Compile::VariableTypes GetVariableTypes(std::string const& str){
     const std::unordered_map<std::string, Compile::VariableTypes> functionTable{
@@ -26,7 +30,10 @@ Compile::VariableTypes GetVariableTypes(std::string const& str){
             { "float[]", Compile::VariableTypes::FloatArray},
             { "string[]", Compile::VariableTypes::StringArray},
             { "bool[]", Compile::VariableTypes::BooleanArray},
-            {"void", Compile::VariableTypes::Void}
+            {"void", Compile::VariableTypes::Void},
+            {"ref", Compile::VariableTypes::Reference},
+            {"free*", Compile::VariableTypes::UnsafeFree},
+            {"free", Compile::VariableTypes::Free}
 
     };
 
@@ -41,6 +48,9 @@ Compile::VariableTypes GetVariableTypes(std::string const& str){
 
 
 void Compile::Run(std::string fileName, bool asReference) {
+    PropertyReference propertyReference = PropertyFile::ReadPropertyFile("compiler.properties");
+    ExitMessage exitMsg = ExitMessage("Compiler.cpp");
+
     std::vector<std::string> fileContents = FileReader::Read(fileName);
     bool inConditional = false;
     int inConditionalStarts = 0;
@@ -66,12 +76,11 @@ void Compile::Run(std::string fileName, bool asReference) {
             line.erase(line.length() - 1, 1);
 
         std::vector<std::string> lineElements = String::Split(line, " ");
+
         switch (GetVariableTypes(lineElements[0])){ // Defining a new variable
             case Integer:{
                 if (Token::tokenExists(lineElements[1])){
-                    std::cout << "[Error] | [Compile.cpp] [Define Variable]: " << lineElements[1] << " has already been defined as a variable!\n";
-                    std::cout << "        |> " << line << "\n";
-                    exit(1);
+                    exitMsg.Error("Define Integer", lineElements[1] + " has already been defined as a variable!", line, 1);
                 }
 
                 if (!String::Contains(line, "=")){
@@ -174,7 +183,6 @@ void Compile::Run(std::string fileName, bool asReference) {
                 for (int j = 0; j < intArrayElements.size(); j++){
                     intArrayElements[j] = String::Strip(intArrayElements[j]);
                 }
-
                 Token::DefineVariable(lineElements[1], intArraySubstring, Token::t_intArray, inConditional);
 
                 for (int j = 0; j < intArrayElements.size(); j++){
@@ -183,14 +191,84 @@ void Compile::Run(std::string fileName, bool asReference) {
 
                     Token::DefineVariable(variableName, variableValue, Token::t_integer, inConditional);
                 }
-
-
-            }
-            case Void:
                 break;
+            }
+            case Reference:{
+                std::string refVariableName = String::Split(line, " ")[1];
+
+                std::string functionCall = "";
+
+                if (String::Contains(line, ">>")){
+                    functionCall = String::Substring(line, " ", ">>");
+                }
+                else{
+                    size_t spaceIndex = String::IndexOf(line, " ");
+                    size_t endIndex = line.length();
+
+                    functionCall = line.substr(spaceIndex, endIndex);
+                    functionCall = String::Strip(functionCall);
+                }
+
+                Token returnToken = Functions::HandleCallFunction(functionCall);
+                if (String::Contains(line, ">>") && returnToken.dataType != Token::t_empty){
+                    std::string getTokenName = String::Split(line, ">>")[1];
+                    getTokenName = String::Strip(getTokenName);
+
+                    Token getToken = Token::getAllTokens(getTokenName);
+                    if (getToken.dataType != returnToken.dataType){
+                        std::cout << "[Error] | [Compile.cpp] [Reference Handler]: Return Variable and Defined Variable are not the same data-type!\n";
+                        std::cout << "        |> " << line << "\n";
+                        std::cout << "[Context for Above]:\nReturn Variable: " << returnToken.dataType << "\nDefined Variable: " << getToken.dataType << "\n";
+                        exit(1);
+                    }
+                    Token::modifyToken(getToken, returnToken.value);
+                }
+                else if (String::Contains(line, ">>") && returnToken.dataType == Token::t_empty){
+                    std::cout << "[Error] | [Compile.cpp] [Reference Handler]: There is no return value for " << refVariableName << "\n";
+                    std::cout << "        |> " << line << "\n";
+                    exit(1);
+                }
+                break;
+            }
+
+            // These are both the same thing for now
+            case Free:
+            case UnsafeFree:{
+                // In the case of arrays, the unsafe array will delete the element without resizing, or checking the parent array
+                // It will unsafely, delete the token entirely
+                std::string freeToken = line.substr(String::IndexOf(line, " ") + 1, (line.length() - String::IndexOf(line, " ")));
+                freeToken = String::Strip(freeToken);
+
+                if (!Token::tokenExists(freeToken)){
+                    std::cout << "[Error] | [Compile.cpp] [Freeing Variables]: Token was unable to be freed, because it does not exist!\n";
+                    std::cout << "        |> " << freeToken << "\n";
+                    exit(1);
+                }
+                Token t = Token::getToken(freeToken);
+                if (t.dataType == Token::t_intArray || t.dataType == Token::t_doubleArray ||
+                    t.dataType == Token::t_floatArray || t.dataType == Token::t_strArray){
+                    int totalTokens = String::Split(t.value, ",").size();
+                    for (int i = 0; i < totalTokens; i++){
+                        std::string *x = new std::string();
+                        *x = t.name + "[" + std::to_string(i) + "]";
+                        Token::DeleteToken(*x);
+                        free(x);
+                    }
+
+                    Token::DeleteToken(freeToken);
+                }
+                else{
+                    bool x = Token::DeleteToken(freeToken);
+                    if (!x){
+                        std::cout << freeToken << " was unable to be freed from memory\n";
+                    }
+                }
+                break;
+            }
             default:
                 break;
         }
+
 
 
         // Modify Variable
@@ -373,85 +451,12 @@ void Compile::Run(std::string fileName, bool asReference) {
 
         }
 
-        if (String::Contains(line, "ref")){ // NIGHTMARE NIGHTMARE NIGHTMARE
-            std::string refVariableName = String::Split(line, " ")[1];
-
-            std::string functionCall = "";
-
-            if (String::Contains(line, ">>")){
-                functionCall = String::Substring(line, " ", ">>");
-            }
-            else{
-                size_t spaceIndex = String::IndexOf(line, " ");
-                size_t endIndex = line.length();
-
-                functionCall = line.substr(spaceIndex, endIndex);
-                functionCall = String::Strip(functionCall);
-            }
-
-            Token returnToken = Functions::HandleCallFunction(functionCall);
-            if (String::Contains(line, ">>") && returnToken.dataType != Token::t_empty){
-                std::string getTokenName = String::Split(line, ">>")[1];
-                getTokenName = String::Strip(getTokenName);
-
-                Token getToken = Token::getAllTokens(getTokenName);
-                if (getToken.dataType != returnToken.dataType){
-                    std::cout << "[Error] | [Compile.cpp] [Reference Handler]: Return Variable and Defined Variable are not the same data-type!\n";
-                    std::cout << "        |> " << line << "\n";
-                    std::cout << "[Context for Above]:\nReturn Variable: " << returnToken.dataType << "\nDefined Variable: " << getToken.dataType << "\n";
-                    exit(1);
-                }
-                Token::modifyToken(getToken, returnToken.value);
-            }
-            else if (String::Contains(line, ">>") && returnToken.dataType == Token::t_empty){
-                std::cout << "[Error] | [Compile.cpp] [Reference Handler]: There is no return value for " << refVariableName << "\n";
-                std::cout << "        |> " << line << "\n";
-                exit(1);
-            }
-        }
 
         if (line[0] == '{'){
             if (inConditionalStarts != i && inConditional){
                 std::cout << "[Error] | [Compile.cpp] [Starting Conditional Statement Bracket]: Conditional Start Statement Bracket is not expected on this line!\n";
                 std::cout << "        |> " << line << "\n";
                 exit(1);
-            }
-        }
-
-        if (String::Contains(line, "free")){
-            std::istringstream iss(line);
-
-            std::string op;
-            std::string token;
-
-            if (iss >> op >> token){
-                if (op == "free"){
-                    if (!Token::tokenExists(token)){
-                        std::cout << "[Error] | [Compile.cpp] [Freeing Variables]: Token was unable to be freed, because it does not exist!\n";
-                        std::cout << "        |> " << line << "\n";
-                        exit(1);
-                    }
-                    Token t = Token::getToken(token);
-                    if (t.dataType == Token::t_intArray || t.dataType == Token::t_doubleArray ||
-                        t.dataType == Token::t_floatArray || t.dataType == Token::t_strArray){
-                        int totalTokens = String::Split(t.value, ",").size();
-                        for (int i = 0; i < totalTokens; i++){
-                            std::string *x = new std::string();
-                            *x = t.name + "[" + std::to_string(i) + "]";
-                            Token::DeleteToken(*x);
-                            free(x);
-                        }
-
-                        Token::DeleteToken(token);
-                    }
-                    else{
-                        bool x = Token::DeleteToken(token);
-                        if (!x){
-                            std::cout << token << " was unable to be freed from memory\n";
-                        }
-                    }
-
-                }
             }
         }
 
