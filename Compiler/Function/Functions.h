@@ -12,7 +12,7 @@ class Functions {
 public:
 
     // The entire function call should be processed through the argument
-    // var = func(x)
+    // ref class:method() >> var
     static Token HandleCallFunction(std::string functionCall);
 };
 

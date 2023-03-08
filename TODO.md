@@ -12,6 +12,6 @@
 - Finish operators such as ++, +=, --, -=, %
 - ^ Must be compatable with Arrays!
 
-## Oopsie woopsie! 
-- Skipt can't process negative numbers!
-- Too bad!
+## Change how Functions handle tokens
+- Rather than having Functions.cpp convert the tokens into their values, the actual function should handle it.
+- This is superior because it allows strings to contains commas

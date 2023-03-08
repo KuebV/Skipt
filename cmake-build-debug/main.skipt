@@ -2,4 +2,7 @@ int age = 19;
 string name = "Robert";
 double gpa = 3.0
 
-ref Internal::print_tokens();
+string str = "Hello {0}, my name is Skipt!";
+ref String::format(str, name) >> str
+
+> str

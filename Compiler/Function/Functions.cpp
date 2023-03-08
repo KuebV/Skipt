@@ -67,7 +67,7 @@ Token Functions::HandleCallFunction(std::string functionCall) {
         case Math:
             return MathFunction::HandleCall(methodFunction, arguments);
         case String:
-            return StringFunction::HandleCall(methodFunction, arguments);
+            return StringFunction::HandleCall(methodFunction, String::Substring(functionCall, "(", ")"));
         case Array:
             break;
         case Internal:

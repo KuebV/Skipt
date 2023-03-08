@@ -7,7 +7,7 @@
 
 MathFunction::MethodFunctions GetMathFunction(std::string const& str){
     const std::unordered_map<std::string, MathFunction::MethodFunctions> functionTable{
-            { "isprime", MathFunction::MethodFunctions::IsPrime},
+            { "prime", MathFunction::MethodFunctions::IsPrime},
             { "modulo", MathFunction::MethodFunctions::Modulo},
             { "mod", MathFunction::MethodFunctions::Modulo},
     };
@@ -50,6 +50,23 @@ Token MathFunction::HandleCall(std::string function, std::string arguments) {
         case Null:
             break;
         case IsPrime:
-            break;
+            Token token;
+            token.dataType = Token::t_boolean;
+
+            int n = String::ToInteger(arguments);
+            if (n == 0 || n == 1){
+                token.value = "false";
+                return token;
+            }
+
+            for (int i = 0; i < n; i++){
+                if (n % i == 0){
+                    token.value = "false";
+                    return token;
+                }
+            }
+
+            token.value = "true";
+            return token;
     }
 }

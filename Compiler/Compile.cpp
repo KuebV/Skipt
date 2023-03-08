@@ -470,7 +470,7 @@ void Compile::Run(std::string fileName, bool asReference) {
                 continue;
             }
         }
-        
+
         if (line[0] == '}'){
             if (String::Contains(fileContents[i + 1], "else") && !inConditional){
                 inConditional = true;

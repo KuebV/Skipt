@@ -4,12 +4,30 @@
 
 #include <iostream>
 #include "StringFunction.h"
+#include "../ExitMessage.h"
+
+void CleanTokens(std::vector<std::string> &tokens){
+    for (int i = 0; i < tokens.size(); i++){
+        tokens[i] = String::Strip(tokens[i]);
+    }
+}
+
+void ConvertToTokenValues(std::vector<std::string> &tokens){
+    for (int i = 0; i < tokens.size(); i++){
+        if (Token::tokenExists(tokens[i])){
+            tokens[i] = Token::getToken(tokens[i]).value;
+        }
+    }
+}
 
 StringFunction::MethodFunctions GetStringFunction(std::string const& str){
     const std::unordered_map<std::string, StringFunction::MethodFunctions> functionTable{
             { "format", StringFunction::MethodFunctions::Format},
             { "replace", StringFunction::MethodFunctions::Replace},
             { "substring", StringFunction::MethodFunctions::Substring},
+            { "at", StringFunction::MethodFunctions::At},
+            { "find", StringFunction::MethodFunctions::Find},
+            { "contains", StringFunction::MethodFunctions::Contains}
     };
 
     auto it = functionTable.find(str);
@@ -28,11 +46,13 @@ Token StringFunction::HandleCall(std::string function, std::string arguments) {
     emptyToken.value = "";
     emptyToken.dataType = Token::t_empty;
 
+    ExitMessage exitMessage = ExitMessage("StringFunction.cpp");
+
     switch (GetStringFunction(function)){
         case Format: {
             std::vector<std::string> args = String::Split(arguments, ",");
-            for (int i = 0; i < args.size(); i++)
-                args[i] = String::Strip(args[i]);
+            CleanTokens(args);
+            ConvertToTokenValues(args);
 
             std::string initialString = args[0];
             for (int i = 1; i < args.size();i++){
@@ -54,9 +74,8 @@ Token StringFunction::HandleCall(std::string function, std::string arguments) {
             // args[1] == string to replace
             // args[2] == replacing string
 
-            for (int i = 0; i < args.size(); i++){
-                args[i] = String::Strip(args[i]);
-            }
+            CleanTokens(args);
+            ConvertToTokenValues(args);
 
             std::string initialString = args[0];
             initialString = String::Replace(initialString, args[1], args[2]);
@@ -66,9 +85,48 @@ Token StringFunction::HandleCall(std::string function, std::string arguments) {
 
             return replaceToken;
         }
-        case Substring:
+        case Substring:{
+            std::vector<std::string> args = String::Split(arguments, ",");
+            CleanTokens(args);
+            ConvertToTokenValues(args);
+
+            if (String::IsInteger(args[1])){
+                exitMessage.Error("HandleCall.Substring", args[1] + " is not of expected type integer", arguments, 1);
+            }
+            int atIndex = String::ToInteger(args[1]);
+
+            if (String::IsInteger(args[2])){
+                exitMessage.Error("HandleCall.Substring", args[2] + " is not of expected type integer", arguments, 1);
+            }
+            int lengthOf = String::ToInteger(args[2]);
+
+            Token token;
+            token.dataType = Token::t_string;
+            token.value = args[0].substr(atIndex, lengthOf);
+
+            return token;
+        }
+
+        case At:
             break;
-        case Null:
+        case Find:
             break;
+        case Contains:{
+            std::vector<std::string> args = String::Split(arguments, ",");
+            CleanTokens(args);
+            ConvertToTokenValues(args);
+
+            Token token;
+            token.dataType = Token::t_boolean;
+            if (String::Contains(args[0], args[1])){
+                token.value = "true";
+            }
+            else{
+                token.value = "false";
+            }
+
+            return token;
+        }
+
     }
 }

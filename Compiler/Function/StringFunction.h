@@ -15,6 +15,9 @@ public:
         Format,
         Replace,
         Substring,
+        At,
+        Find,
+        Contains,
         Null
 
     };
