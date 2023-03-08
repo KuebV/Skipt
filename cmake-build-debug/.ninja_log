@@ -1,12 +1,12 @@
 # ninja log v5
-1	144	6999272626098399	build.ninja	8d0902dc4e7656f
-4	592	6999270899682836	CMakeFiles/Skipt.dir/main.cpp.obj	4597270c6ee0a93e
+1	144	6999611899695718	build.ninja	8d0902dc4e7656f
+3	982	6999607876929681	CMakeFiles/Skipt.dir/main.cpp.obj	4597270c6ee0a93e
 34	1145	6998816430306106	CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.obj	b59a8cb31c85eac5
 15	1283	6998816431716072	CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.obj	abffccdd0c56f941
 38	1384	6998816432726434	CMakeFiles/Skipt.dir/Compiler/Token.cpp.obj	d11dcfc98b004204
 29	1166	6998816430536099	CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj	989ce6f134eb7129
-592	956	6999270903282841	Skipt.exe	d24167788ca986f4
-8	1068	6999269586913605	CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj	49328ad26ab81a8
+1446	1824	6999607885292408	Skipt.exe	d24167788ca986f4
+7	1446	6999607881542321	CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj	49328ad26ab81a8
 56	1340	6998816432286075	CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.obj	202210b720722044
 52	1586	6998816434756431	CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj	c18a74a55944377c
 43	1222	6998816431106085	CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.obj	d8f4bac5e9f16fb9
@@ -14,9 +14,8 @@
 63	1487	6998816433766440	CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.obj	39be02a0abbf2931
 59	1495	6998816433846423	CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.obj	afe45a1b25a430ac
 71	1534	6998816434236421	CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.obj	efe2062d9ed16687
-12	876	6998822254460697	CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj	489bb38fb7187b71
+10	993	6999607877028437	CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj	489bb38fb7187b71
 75	1582	6998816434726432	CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.obj	67f26096abc66547
-4	1043	6999276682684749	CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj	49328ad26ab81a8
-1043	1420	6999276686417077	Skipt.exe	d24167788ca986f4
-3	1061	6999276858431015	CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj	49328ad26ab81a8
-1061	1419	6999276861987989	Skipt.exe	d24167788ca986f4
+4	754	6999611911355715	Skipt.exe	8cbe98209907834c
+4	663	6999613193521768	CMakeFiles/Skipt.dir/main.cpp.obj	4597270c6ee0a93e
+664	1327	6999613200101768	Skipt.exe	8cbe98209907834c

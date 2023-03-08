@@ -8,3 +8,25 @@
 # x = x + 2
 # With Skipt, we're able to use conditional statements such as if-statements, and while-statements
 # Please visit the Github to learn about proper-code styling
+
+int n;
+> "Enter the value for 'n'\n";
+< n
+
+if (n <= 0)
+{
+	> "N cannot be negative or 0";
+	ref System::exit(1);
+}
+
+int i = 0;
+
+while (i != n)
+{
+	>
+	> i
+	
+	i = i + 1;
+}
+
+> "\nProgram has completed!\n";

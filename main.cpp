@@ -48,5 +48,11 @@ int main() {
         compiler.Run(propRef.getValue("FileToCompile"), false);
     }
 
+    if (String::ToBoolean(propRef.getValue("keepOpen"))){
+        int x = 0;
+        std::cin >> x;
+        exit(x);
+    }
+
 
 }

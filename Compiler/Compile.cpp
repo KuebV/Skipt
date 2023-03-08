@@ -46,7 +46,6 @@ Compile::VariableTypes GetVariableTypes(std::string const& str){
     }
 }
 
-
 void Compile::Run(std::string fileName, bool asReference) {
     PropertyReference propertyReference = PropertyFile::ReadPropertyFile("compiler.properties");
     ExitMessage exitMsg = ExitMessage("Compiler.cpp");
