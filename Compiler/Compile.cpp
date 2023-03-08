@@ -470,9 +470,7 @@ void Compile::Run(std::string fileName, bool asReference) {
                 continue;
             }
         }
-
-
-
+        
         if (line[0] == '}'){
             if (String::Contains(fileContents[i + 1], "else") && !inConditional){
                 inConditional = true;
@@ -523,66 +521,6 @@ std::string Compile::parseString(std::string line, int lineNumber) {
         }
 
     }
-
     return parsedString;
 }
-
-std::vector<std::string> Compile::parseArray(std::string line, int i, Token::dataTypes expectedType){
-    std::vector<std::string> vectorValues;
-
-    i++;
-
-    size_t firstInstance = line.find('[');
-    if (firstInstance == std::string::npos){
-        std::cout << "Line (" << i << ") contains an error: Array could not be defined!\n";
-    }
-
-    size_t lastInstance = line.find(']');
-    if (lastInstance == std::string::npos){
-        std::cout << "Line (" << i << ") contains an error: Array could not be defined!\n";
-    }
-
-    std::string parsedString = line.substr(firstInstance, (lastInstance - firstInstance));
-
-    firstInstance++;
-    if (String::Contains(parsedString, " ")){
-        parsedString = String::Replace(parsedString, " ", "");
-    }
-    std::vector<std::string> values = String::Split(parsedString, ",");
-    for (int i = 0; i < values.size(); i++){
-
-        std::string strippedValue = String::Strip(values[i]);
-
-        if (Token::ValidateType(strippedValue, expectedType)){
-            vectorValues.push_back(strippedValue);
-        }
-        else{
-            std::cout << "Line (" << i << ") contains an error: " << strippedValue << " is not of expected data type\n";
-            exit(1);
-        }
-    }
-
-    return vectorValues;
-
-
-}
-
-bool Compile::sameDataType(Token token, std::string value, int lineNumber) {
-    switch (token.dataType){ // Datatype we're expecting
-        case 'i':
-            if (!String::IsInteger(value)){
-                std::cout << "Line (" << lineNumber << ") contains an error: Variable " << token.name << " expected data type Integer\n";
-                return false;
-            }
-            return true;
-        case 'd':
-            if (!String::IsDouble(value)){
-                std::cout << "Line (" << lineNumber << ") contains an error: Variable " << token.name << " expected data type Double\n";
-                return false;
-            }
-            return true;
-    }
-}
-
-
 
