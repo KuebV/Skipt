@@ -94,6 +94,9 @@
 		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/DefaultFiles.h">
 			<Option target="Skipt"/>
 		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExitMessage.h">
+			<Option target="Skipt"/>
+		</Unit>
 		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser.cpp">
 			<Option target="Skipt"/>
 		</Unit>

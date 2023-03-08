@@ -3,8 +3,3 @@ string name = "Robert";
 double gpa = 3.0
 
 ref Internal::print_tokens();
-
-> "\n\n\n";
-
-string file = "fibonacci.skipt";
-ref Internal::execute_skipt(file);

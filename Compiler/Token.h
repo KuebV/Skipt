@@ -32,9 +32,9 @@ public:
         t_boolean
     };
 
+    dataTypes dataType;
     std::string name;
     std::string value;
-    dataTypes dataType;
 
     static void DefineVariable(std::string _name, std::string value, dataTypes varType, bool isConditional){
         Token newToken; newToken.name = _name; newToken.value = value; newToken.dataType = varType;
@@ -89,23 +89,6 @@ public:
 
     static bool ConvertToInt(double doub){
         return int(doub);
-    }
-
-    static dataTypes getType(char type){
-        switch (type){
-            case 'i':
-                return t_integer;
-            case 'd':
-                return t_double;
-            case 's':
-                return t_string;
-            case 'f':
-                return t_float;
-            case 'a':
-                return t_unknownArrayType;
-            case 'b':
-                return t_boolean;
-        }
     }
 
     static bool ValidateType(std::string value, dataTypes expcectedType){

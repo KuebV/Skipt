@@ -46,7 +46,7 @@ Token InternalFunction::HandleCall(std::string function, std::string arguments) 
         case ListTokens:
             for (auto it = Token::tokenMap.begin(); it != Token::tokenMap.end(); it++){
                 Token tkn = it->second;
-                std::cout << "Name : " << tkn.name << "\tValue: " << tkn.value << "\tAddress: " << &it->second << "\n";
+                std::cout << "Name : " << tkn.name << "\tValue: " << tkn.value << "\tAddress: " << &it->second << "\tSizeof: " << sizeof(it->second) <<"\n";
             }
             return emptyToken;
         case Null:
