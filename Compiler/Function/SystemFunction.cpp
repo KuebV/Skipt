@@ -7,6 +7,7 @@
 #include <fstream>
 #include "SystemFunction.h"
 
+
 SystemFunction::MethodFunctions GetSystemFunction(std::string const& str){
     const std::unordered_map<std::string, SystemFunction::MethodFunctions> functionTable{
             { "exit", SystemFunction::MethodFunctions::Exit},
@@ -37,15 +38,18 @@ Token SystemFunction::HandleCall(std::string function, std::string arguments) {
 
     switch (GetSystemFunction(function)){
         case Exit:{
+            Token::ConvertToTokenValue(arguments);
             exit(String::ToInteger(std::move(arguments)));
         }
         case FileCreate:{
+            Token::ConvertToTokenValue(arguments);
             std::ofstream fstream;
             fstream.open(arguments);
             fstream.close();
             return emptyToken;
         }
         case FileExists:{
+            Token::ConvertToTokenValue(arguments);
             Token returnFileExistsToken;
             returnFileExistsToken.name = "booleanFileExists";
             returnFileExistsToken.dataType = Token::t_boolean;
@@ -59,6 +63,7 @@ Token SystemFunction::HandleCall(std::string function, std::string arguments) {
             return returnFileExistsToken;
         }
         case FileDelete:{
+            Token::ConvertToTokenValue(arguments);
             std::remove(arguments.c_str());
             return emptyToken;
         }

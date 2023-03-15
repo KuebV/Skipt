@@ -54,6 +54,7 @@ Token Functions::HandleCallFunction(std::string functionCall) {
 
     std::string arguments = String::Substring(functionCall, "(", ")");
     arguments = ModifiedReplaceVariableNames(arguments);
+    arguments = String::Substring(functionCall, "(", ")");
 
     switch (HashString(classFunction)){
         case Null:{
@@ -67,7 +68,7 @@ Token Functions::HandleCallFunction(std::string functionCall) {
         case Math:
             return MathFunction::HandleCall(methodFunction, arguments);
         case String:
-            return StringFunction::HandleCall(methodFunction, String::Substring(functionCall, "(", ")"));
+            return StringFunction::HandleCall(methodFunction, arguments);
         case Array:
             break;
         case Internal:

@@ -8,6 +8,7 @@
 #include "../Compile.h"
 #include "../../Property/PropertyFile.h"
 
+
 InternalFunction::MethodFunctions GetInternalFunction(std::string const& str){
     const std::unordered_map<std::string, InternalFunction::MethodFunctions> functionTable{
             { "execute_skipt", InternalFunction::MethodFunctions::RunSkiptFile},
@@ -33,6 +34,7 @@ Token InternalFunction::HandleCall(std::string function, std::string arguments) 
 
     switch (GetInternalFunction(function)){
         case RunSkiptFile:{
+            Token::ConvertToTokenValue(arguments);
             if (!PropertyFile::fileExists(arguments)){
                 std::cout << "[Error] | [InternalFunction.cpp] [Execute-Skipt]: File does not exist!\n";
                 std::cout << "        |> " << arguments << "\n";

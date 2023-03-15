@@ -1598,7 +1598,8 @@ CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.obj: C:/Users/mary/Des
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
   C:/Users/mary/Desktop/Skipt/Extensions/String.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/sstream \
-  C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/sstream.tcc
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/sstream.tcc \
+  C:/Users/mary/Desktop/Skipt/Compiler/ExitMessage.h
 
 CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Function/SystemFunction.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_map \

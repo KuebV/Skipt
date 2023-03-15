@@ -125,6 +125,26 @@ public:
         return true;
     }
 
+    static void CleanTokens(std::vector<std::string> &tokens){
+        for (int i = 0; i < tokens.size(); i++){
+            tokens[i] = String::Strip(tokens[i]);
+        }
+    }
+
+    static void ConvertToTokenValues(std::vector<std::string> &tokens){
+        for (int i = 0; i < tokens.size(); i++){
+            if (Token::tokenExists(tokens[i])){
+                tokens[i] = Token::getToken(tokens[i]).value;
+            }
+        }
+    }
+
+    static void ConvertToTokenValue(std::string& token){
+        if (Token::tokenExists(token)){
+            token = Token::getToken(token).value;
+        }
+    }
+
     static std::map<std::string, Token> tokenMap;
     static std::map<std::string, Token> ConditionalTokenMap;
 };

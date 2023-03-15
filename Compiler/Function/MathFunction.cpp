@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include "MathFunction.h"
 
+
 MathFunction::MethodFunctions GetMathFunction(std::string const& str){
     const std::unordered_map<std::string, MathFunction::MethodFunctions> functionTable{
             { "prime", MathFunction::MethodFunctions::IsPrime},
@@ -32,9 +33,8 @@ Token MathFunction::HandleCall(std::string function, std::string arguments) {
         case Modulo:{
 
             std::vector<std::string> args = String::Split(arguments, ",");
-            for (int i = 0; i < args.size(); i++){
-                args[i] = String::Strip(args[i]);
-            }
+            Token::CleanTokens(args);
+            Token::ConvertToTokenValues(args);
 
             int left = String::ToInteger(args[0]);
             int right = String::ToInteger(args[1]);
@@ -50,6 +50,8 @@ Token MathFunction::HandleCall(std::string function, std::string arguments) {
         case Null:
             break;
         case IsPrime:
+            Token::ConvertToTokenValue(arguments);
+
             Token token;
             token.dataType = Token::t_boolean;
 

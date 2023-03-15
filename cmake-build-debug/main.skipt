@@ -5,4 +5,4 @@ double gpa = 3.0
 string str = "Hello {0}, my name is Skipt!";
 ref String::format(str, name) >> str
 
-> str
+ref System::exit(32)
