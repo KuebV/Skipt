@@ -7,12 +7,14 @@
 #include "InternalFunction.h"
 #include "../Compile.h"
 #include "../../Property/PropertyFile.h"
+#include "../ExitMessage.h"
 
 
 InternalFunction::MethodFunctions GetInternalFunction(std::string const& str){
     const std::unordered_map<std::string, InternalFunction::MethodFunctions> functionTable{
             { "execute_skipt", InternalFunction::MethodFunctions::RunSkiptFile},
             { "print_tokens", InternalFunction::MethodFunctions::ListTokens},
+            { "goto", InternalFunction::MethodFunctions::Goto}
     };
 
     auto it = functionTable.find(str);
@@ -31,6 +33,8 @@ Token InternalFunction::HandleCall(std::string function, std::string arguments) 
     emptyToken.name = "voidToken";
     emptyToken.value = "";
     emptyToken.dataType = Token::t_empty;
+
+    ExitMessage exitMsg = ExitMessage("InternalFunction.cpp");
 
     switch (GetInternalFunction(function)){
         case RunSkiptFile:{
@@ -51,6 +55,14 @@ Token InternalFunction::HandleCall(std::string function, std::string arguments) 
                 std::cout << "Name : " << tkn.name << "\tValue: " << tkn.value << "\tAddress: " << &it->second << "\tSizeof: " << sizeof(it->second) <<"\n";
             }
             return emptyToken;
+        case Goto:
+            Token::ConvertToTokenValue(arguments);
+            if (!String::IsInteger(arguments)){
+                exitMsg.Error("HandleCall", "Expected Type Integer", function, 1);
+            }
+            Compile::i = String::ToInteger(arguments);
+            return emptyToken;
+
         case Null:
             break;
     }

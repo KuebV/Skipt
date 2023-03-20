@@ -1,8 +1,8 @@
-int age = 19;
-string name = "Robert";
-double gpa = 3.0
+int i = 0;
+while (i < 10)
+{
+    i = i + 1
+}
 
-string str = "Hello {0}, my name is Skipt!";
-ref String::format(str, name) >> str
+ref System::exit(0);
 
-ref System::exit(32)

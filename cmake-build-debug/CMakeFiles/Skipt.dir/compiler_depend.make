@@ -1278,7 +1278,8 @@ CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj: C:/Users/mary/D
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fstream.tcc \
   C:/Users/mary/Desktop/Skipt/Property/Property.h \
-  C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h
+  C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h \
+  C:/Users/mary/Desktop/Skipt/Compiler/ExitMessage.h
 
 CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Function/MathFunction.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_map \

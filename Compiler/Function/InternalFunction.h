@@ -13,6 +13,7 @@ public:
     enum MethodFunctions{
         ListTokens,
         RunSkiptFile,
+        Goto,
         Null
     };
 

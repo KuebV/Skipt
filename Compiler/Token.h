@@ -68,10 +68,10 @@ public:
     }
 
     static Token getAllTokens(std::string name){ // Really helpful for conditional statements in which we are allowed to look into both tokens
-        if (!tokenMap[name].value.empty())
+        if (tokenMap.find(name) != tokenMap.end())
             return tokenMap[name];
 
-        if (!ConditionalTokenMap[name].value.empty())
+        if (ConditionalTokenMap.find(name) != tokenMap.end())
             return ConditionalTokenMap[name];
 
         return {};

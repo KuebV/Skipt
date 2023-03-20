@@ -167,4 +167,5 @@ CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj: \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fstream.tcc \
  C:/Users/mary/Desktop/Skipt/Property/Property.h \
- C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h
+ C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h \
+ C:/Users/mary/Desktop/Skipt/Compiler/ExitMessage.h

@@ -30,12 +30,11 @@ public:
         Void,
         Free,
         UnsafeFree,
+        If,
+        While
 
     };
-
-private:
-    std::vector<Token> tokenizer;
-    static std::vector<std::string> parseArray(std::string line, int i, Token::dataTypes expectedType);
+    static int i;
 };
 
 

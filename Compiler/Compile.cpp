@@ -33,7 +33,9 @@ Compile::VariableTypes GetVariableTypes(std::string const& str){
             {"void", Compile::VariableTypes::Void},
             {"ref", Compile::VariableTypes::Reference},
             {"free*", Compile::VariableTypes::UnsafeFree},
-            {"free", Compile::VariableTypes::Free}
+            {"free", Compile::VariableTypes::Free},
+            {"if", Compile::VariableTypes::If},
+            {"while", Compile::VariableTypes::While}
 
     };
 
@@ -46,6 +48,7 @@ Compile::VariableTypes GetVariableTypes(std::string const& str){
     }
 }
 
+int Compile::i = 0;
 void Compile::Run(std::string fileName, bool asReference) {
     PropertyReference propertyReference = PropertyFile::ReadPropertyFile("compiler.properties");
     ExitMessage exitMsg = ExitMessage("Compiler.cpp");
@@ -58,7 +61,8 @@ void Compile::Run(std::string fileName, bool asReference) {
     int whileStatementStarts = 0;
 
     std::cout << fileName << " => Length: " << fileContents.size() << "\n";
-    for (int i = 0; i < fileContents.size(); i++){
+
+    for (i = 0; i < fileContents.size(); i++){
         if (fileContents[i][0] == '#'){
             continue;
         }
@@ -67,6 +71,7 @@ void Compile::Run(std::string fileName, bool asReference) {
         }
 
         std::string line = fileContents[i];
+
         if (isblank(fileContents[i][0]) && inConditional){ // We dont need to strip the line if there's nothing to strip
             line = String::Strip(line); // Holy fuck, this is critical to having the conditional statements work
         }
@@ -247,9 +252,9 @@ void Compile::Run(std::string fileName, bool asReference) {
                 if (t.dataType == Token::t_intArray || t.dataType == Token::t_doubleArray ||
                     t.dataType == Token::t_floatArray || t.dataType == Token::t_strArray){
                     int totalTokens = String::Split(t.value, ",").size();
-                    for (int i = 0; i < totalTokens; i++){
+                    for (int j = 0; j < totalTokens; j++){
                         std::string *x = new std::string();
-                        *x = t.name + "[" + std::to_string(i) + "]";
+                        *x = t.name + "[" + std::to_string(j) + "]";
                         Token::DeleteToken(*x);
                         free(x);
                     }
@@ -263,6 +268,97 @@ void Compile::Run(std::string fileName, bool asReference) {
                     }
                 }
                 break;
+            }
+            case If:{
+                std::string expression = String::Substring(line, "(", ")");
+                std::istringstream expressionStringStream(expression);
+
+                std::string variableOne;
+                std::string _operator;
+                std::string variableTwo;
+
+                if (expressionStringStream >> variableOne >> _operator >> variableTwo){
+                    Token tokenOne;
+                    Token tokenTwo;
+
+                    if (!Token::tokenExists(variableOne) && !Token::tokenExists(variableTwo)){
+                        std::cout << "[Error] | [Compile.cpp] [Conditional Statement(If)]: Conditional operator does not contain a consistent token!\n";
+                        std::cout << "        |> " << line << "\n";
+                        exit(1);
+                    }
+
+                    if (Token::tokenExists(variableOne)){
+                        tokenOne = Token::getToken(variableOne);
+                    }
+                    else{
+                        Token tempVariableTwo;
+                        tempVariableTwo = Token::getToken(variableTwo);
+                        Token::dataTypes primitiveType = Token::GetPrimitiveType(tempVariableTwo.dataType);
+                        tokenOne.name = "conditionalVariable_1"; tokenOne.dataType = primitiveType; tokenOne.value = variableOne;
+                    }
+
+                    if (Token::tokenExists(variableTwo)){
+                        tokenTwo = Token::getToken(variableTwo);
+                    }
+                    else{
+                        tokenTwo.name = "conditionalVariable_2"; tokenTwo.dataType = tokenOne.dataType; tokenTwo.value = variableTwo;
+                    }
+
+                    Operator::Operators parsedOperator = Operator::ParseOperator(_operator);
+
+                    if (Operator::Condition(tokenOne, tokenTwo, parsedOperator)){
+                        inConditional = true;
+                        inConditionalStarts = i + 1;
+                    }
+                }
+            }
+            case While:{
+                std::string expression = String::Substring(line, "(", ")");
+                std::istringstream iss(expression);
+
+                std::string variableOne, _operator, variableTwo;
+                if (iss >> variableOne >> _operator >> variableTwo){
+                    Token tokenOne;
+                    Token tokenTwo;
+
+                    if (!Token::tokenExists(variableOne) && !Token::tokenExists(variableTwo)){
+                        std::cout << "[Error] | [Compile.cpp] [Conditional Statement(While)]: Conditional operator does not contain a consistent token!\n";
+                        std::cout << "        |> " << line << "\n";
+                        exit(1);
+                    }
+
+                    // This is exactly what the conditional statement for if does
+                    if (Token::tokenExists(variableOne)){
+                        tokenOne = Token::getToken(variableOne);
+                    }
+                    else{
+                        Token tempVariableTwo;
+                        tempVariableTwo = Token::getToken(variableTwo);
+                        Token::dataTypes primitiveType = Token::GetPrimitiveType(tempVariableTwo.dataType);
+                        tokenOne.name = "conditionalVariable_1"; tokenOne.dataType = primitiveType; tokenOne.value = variableOne;
+                    }
+
+                    if (Token::tokenExists(variableTwo)){
+                        tokenTwo = Token::getToken(variableTwo);
+                    }
+                    else{
+                        tokenTwo.name = "conditionalVariable_2"; tokenTwo.dataType = tokenOne.dataType; tokenTwo.value = variableTwo;
+                    }
+
+                    Operator::Operators parsedOperator = Operator::ParseOperator(_operator);
+
+                    if (Operator::Condition(tokenOne, tokenTwo, parsedOperator)){
+                        inConditional = true;
+                        inConditionalStarts = i + 1;
+                        whileStatement = true;
+                        whileStatementStarts = i - 1;
+                    }
+                    else{ // Whoops! Not having this causing an infinite loop!
+                        inConditional = false;
+                        whileStatement = false;
+                    }
+
+                }
             }
             default:
                 break;
@@ -349,106 +445,6 @@ void Compile::Run(std::string fileName, bool asReference) {
             Token::modifyToken(token, input);
         }
 
-        if (String::Contains(line, "if")){
-            std::string expression = "";
-            size_t firstInstance = line.find('(');
-            size_t secondInstance = line.find(')');
-            firstInstance++;
-            expression = line.substr(firstInstance, (secondInstance - firstInstance));
-
-            std::istringstream expressionStringStream(expression);
-
-            std::string variableOne;
-            std::string _operator;
-            std::string variableTwo;
-
-            if (expressionStringStream >> variableOne >> _operator >> variableTwo){
-                Token tokenOne;
-                Token tokenTwo;
-
-                if (!Token::tokenExists(variableOne) && !Token::tokenExists(variableTwo)){
-                    std::cout << "[Error] | [Compile.cpp] [Conditional Statement(If)]: Conditional operator does not contain a consistent token!\n";
-                    std::cout << "        |> " << line << "\n";
-                    exit(1);
-                }
-
-                if (Token::tokenExists(variableOne)){
-                    tokenOne = Token::getToken(variableOne);
-                }
-                else{
-                    Token tempVariableTwo;
-                    tempVariableTwo = Token::getToken(variableTwo);
-                    Token::dataTypes primitiveType = Token::GetPrimitiveType(tempVariableTwo.dataType);
-                    tokenOne.name = "conditionalVariable_1"; tokenOne.dataType = primitiveType; tokenOne.value = variableOne;
-                }
-
-                if (Token::tokenExists(variableTwo)){
-                    tokenTwo = Token::getToken(variableTwo);
-                }
-                else{
-                    tokenTwo.name = "conditionalVariable_2"; tokenTwo.dataType = tokenOne.dataType; tokenTwo.value = variableTwo;
-                }
-
-                Operator::Operators parsedOperator = Operator::ParseOperator(_operator);
-
-                if (Operator::Condition(tokenOne, tokenTwo, parsedOperator)){
-                    inConditional = true;
-                    inConditionalStarts = i + 1;
-                }
-
-
-            }
-        }
-
-        if (String::Contains(line, "while")){
-            std::string expression = String::Substring(line, "(", ")");
-            std::istringstream iss(expression);
-
-            std::string variableOne, _operator, variableTwo;
-            if (iss >> variableOne >> _operator >> variableTwo){
-                Token tokenOne;
-                Token tokenTwo;
-
-                if (!Token::tokenExists(variableOne) && !Token::tokenExists(variableTwo)){
-                    std::cout << "[Error] | [Compile.cpp] [Conditional Statement(While)]: Conditional operator does not contain a consistent token!\n";
-                    std::cout << "        |> " << line << "\n";
-                    exit(1);
-                }
-
-                // This is exactly what the conditional statement for if does
-                if (Token::tokenExists(variableOne)){
-                    tokenOne = Token::getToken(variableOne);
-                }
-                else{
-                    Token tempVariableTwo;
-                    tempVariableTwo = Token::getToken(variableTwo);
-                    Token::dataTypes primitiveType = Token::GetPrimitiveType(tempVariableTwo.dataType);
-                    tokenOne.name = "conditionalVariable_1"; tokenOne.dataType = primitiveType; tokenOne.value = variableOne;
-                }
-
-                if (Token::tokenExists(variableTwo)){
-                    tokenTwo = Token::getToken(variableTwo);
-                }
-                else{
-                    tokenTwo.name = "conditionalVariable_2"; tokenTwo.dataType = tokenOne.dataType; tokenTwo.value = variableTwo;
-                }
-
-                Operator::Operators parsedOperator = Operator::ParseOperator(_operator);
-
-                if (Operator::Condition(tokenOne, tokenTwo, parsedOperator)){
-                    inConditional = true;
-                    inConditionalStarts = i + 1;
-                    whileStatement = true;
-                    whileStatementStarts = i - 1;
-                }
-                else{ // Whoops! Not having this causing an infinite loop!
-                    inConditional = false;
-                    whileStatement = false;
-                }
-
-            }
-
-        }
 
 
         if (line[0] == '{'){
@@ -505,10 +501,10 @@ std::string Compile::parseString(std::string line, int lineNumber) {
     firstInstance++;
     parsedString = line.substr(firstInstance, (lastInstance - firstInstance));
 
-    for (int i = 0; i < parsedString.length(); i++){
-        char c = parsedString[i];
+    for (int j = 0; j < parsedString.length(); j++){
+        char c = parsedString[j];
         if (c == '\\'){ // Literal
-            switch (parsedString[i + 1]){
+            switch (parsedString[j + 1]){
                 case 'n':
 
                     // Jesus christ, I'm stupid. Parsed String wasn't being set to the newly replaced string.
