@@ -19,6 +19,9 @@ public:
         FileRead,
         FileAppend,
         FileExists,
+        RandInt,
+        InitRand,
+        RandArray,
         Null,
         Out
     };

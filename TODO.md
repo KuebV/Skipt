@@ -1,7 +1,6 @@
 # TODO : Skipt
 
 ## Compile.cpp:
-- Add all data-types in Token::dataTypes
 - Migrate parseString to using String::Substring
 
 ## Functions.cpp:
@@ -12,6 +11,5 @@
 - Finish operators such as ++, +=, --, -=, %
 - ^ Must be compatable with Arrays!
 
-## Change how Functions handle tokens
-- Rather than having Functions.cpp convert the tokens into their values, the actual function should handle it.
-- This is superior because it allows strings to contains commas
+## New expression parser
+- Make a new or modify the existing expression parser

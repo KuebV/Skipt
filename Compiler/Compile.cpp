@@ -48,6 +48,7 @@ Compile::VariableTypes GetVariableTypes(std::string const& str){
     }
 }
 
+
 int Compile::i = 0;
 void Compile::Run(std::string fileName, bool asReference) {
     PropertyReference propertyReference = PropertyFile::ReadPropertyFile("compiler.properties");
@@ -184,8 +185,8 @@ void Compile::Run(std::string fileName, bool asReference) {
 
                 std::string intArraySubstring = String::Substring(String::Split(line, "=")[1], "{", "}");
                 std::vector<std::string> intArrayElements = String::Split(intArraySubstring, ",");
-                for (int j = 0; j < intArrayElements.size(); j++){
-                    intArrayElements[j] = String::Strip(intArrayElements[j]);
+                for (auto & intArrayElement : intArrayElements){
+                    intArrayElement = String::Strip(intArrayElement);
                 }
                 Token::DefineVariable(lineElements[1], intArraySubstring, Token::t_intArray, inConditional);
 
@@ -234,9 +235,27 @@ void Compile::Run(std::string fileName, bool asReference) {
                 }
                 break;
             }
+            case Free:{
+                std::string freeToken = line.substr(String::IndexOf(line, " ") + 1, (line.length() - String::IndexOf(line, " ")));
+                freeToken = String::Strip(freeToken);
+                if (String::Contains(freeToken, "[") && String::Contains(freeToken, "]")){
+                    exitMsg.Error("Compile::Run", "Cannot free an element of an array", line, 1);
+                }
+                if (Token::getAllTokens(freeToken).dataType == Token::dataTypes::t_intArray ||
+                    Token::getAllTokens(freeToken).dataType == Token::dataTypes::t_strArray ||
+                    Token::getAllTokens(freeToken).dataType == Token::dataTypes::t_floatArray ||
+                    Token::getAllTokens(freeToken).dataType == Token::dataTypes::t_doubleArray){
 
-            // These are both the same thing for now
-            case Free:
+                    Token t = Token::getAllTokens(freeToken);
+                    int totalTokens = String::Split(t.value, ",").size();
+                    for (int j = 0; j < totalTokens; j++){
+                        std::string *x = new std::string();
+                        *x = t.name + "[" + std::to_string(j) + "]";
+                        Token::DeleteToken(*x);
+                        free(x);
+                    }
+                }
+            }
             case UnsafeFree:{
                 // In the case of arrays, the unsafe array will delete the element without resizing, or checking the parent array
                 // It will unsafely, delete the token entirely
@@ -249,23 +268,9 @@ void Compile::Run(std::string fileName, bool asReference) {
                     exit(1);
                 }
                 Token t = Token::getToken(freeToken);
-                if (t.dataType == Token::t_intArray || t.dataType == Token::t_doubleArray ||
-                    t.dataType == Token::t_floatArray || t.dataType == Token::t_strArray){
-                    int totalTokens = String::Split(t.value, ",").size();
-                    for (int j = 0; j < totalTokens; j++){
-                        std::string *x = new std::string();
-                        *x = t.name + "[" + std::to_string(j) + "]";
-                        Token::DeleteToken(*x);
-                        free(x);
-                    }
-
-                    Token::DeleteToken(freeToken);
-                }
-                else{
-                    bool x = Token::DeleteToken(freeToken);
-                    if (!x){
-                        std::cout << freeToken << " was unable to be freed from memory\n";
-                    }
+                bool x = Token::DeleteToken(freeToken);
+                if (!x){
+                    std::cout << freeToken << " was unable to be freed from memory\n";
                 }
                 break;
             }

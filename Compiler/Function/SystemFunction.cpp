@@ -6,6 +6,7 @@
 #include <utility>
 #include <fstream>
 #include "SystemFunction.h"
+#include "../ExitMessage.h"
 
 
 SystemFunction::MethodFunctions GetSystemFunction(std::string const& str){
@@ -17,7 +18,10 @@ SystemFunction::MethodFunctions GetSystemFunction(std::string const& str){
             { "file_read", SystemFunction::MethodFunctions::FileRead},
             { "file_append", SystemFunction::MethodFunctions::FileAppend},
             { "file_exists", SystemFunction::MethodFunctions::FileExists},
-            { "out", SystemFunction::MethodFunctions::Out}
+            { "out", SystemFunction::MethodFunctions::Out},
+            { "randint", SystemFunction::MethodFunctions::RandInt},
+            { "rand", SystemFunction::MethodFunctions::InitRand},
+            { "randelement", SystemFunction::MethodFunctions::RandArray}
     };
 
     auto it = functionTable.find(str);
@@ -35,6 +39,8 @@ Token SystemFunction::HandleCall(std::string function, std::string arguments) {
     emptyToken.name = "voidToken";
     emptyToken.value = "";
     emptyToken.dataType = Token::t_empty;
+
+    ExitMessage exitMessage = ExitMessage("SystemFunction.cpp");
 
     switch (GetSystemFunction(function)){
         case Exit:{
@@ -78,6 +84,41 @@ Token SystemFunction::HandleCall(std::string function, std::string arguments) {
         }
         case Null:
             break;
+        case InitRand:{
+            Token::ConvertToTokenValue(arguments);
+            if (!String::IsInteger(arguments)){
+                exitMessage.Error("rand", "Random Seed is not of type integer!", arguments, 1);
+            }
+            Token::DefineVariable("System::Random(RandomSeed)", arguments, Token::t_integer, false);
+            break;
+        }
+        case RandInt:{
+            std::vector<std::string> args = String::Split(arguments, ",");
+
+            Token::CleanTokens(args);
+            Token::ConvertToTokenValues(args);
+
+            if (!Token::tokenExists("System::Random(RandomSeed)")){
+                exitMessage.Error("randint", "Random Seed was not initialized!", arguments, 1);
+            }
+
+            if (String::ToInteger(Token::getToken("System::Random(RandomSeed)").value) == 0) srand(time(NULL));
+            else srand(String::ToInteger(Token::getToken("System::Random(RandomSeed)").value));
+
+            int randNum;
+            if (!String::IsInteger(args[0]) || !String::IsInteger(args[1])){
+                exitMessage.Error("RandInt", "One or more of the arguments is not of type Integer!\n", arguments, 1);
+            }
+
+
+            randNum = rand() % String::ToInteger(args[1]) + String::ToInteger(args[0]);
+
+            Token tkn;
+            tkn.value = std::to_string(randNum);
+            tkn.dataType = Token::t_integer;
+
+            return tkn;
+        }
 
     }
     return {};

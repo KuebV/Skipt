@@ -1,8 +1,6 @@
-int i = 0;
-while (i < 10)
-{
-    i = i + 1
-}
+# Initialize the Random Seed
+ref System::rand(0);
 
-ref System::exit(0);
-
+int randNum = 0;
+ref System::randint(0, 99) >> randNum
+> randNum
