@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.obj.d"
   "CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj"
   "CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj.d"
+  "CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj"
+  "CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj.d"
   "CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.obj"
   "CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.obj.d"
   "CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj"

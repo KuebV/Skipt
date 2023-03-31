@@ -8,6 +8,7 @@
 #include "StringFunction.h"
 #include "InternalFunction.h"
 #include "MathFunction.h"
+#include "ArrayFunctions.h"
 
 enum ClassFunctions{
     System,
@@ -70,7 +71,7 @@ Token Functions::HandleCallFunction(std::string functionCall) {
         case String:
             return StringFunction::HandleCall(methodFunction, arguments);
         case Array:
-            break;
+            return ArrayFunctions::HandleCall(methodFunction, arguments);
         case Internal:
             return InternalFunction::HandleCall(methodFunction,arguments);
             break;

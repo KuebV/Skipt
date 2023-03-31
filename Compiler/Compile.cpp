@@ -48,11 +48,11 @@ Compile::VariableTypes GetVariableTypes(std::string const& str){
     }
 }
 
-
-int Compile::i = 0;
-void Compile::Run(std::string fileName, bool asReference) {
+void Compile::Run(std::string fileName, bool asExternal) {
     PropertyReference propertyReference = PropertyFile::ReadPropertyFile("compiler.properties");
     ExitMessage exitMsg = ExitMessage("Compiler.cpp");
+
+    std::string fileNameModified = fileName.substr(0, String::IndexOf(fileName, "."));
 
     std::vector<std::string> fileContents = FileReader::Read(fileName);
     bool inConditional = false;
@@ -63,7 +63,7 @@ void Compile::Run(std::string fileName, bool asReference) {
 
     std::cout << fileName << " => Length: " << fileContents.size() << "\n";
 
-    for (i = 0; i < fileContents.size(); i++){
+    for (int i = 0; i < fileContents.size(); i++){
         if (fileContents[i][0] == '#'){
             continue;
         }
@@ -150,6 +150,28 @@ void Compile::Run(std::string fileName, bool asReference) {
                 Token::DefineVariable(lineElements[1], variableValue, Token::t_double, inConditional);
                 break;
             }
+            case Float:{
+                if (Token::tokenExists(lineElements[1])){
+                    std::cout << "[Error] | [Compile.cpp] [Define Variable]: " << lineElements[1] << " has already been defined as a variable!\n";
+                    std::cout << "        |> " << line << "\n";
+                    exit(1);
+                }
+
+                if (!String::Contains(line, "=")){
+                    Token::DefineVariable(lineElements[1], "0f", Token::t_float, inConditional);
+                    break;
+                }
+
+                std::string variableValue = String::Strip(String::Split(line, "=")[1]);
+                if (!String::IsDouble(variableValue)){
+                    std::cout << "[Error] | [Compile.cpp] [Define Variable]: " << variableValue << " is not of type float\n";
+                    std::cout << "        |> " << line << "\n";
+                    exit(1);
+                }
+
+                Token::DefineVariable(lineElements[1], variableValue, Token::t_floatArray, inConditional);
+                break;
+            }
             case Boolean:{
                 if (Token::tokenExists(lineElements[1])){
                     std::cout << "[Error] | [Compile.cpp] [Define Variable]: " << lineElements[1] << " has already been defined as a variable!\n";
@@ -195,6 +217,72 @@ void Compile::Run(std::string fileName, bool asReference) {
                     std::string variableValue = intArrayElements[j];
 
                     Token::DefineVariable(variableName, variableValue, Token::t_integer, inConditional);
+                }
+                break;
+            }
+            case DoubleArray:{
+                if (Token::tokenExists(lineElements[1])){
+                    std::cout << "[Error] | [Compile.cpp] [Define Variable]: " << lineElements[1] << " has already been defined as a variable!\n";
+                    std::cout << "        |> " << line << "\n";
+                    exit(1);
+                }
+
+                if (!String::Contains(line, "=")){
+                    Token arrayToken;
+                    arrayToken.name = lineElements[1];
+                    arrayToken.dataType = Token::t_doubleArray;
+
+                    Token::DefineVariable(arrayToken);
+
+                    break;
+                }
+
+                std::string arraySubstring = String::Substring(String::Split(line, "=")[1], "{", "}");
+                std::vector<std::string> arrayElements = String::Split(arraySubstring, ",");
+                for (auto & intArrayElement : arrayElements){
+                    intArrayElement = String::Strip(intArrayElement);
+                }
+                Token::DefineVariable(lineElements[1], arraySubstring, Token::t_doubleArray, inConditional);
+
+                for (int j = 0; j < arrayElements.size(); j++){
+                    std::string variableName = lineElements[1] + "[" + std::to_string(j) + "]";
+                    std::string variableValue = arrayElements[j];
+
+                    Token::DefineVariable(variableName, variableValue, Token::t_double, inConditional);
+                }
+                break;
+            }
+            case StringArray:{
+                if (Token::tokenExists(lineElements[1])){
+                    std::cout << "[Error] | [Compile.cpp] [Define Variable]: " << lineElements[1] << " has already been defined as a variable!\n";
+                    std::cout << "        |> " << line << "\n";
+                    exit(1);
+                }
+
+                if (!String::Contains(line, "=")){
+                    Token arrayToken;
+                    arrayToken.name = lineElements[1];
+                    arrayToken.dataType = Token::t_strArray;
+
+                    Token::DefineVariable(arrayToken);
+
+                    break;
+                }
+
+                std::string arraySubstring = String::Substring(String::Split(line, "=")[1], "{", "}");
+                std::vector<std::string> arrayElements = String::Split(arraySubstring, ",");
+                for (auto & intArrayElement : arrayElements){
+                    intArrayElement = String::Strip(intArrayElement);
+                }
+                Token::DefineVariable(lineElements[1], arraySubstring, Token::t_strArray, inConditional);
+
+                for (int j = 0; j < arrayElements.size(); j++){
+                    std::string variableName = lineElements[1] + "[" + std::to_string(j) + "]";
+                    std::string variableValue = arrayElements[j];
+
+                    variableValue = parseString(variableValue, i);
+
+                    Token::DefineVariable(variableName, variableValue, Token::t_strArray, inConditional);
                 }
                 break;
             }

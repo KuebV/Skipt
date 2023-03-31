@@ -145,6 +145,13 @@ public:
         }
     }
 
+    static bool IsArray(Token token){
+        if (token.dataType == t_intArray || token.dataType == t_doubleArray || token.dataType == t_strArray || token.dataType == t_floatArray){
+            return true;
+        }
+        return false;
+    }
+
     static std::map<std::string, Token> tokenMap;
     static std::map<std::string, Token> ConditionalTokenMap;
 };

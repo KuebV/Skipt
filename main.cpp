@@ -12,7 +12,8 @@ static Compile compiler;
 
 int main() {
 
-    std::cout << "Attempting to read " << CompilerPropertiesFile << "\n";
+    std::cout << ">--- >> Skipt << ---<\n";
+    std::cout << "[PRE-COMPILER] Attempting to read " << CompilerPropertiesFile << "\n";
 
     // Compiler Properties:
     // FileToCompile => string => File that is read
@@ -24,16 +25,16 @@ int main() {
 
     propRef = PropertyFile::ReadPropertyFile(CompilerPropertiesFile);
     if (!PropertyFile::fileExists(propRef.getValue("FileToCompile"))){
-        std::cout << "From " << CompilerPropertiesFile << ": \"" << propRef.getValue("FileToCompile") << "\" was not found!\n";
+        std::cout << "[PRE-COMPILER]  From " << CompilerPropertiesFile << ": \"" << propRef.getValue("FileToCompile") << "\" was not found!\n";
         if (String::ToBoolean(propRef.getValue("GenerateNewFile"))){
-            std::cout << "From " << CompilerPropertiesFile << ": Generating " << propRef.getValue("FileToCompile") << "\n";
+            std::cout << "[PRE-COMPILER]   From " << CompilerPropertiesFile << ": Generating " << propRef.getValue("FileToCompile") << "\n";
             DefaultFiles::WriteDefaultGeneratedFile(propRef.getValue("FileToCompile"));
         }
     }
 
-    std::cout << CompilerPropertiesFile << " has been read, and stored\n";
+    std::cout << "[PRE-COMPILER] " << CompilerPropertiesFile << " has been read, and stored\n";
 
-    std::cout << "Reading Skipt File\n";
+    std::cout << propRef.getValue("FileToCompile")  << " is now being executed, view below for potential output:\n-------------------------\n";
 
     bool executionTime = String::ToBoolean(propRef.getValue("executionTime"));
     if (executionTime){

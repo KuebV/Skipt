@@ -14,7 +14,7 @@ InternalFunction::MethodFunctions GetInternalFunction(std::string const& str){
     const std::unordered_map<std::string, InternalFunction::MethodFunctions> functionTable{
             { "execute_skipt", InternalFunction::MethodFunctions::RunSkiptFile},
             { "print_tokens", InternalFunction::MethodFunctions::ListTokens},
-            { "goto", InternalFunction::MethodFunctions::Goto}
+            { "convert", InternalFunction::MethodFunctions::Convert}
     };
 
     auto it = functionTable.find(str);
@@ -24,6 +24,24 @@ InternalFunction::MethodFunctions GetInternalFunction(std::string const& str){
     else {
         std::cout << "There is no method function with the name of " << str << "\n";
         return InternalFunction::MethodFunctions::Null;
+    }
+}
+
+
+Token::dataTypes StringToType(std::string specifiedType){
+    const std::unordered_map<std::string, Token::dataTypes> typeTable{
+            { "int", Token::dataTypes::t_integer},
+            { "double", Token::dataTypes::t_integer},
+            { "bool", Token::dataTypes::t_integer},
+            { "string", Token::dataTypes::t_integer},
+            { "float", Token::dataTypes::t_float}
+    };
+    auto it = typeTable.find(specifiedType);
+    if (it != typeTable.end())
+        return it->second;
+    else{
+        std::cout << "[Error] | [InternalFucnction.cpp] [StringToType] : Invalid Type Conversion!\n";
+        return Token::dataTypes::t_empty;
     }
 }
 
@@ -46,7 +64,7 @@ Token InternalFunction::HandleCall(std::string function, std::string arguments) 
             }
 
             Compile functionCompiler;
-            functionCompiler.Run(std::move(arguments), false);
+            functionCompiler.Run(std::move(arguments), true);
             return emptyToken;
         }
         case ListTokens:
@@ -54,14 +72,7 @@ Token InternalFunction::HandleCall(std::string function, std::string arguments) 
                 Token tkn = it->second;
                 std::cout << "Name : " << tkn.name << "\tValue: " << tkn.value << "\tAddress: " << &it->second << "\tSizeof: " << sizeof(it->second) <<"\n";
             }
-            return emptyToken;
-        case Goto:
-            Token::ConvertToTokenValue(arguments);
-            if (!String::IsInteger(arguments)){
-                exitMsg.Error("HandleCall", "Expected Type Integer", function, 1);
-            }
-            Compile::i = String::ToInteger(arguments);
-            return emptyToken;
+            return emptyToken;;
 
         case Null:
             break;

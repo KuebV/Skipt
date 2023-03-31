@@ -47,19 +47,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2022.3.1\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\cmake\win\x64\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2022.3.1\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\cmake\win\x64\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\mary\Desktop\Skipt
+CMAKE_SOURCE_DIR = E:\C++\Skipt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\mary\Desktop\Skipt\cmake-build-debug
+CMAKE_BINARY_DIR = E:\C++\Skipt\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = C:\Users\mary\Desktop\Skipt\cmake-build-debug
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\JetBrains\CLion 2022.3.1\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\cmake\win\x64\bin\cmake.exe -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\JetBrains\CLion 2022.3.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\cmake\win\x64\bin\cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles C:\Users\mary\Desktop\Skipt\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\C++\Skipt\cmake-build-debug\CMakeFiles E:\C++\Skipt\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\C++\Skipt\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -271,6 +271,30 @@ Compiler/FileReader.s: Compiler/FileReader.cpp.s
 Compiler/FileReader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.s
 .PHONY : Compiler/FileReader.cpp.s
+
+Compiler/Function/ArrayFunctions.obj: Compiler/Function/ArrayFunctions.cpp.obj
+.PHONY : Compiler/Function/ArrayFunctions.obj
+
+# target to build an object file
+Compiler/Function/ArrayFunctions.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj
+.PHONY : Compiler/Function/ArrayFunctions.cpp.obj
+
+Compiler/Function/ArrayFunctions.i: Compiler/Function/ArrayFunctions.cpp.i
+.PHONY : Compiler/Function/ArrayFunctions.i
+
+# target to preprocess a source file
+Compiler/Function/ArrayFunctions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.i
+.PHONY : Compiler/Function/ArrayFunctions.cpp.i
+
+Compiler/Function/ArrayFunctions.s: Compiler/Function/ArrayFunctions.cpp.s
+.PHONY : Compiler/Function/ArrayFunctions.s
+
+# target to generate assembly for a file
+Compiler/Function/ArrayFunctions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.s
+.PHONY : Compiler/Function/ArrayFunctions.cpp.s
 
 Compiler/Function/Functions.obj: Compiler/Function/Functions.cpp.obj
 .PHONY : Compiler/Function/Functions.obj
@@ -515,6 +539,9 @@ help:
 	@echo ... Compiler/FileReader.obj
 	@echo ... Compiler/FileReader.i
 	@echo ... Compiler/FileReader.s
+	@echo ... Compiler/Function/ArrayFunctions.obj
+	@echo ... Compiler/Function/ArrayFunctions.i
+	@echo ... Compiler/Function/ArrayFunctions.s
 	@echo ... Compiler/Function/Functions.obj
 	@echo ... Compiler/Function/Functions.i
 	@echo ... Compiler/Function/Functions.s

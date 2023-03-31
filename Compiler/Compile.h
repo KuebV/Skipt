@@ -11,7 +11,7 @@
 
 class Compile {
 public:
-    void Run(std::string fileName, bool asReference);
+    void Run(std::string fileName, bool asExternal);
     std::string parseString(std::string line, int lineNumber);
     bool sameDataType(Token token, std::string value, int lineNumber);
 
@@ -34,7 +34,6 @@ public:
         While
 
     };
-    static int i;
 };
 
 

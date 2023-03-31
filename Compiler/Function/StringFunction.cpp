@@ -104,15 +104,13 @@ Token StringFunction::HandleCall(std::string function, std::string arguments) {
 
             Token token;
             token.dataType = Token::t_boolean;
-            if (String::Contains(args[0], args[1])){
-                token.value = "true";
-            }
-            else{
-                token.value = "false";
-            }
+            token.value = String::Contains(args[0], args[1]) ? "true" : "false";
 
             return token;
+
         }
 
+        case Null:
+            break;
     }
 }

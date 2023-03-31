@@ -50,6 +50,101 @@ public:
             std::cout << "Unable to generate default file\n";
         }
 
+        std::ofstream docStream;
+        docStream.open("documentation.md");
+        if (docStream.is_open()){
+            docStream << "# Skipt Practices & Documentation\n";
+            docStream << "## Skipt is a interpreted language with the main goal to having a relatively easy to use syntax and having the same performance as other languages. \n"
+                         "Additionally, the language is designed to have the user have complete control of their variables and program\n";
+            docStream << "### Data-Types\n- int\n- double\n- string\n- bool\n";
+            docStream << "### Array Types\n- int[]\n- double[]\n- string[]\n- bool[]\n\n";
+            docStream << "**Example Variable & Output**\n"
+                         "```\n"
+                         "# This indicates a comment\n"
+                         "\n"
+                         "string name = \"Robert Thompson\"\n"
+                         "int age = 19;\n"
+                         "# ^ Skipt doesn't care whether or not you end your lines of code with semi-colons or not, they are processed the same\n"
+                         "\n"
+                         "> name\n"
+                         "> \n"
+                         "> age\n"
+                         "```\n";
+            docStream << "\n"
+                         "### Input & Output\n"
+                         "Skipt contains two types of outputs, one is the traditional output, corresponding to the `>` character, this will output any variable that is given\n"
+                         "\n"
+                         "A non-traditional output can be done via `ref System::out()` this contains output formatting. An example of this can be shown below:\n"
+                         "\n"
+                         "```\n"
+                         "# Traditional Output\n"
+                         "int favoriteNumber = 42;\n"
+                         "> \"Your favorite number is \"\n"
+                         "> favoriteNumber\n"
+                         "\n"
+                         "# Non Traditional Output\n"
+                         "int favoriteNumber = 42;\n"
+                         "ref System::out(\"Your favorite number is {0}\", favoriteNumber)\n"
+                         "```";
+            docStream << "Skipt only contains 1 type of input, this corresponds to the `<` character, followed shortly by a variable. Skipt will convert the variable to it's specified type\n"
+                         "\n"
+                         "### Conditional Statements\n\n"
+                         "Skipt is very direct with conditional statements, you can only have one condition in each statement. There are only 2 conditional statments, if, and while. For loops do not exist for the sole purpose of because a while loop can do the exact same thing, with some extra coding.\n"
+                         "\n"
+                         "**If-Statements**\n"
+                         "\n"
+                         "```\n"
+                         "bool isAdult;\n"
+                         "int age = 0;\n"
+                         "if (age >= 18)\n"
+                         "{\n"
+                         "    isAdult = true\n"
+                         "    > \"You are an adult!\"\n"
+                         "}\n"
+                         "else\n"
+                         "{\n"
+                         "    isAdult = false\n"
+                         "    > \"You are not an adult!\"\n"
+                         "}\n"
+                         "\n"
+                         "```\n"
+                         "With If-Statements, there is one key formatting you must keep in mind. There must be a starting bracket the line after the conditional statement is defined. Here are a few examples:\n"
+                         "```\n"
+                         "# Valid\n"
+                         "if (x == y)\n"
+                         "{\n"
+                         "    # Do something\n"
+                         "}\n"
+                         "\n"
+                         "# Invalid\n"
+                         "if (x == y){\n"
+                         "    # [Error] | [Compile.cpp] [Starting Conditional Statement Bracket]: Conditional Start Statement Bracket is not expected on this line!\n"
+                         "}\n"
+                         "\n"
+                         "# Invalid\n"
+                         "if (x == y)\n"
+                         "    # This will result in nothing happening, the program may unexpectedly quit\n"
+                         "```\n"
+                         "\n"
+                         "**While-Loops**\n"
+                         "```\n"
+                         "int i = 0\n"
+                         "while (i < 10)\n"
+                         "{\n"
+                         "    > i\n"
+                         "    > \", \"\n"
+                         "    \n"
+                         "    i = i + 1\n"
+                         "}\n"
+                         "\n"
+                         "# Output:\n"
+                         "# 0, 1.000000, 2.000000, 3.000000, 4.000000, 5.000000, 6.000000, 7.000000, 8.000000, 9.000000,\n"
+                         "```\n"
+                         "\n"
+                         "*As seen above, even though we defined i as an integer, it displayed as if it was a double. This is because of how Skipt calcuates and stores variables. When a variable is defined as an integer, the program will register it as an integer, but in calculations, and processes, it is calculated as if it's a double. This is done to reduce the amount of conversions that the compiler has to do from one data-type to another.*";
+
+        }
+
     }
 };
 

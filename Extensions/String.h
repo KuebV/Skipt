@@ -150,6 +150,7 @@ public:
         if (start != std::string::npos)
             return start;
     }
+
 };
 
 #endif //SKIPT_STRING_H
