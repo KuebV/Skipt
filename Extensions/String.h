@@ -100,6 +100,20 @@ public:
         return tempStr;
     }
 
+    static std::string NonAlphaStrip(std::string s1) {
+        std::string tempStr = "";
+        int indexOf = 0;
+        for (int i = 0; i < s1.length(); i++){
+            if (std::isalpha(s1[i])) {
+                indexOf = i;
+                break;
+            }
+        }
+        return s1.substr(indexOf, (s1.length()) - indexOf);
+
+    }
+
+
     static std::vector<int> ToIntVector(std::string s1){
         std::vector<std::string> elements = String::Split(s1, ",");
 
@@ -138,7 +152,7 @@ public:
             return "";
         }
 
-        size_t end = line.find(endString);
+        size_t end = line.find_last_of(endString);
         if (end == std::string::npos){
             return "";
         }

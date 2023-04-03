@@ -81,6 +81,24 @@ Token SystemFunction::HandleCall(std::string function, std::string arguments) {
             break;
         case Out:{
 
+            std::string stringSubstring = String::Substring(arguments, "\"", "\"");
+            arguments = String::Replace(arguments, "\"" + stringSubstring + "\"", "");
+            arguments = String::NonAlphaStrip(arguments);
+
+            std::vector<std::string> args = String::Split(arguments, ",");
+
+            Token::CleanTokens(args);
+            Token::ConvertToTokenValues(args);
+
+            std::string initialString = stringSubstring;
+            for (int i = 0; i < args.size();i++){
+                std::string formattingBracket = "{" + std::to_string(i) + "}";
+                std::string awahhh = args[i];
+                initialString = String::Replace(initialString, "{" + std::to_string(i) + "}", args[i]);
+            }
+
+            std::cout << initialString;
+            return emptyToken;
         }
         case Null:
             break;

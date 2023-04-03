@@ -1,8 +1,5 @@
-int i = 0
-while (i < 10)
-{
-    > i
-    > ", "
+int age = 19;
+string name = "Robert";
+string program = "Skipt";
 
-    i = i + 1
-}
+ref System::out("Hello {0}, I'm {1}, you are {2}", name, program, age)

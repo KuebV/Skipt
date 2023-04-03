@@ -132,9 +132,14 @@ public:
     }
 
     static void ConvertToTokenValues(std::vector<std::string> &tokens){
-        for (int i = 0; i < tokens.size(); i++){
-            if (Token::tokenExists(tokens[i])){
-                tokens[i] = Token::getToken(tokens[i]).value;
+        if (tokens.size() == 1){
+            tokens[0] = Token::getToken(tokens[0]).value;
+        }
+        else{
+            for (int i = 0; i < tokens.size(); i++){
+                if (Token::tokenExists(tokens[i])){
+                    tokens[i] = Token::getToken(tokens[i]).value;
+                }
             }
         }
     }
