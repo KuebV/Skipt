@@ -26,68 +26,68 @@ StringFunction::MethodFunctions GetStringFunction(std::string const& str){
     }
 }
 
-Token StringFunction::HandleCall(std::string function, std::string arguments) {
-    Token emptyToken;
+Variable StringFunction::HandleCall(std::string function, std::string arguments) {
+    Variable emptyToken;
     emptyToken.name = "voidToken";
     emptyToken.value = "";
-    emptyToken.dataType = Token::t_empty;
+    emptyToken.dataType = Variable::t_empty;
 
     ExitMessage exitMessage = ExitMessage("StringFunction.cpp");
 
     switch (GetStringFunction(function)){
         case Format: {
-            std::vector<std::string> args = String::Split(arguments, ",");
-            Token::CleanTokens(args);
-            Token::ConvertToTokenValues(args);
+            std::vector<std::string> args = StringExt::Split(arguments, ",");
+            Variable::CleanTokens(args);
+            Variable::ConvertToTokenValues(args);
 
             std::string initialString = args[0];
             for (int i = 1; i < args.size();i++){
-                initialString = String::Replace(initialString, "{" + std::to_string(i - 1) + "}", args[i]);
+                initialString = StringExt::Replace(initialString, "{" + std::to_string(i - 1) + "}", args[i]);
             }
 
-            Token formatToken;
+            Variable formatToken;
             formatToken.value = initialString;
-            formatToken.dataType = Token::t_string;
+            formatToken.dataType = Variable::t_string;
 
             return formatToken;
         }
         case Replace: {
-            Token replaceToken;
+            Variable replaceToken;
 
             // Replace must contain existing variables in the arguments
-            std::vector<std::string> args = String::Split(arguments, ",");
+            std::vector<std::string> args = StringExt::Split(arguments, ",");
             // args[0] == initial string
             // args[1] == string to replace
             // args[2] == replacing string
 
-            Token::CleanTokens(args);
-            Token::ConvertToTokenValues(args);
+            Variable::CleanTokens(args);
+            Variable::ConvertToTokenValues(args);
 
             std::string initialString = args[0];
-            initialString = String::Replace(initialString, args[1], args[2]);
+            initialString = StringExt::Replace(initialString, args[1], args[2]);
 
             replaceToken.value = initialString;
-            replaceToken.dataType = Token::t_string;
+            replaceToken.dataType = Variable::t_string;
 
             return replaceToken;
         }
         case Substring:{
-            std::vector<std::string> args = String::Split(arguments, ",");
-            Token::CleanTokens(args);
-            Token::ConvertToTokenValues(args);
+            std::vector<std::string> args = StringExt::Split(arguments, ",");
+            Variable::CleanTokens(args);
+            Variable::ConvertToTokenValues(args);
 
-            if (String::IsInteger(args[1])){
+            if (StringExt::IsInteger(args[1])){
                 exitMessage.Error("HandleCall.Substring", args[1] + " is not of expected type integer", arguments, 1);
             }
-            int atIndex = String::ToInteger(args[1]);
+            int atIndex = StringExt::ToInteger(args[1]);
 
-            if (String::IsInteger(args[2])){
+            if (StringExt::IsInteger(args[2])){
                 exitMessage.Error("HandleCall.Substring", args[2] + " is not of expected type integer", arguments, 1);
             }
-            int lengthOf = String::ToInteger(args[2]);
+            int lengthOf = StringExt::ToInteger(args[2]);
 
-            Token token;
-            token.dataType = Token::t_string;
+            Variable token;
+            token.dataType = Variable::t_string;
             token.value = args[0].substr(atIndex, lengthOf);
 
             return token;
@@ -98,13 +98,13 @@ Token StringFunction::HandleCall(std::string function, std::string arguments) {
         case Find:
             break;
         case Contains:{
-            std::vector<std::string> args = String::Split(arguments, ",");
-            Token::CleanTokens(args);
-            Token::ConvertToTokenValues(args);
+            std::vector<std::string> args = StringExt::Split(arguments, ",");
+            Variable::CleanTokens(args);
+            Variable::ConvertToTokenValues(args);
 
-            Token token;
-            token.dataType = Token::t_boolean;
-            token.value = String::Contains(args[0], args[1]) ? "true" : "false";
+            Variable token;
+            token.dataType = Variable::t_boolean;
+            token.value = StringExt::Contains(args[0], args[1]) ? "true" : "false";
 
             return token;
 

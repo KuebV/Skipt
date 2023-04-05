@@ -110,19 +110,19 @@ CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Property\PropertyReference.cpp -o CMakeFiles\Skipt.dir\Property\PropertyReference.cpp.s
 
-CMakeFiles/Skipt.dir/Compiler/Token.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Compiler/Token.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Token.cpp
-CMakeFiles/Skipt.dir/Compiler/Token.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Token.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Token.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Token.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Token.cpp.obj -c C:\Users\mary\Desktop\Skipt\Compiler\Token.cpp
+CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj: CMakeFiles/Skipt.dir/flags.make
+CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Variable.cpp
+CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Variable.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Variable.cpp.obj -c C:\Users\mary\Desktop\Skipt\Compiler\Variable.cpp
 
-CMakeFiles/Skipt.dir/Compiler/Token.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Compiler/Token.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Compiler\Token.cpp > CMakeFiles\Skipt.dir\Compiler\Token.cpp.i
+CMakeFiles/Skipt.dir/Compiler/Variable.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Compiler/Variable.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Compiler\Variable.cpp > CMakeFiles\Skipt.dir\Compiler\Variable.cpp.i
 
-CMakeFiles/Skipt.dir/Compiler/Token.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/Token.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\Token.cpp -o CMakeFiles\Skipt.dir\Compiler\Token.cpp.s
+CMakeFiles/Skipt.dir/Compiler/Variable.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/Variable.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\Variable.cpp -o CMakeFiles\Skipt.dir\Compiler\Variable.cpp.s
 
 CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj: CMakeFiles/Skipt.dir/flags.make
 CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/FileReader.cpp
@@ -292,12 +292,40 @@ CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\Function\ArrayFunctions.cpp -o CMakeFiles\Skipt.dir\Compiler\Function\ArrayFunctions.cpp.s
 
+CMakeFiles/Skipt.dir/ModifiedType/String.cpp.obj: CMakeFiles/Skipt.dir/flags.make
+CMakeFiles/Skipt.dir/ModifiedType/String.cpp.obj: C:/Users/mary/Desktop/Skipt/ModifiedType/String.cpp
+CMakeFiles/Skipt.dir/ModifiedType/String.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/Skipt.dir/ModifiedType/String.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/ModifiedType/String.cpp.obj -MF CMakeFiles\Skipt.dir\ModifiedType\String.cpp.obj.d -o CMakeFiles\Skipt.dir\ModifiedType\String.cpp.obj -c C:\Users\mary\Desktop\Skipt\ModifiedType\String.cpp
+
+CMakeFiles/Skipt.dir/ModifiedType/String.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/ModifiedType/String.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\ModifiedType\String.cpp > CMakeFiles\Skipt.dir\ModifiedType\String.cpp.i
+
+CMakeFiles/Skipt.dir/ModifiedType/String.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/ModifiedType/String.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\ModifiedType\String.cpp -o CMakeFiles\Skipt.dir\ModifiedType\String.cpp.s
+
+CMakeFiles/Skipt.dir/Extensions/Array.cpp.obj: CMakeFiles/Skipt.dir/flags.make
+CMakeFiles/Skipt.dir/Extensions/Array.cpp.obj: C:/Users/mary/Desktop/Skipt/Extensions/Array.cpp
+CMakeFiles/Skipt.dir/Extensions/Array.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/Skipt.dir/Extensions/Array.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Extensions/Array.cpp.obj -MF CMakeFiles\Skipt.dir\Extensions\Array.cpp.obj.d -o CMakeFiles\Skipt.dir\Extensions\Array.cpp.obj -c C:\Users\mary\Desktop\Skipt\Extensions\Array.cpp
+
+CMakeFiles/Skipt.dir/Extensions/Array.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Extensions/Array.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Extensions\Array.cpp > CMakeFiles\Skipt.dir\Extensions\Array.cpp.i
+
+CMakeFiles/Skipt.dir/Extensions/Array.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Extensions/Array.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Extensions\Array.cpp -o CMakeFiles\Skipt.dir\Extensions\Array.cpp.s
+
 # Object files for target Skipt
 Skipt_OBJECTS = \
 "CMakeFiles/Skipt.dir/main.cpp.obj" \
 "CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.obj" \
 "CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.obj" \
-"CMakeFiles/Skipt.dir/Compiler/Token.cpp.obj" \
+"CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj" \
 "CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj" \
 "CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj" \
 "CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj" \
@@ -309,7 +337,9 @@ Skipt_OBJECTS = \
 "CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.obj" \
 "CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj" \
 "CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.obj" \
-"CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj"
+"CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj" \
+"CMakeFiles/Skipt.dir/ModifiedType/String.cpp.obj" \
+"CMakeFiles/Skipt.dir/Extensions/Array.cpp.obj"
 
 # External object files for target Skipt
 Skipt_EXTERNAL_OBJECTS =
@@ -317,7 +347,7 @@ Skipt_EXTERNAL_OBJECTS =
 Skipt.exe: CMakeFiles/Skipt.dir/main.cpp.obj
 Skipt.exe: CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.obj
 Skipt.exe: CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.obj
-Skipt.exe: CMakeFiles/Skipt.dir/Compiler/Token.cpp.obj
+Skipt.exe: CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj
 Skipt.exe: CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj
 Skipt.exe: CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj
 Skipt.exe: CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj
@@ -330,11 +360,13 @@ Skipt.exe: CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.obj
 Skipt.exe: CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj
 Skipt.exe: CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.obj
 Skipt.exe: CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj
+Skipt.exe: CMakeFiles/Skipt.dir/ModifiedType/String.cpp.obj
+Skipt.exe: CMakeFiles/Skipt.dir/Extensions/Array.cpp.obj
 Skipt.exe: CMakeFiles/Skipt.dir/build.make
 Skipt.exe: CMakeFiles/Skipt.dir/linklibs.rsp
 Skipt.exe: CMakeFiles/Skipt.dir/objects1.rsp
 Skipt.exe: CMakeFiles/Skipt.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable Skipt.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable Skipt.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Skipt.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

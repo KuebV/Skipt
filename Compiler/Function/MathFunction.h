@@ -6,7 +6,7 @@
 #define SKIPT_MATHFUNCTION_H
 
 
-#include "../Token.h"
+#include "../Variable.h"
 
 class MathFunction {
 public:
@@ -16,7 +16,7 @@ public:
         IsPrime,
     };
 
-    static Token HandleCall(std::string function, std::string arguments);
+    static Variable HandleCall(std::string function, std::string arguments);
 
 };
 

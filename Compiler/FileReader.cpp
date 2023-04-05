@@ -4,7 +4,7 @@
 
 #include <fstream>
 #include "FileReader.h"
-#include "../Extensions/String.h"
+#include "../Extensions/StringExt.h"
 
 // Does not include comments of any sort
 std::vector<std::string> FileReader::Read(std::string fileName) {

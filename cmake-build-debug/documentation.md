@@ -38,7 +38,7 @@ int favoriteNumber = 42;
 
 # Non Traditional Output
 int favoriteNumber = 42;
-ref System::out("Your favorite number is {0}" \, favoriteNumber)
+ref System::out("Your favorite number is {0}" , favoriteNumber)
 ```
 Skipt only contains 1 type of input, this corresponds to the `<` character, followed shortly by a variable. Skipt will convert the variable to it's specified type
 

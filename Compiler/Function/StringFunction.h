@@ -7,7 +7,7 @@
 
 #include <string>
 #include <unordered_map>
-#include "../Token.h"
+#include "../Variable.h"
 
 class StringFunction {
 public:
@@ -22,7 +22,7 @@ public:
 
     };
 
-    static Token HandleCall(std::string function, std::string arguments);
+    static Variable HandleCall(std::string function, std::string arguments);
 };
 
 

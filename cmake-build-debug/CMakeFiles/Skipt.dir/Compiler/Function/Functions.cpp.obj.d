@@ -1,7 +1,7 @@
 CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.obj: \
  C:\Users\mary\Desktop\Skipt\Compiler\Function\Functions.cpp \
  C:\Users\mary\Desktop\Skipt\Compiler\Function\Functions.h \
- C:/Users/mary/Desktop/Skipt/Compiler/Token.h \
+ C:/Users/mary/Desktop/Skipt/Compiler/Variable.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/string \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
@@ -151,12 +151,12 @@ CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.obj: \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ostream.tcc \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/istream \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/istream.tcc \
- C:/Users/mary/Desktop/Skipt/Extensions/String.h \
+ C:/Users/mary/Desktop/Skipt/Extensions/StringExt.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/sstream \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/sstream.tcc \
  C:\Users\mary\Desktop\Skipt\Compiler\Function\SystemFunction.h \
  C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser.h \
- C:/Users/mary/Desktop/Skipt/Compiler/Token.h \
+ C:/Users/mary/Desktop/Skipt/Compiler/Variable.h \
  C:\Users\mary\Desktop\Skipt\Compiler\Function\StringFunction.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_map \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/hashtable.h \

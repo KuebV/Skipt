@@ -27,11 +27,11 @@ ArrayFunctions::MethodFunctions GetArrayFunction(std::string const& str){
 }
 
 
-Token ArrayFunctions::HandleCall(std::string function, std::string arguments) {
-    Token emptyToken;
+Variable ArrayFunctions::HandleCall(std::string function, std::string arguments) {
+    Variable emptyToken;
     emptyToken.name = "voidToken";
     emptyToken.value = "";
-    emptyToken.dataType = Token::t_empty;
+    emptyToken.dataType = Variable::t_empty;
 
     ExitMessage exitMsg = ExitMessage("ArrayFunctions.cpp");
 
@@ -39,46 +39,46 @@ Token ArrayFunctions::HandleCall(std::string function, std::string arguments) {
         case At:{
             // Arguments
             // Array, Index
-            std::vector<std::string> args = String::Split(arguments, ",");
-            Token::CleanTokens(args);
+            std::vector<std::string> args = StringExt::Split(arguments, ",");
+            Variable::CleanTokens(args);
 
-            if (!Token::tokenExists(args[0])){
+            if (!Variable::variableExists(args[0])){
                 exitMsg.Error("HandleCall.At", args[0] + " is not a defined array variable!", arguments, 1);
             }
             std::string preArray = args[0];
 
-            Token::ConvertToTokenValues(args);
+            Variable::ConvertToTokenValues(args);
 
-            if (!String::IsInteger(args[1])){
+            if (!StringExt::IsInteger(args[1])){
                 exitMsg.Error("HandleCall.At", args[1] + " is expected to be of type integer!", arguments, 1);
             }
             int items = std::count(args[0].begin(),  args[0].end(), ',');
 
-            if (String::ToInteger(args[1]) > items){
+            if (StringExt::ToInteger(args[1]) > items){
                 exitMsg.Error("HandleCall.At", "segfault", arguments, 1);
             }
 
             std::string arrayIndexer = preArray + "[" + args[1] + "]";
-            std::string arrayItem = Token::getToken(arrayIndexer).value;
+            std::string arrayItem = Variable::getVariable(arrayIndexer).value;
 
-            Token returnToken;
-            returnToken.dataType = Token::t_string;
+            Variable returnToken;
+            returnToken.dataType = Variable::t_string;
             returnToken.value = arrayItem;
             return returnToken;
         }
         case Length:{
-            if (!Token::tokenExists(arguments)){
+            if (!Variable::variableExists(arguments)){
                 exitMsg.Error("HandleCall.Length", arguments + " is not a defined array variable!", arguments, 1);
             }
-            if (!Token::IsArray(Token::getAllTokens(arguments))){
+            if (!Variable::IsArray(Variable::getAllVariables(arguments))){
                 exitMsg.Error("HandleCall.Length", arguments + " is not of type array!", arguments, 1);
             }
 
-            Token::ConvertToTokenValue(arguments);
+            Variable::ConvertToTokenValue(arguments);
             int items = std::count(arguments.begin(),  arguments.end(), ',') + 1;
 
-            Token returnToken;
-            returnToken.dataType = Token::t_integer;
+            Variable returnToken;
+            returnToken.dataType = Variable::t_integer;
             returnToken.value = std::to_string(items);
             return returnToken;
         }

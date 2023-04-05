@@ -1,5 +1,2 @@
-int age = 19;
-string name = "Robert";
-string program = "Skipt";
-
-ref System::out("Hello {0}, I'm {1}, you are {2}", name, program, age)
+string[] lines;
+ref Internal::print_tokens()

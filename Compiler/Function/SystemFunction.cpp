@@ -34,31 +34,31 @@ SystemFunction::MethodFunctions GetSystemFunction(std::string const& str){
     }
 }
 
-Token SystemFunction::HandleCall(std::string function, std::string arguments) {
-    Token emptyToken;
+Variable SystemFunction::HandleCall(std::string function, std::string arguments) {
+    Variable emptyToken;
     emptyToken.name = "voidToken";
     emptyToken.value = "";
-    emptyToken.dataType = Token::t_empty;
+    emptyToken.dataType = Variable::t_empty;
 
     ExitMessage exitMessage = ExitMessage("SystemFunction.cpp");
 
     switch (GetSystemFunction(function)){
         case Exit:{
-            Token::ConvertToTokenValue(arguments);
-            exit(String::ToInteger(std::move(arguments)));
+            Variable::ConvertToTokenValue(arguments);
+            exit(StringExt::ToInteger(std::move(arguments)));
         }
         case FileCreate:{
-            Token::ConvertToTokenValue(arguments);
+            Variable::ConvertToTokenValue(arguments);
             std::ofstream fstream;
             fstream.open(arguments);
             fstream.close();
             return emptyToken;
         }
         case FileExists:{
-            Token::ConvertToTokenValue(arguments);
-            Token returnFileExistsToken;
+            Variable::ConvertToTokenValue(arguments);
+            Variable returnFileExistsToken;
             returnFileExistsToken.name = "booleanFileExists";
-            returnFileExistsToken.dataType = Token::t_boolean;
+            returnFileExistsToken.dataType = Variable::t_boolean;
             if (FILE *p_file = fopen(arguments.c_str(), "r")){
                 fclose(p_file);
                 returnFileExistsToken.value = "true";
@@ -69,32 +69,36 @@ Token SystemFunction::HandleCall(std::string function, std::string arguments) {
             return returnFileExistsToken;
         }
         case FileDelete:{
-            Token::ConvertToTokenValue(arguments);
+            Variable::ConvertToTokenValue(arguments);
             std::remove(arguments.c_str());
             return emptyToken;
         }
         case FileWrite:
             break;
-        case FileRead:
+        case FileRead:{
+            Variable fileContents;
+            fileContents.dataType = Variable::t_strArray;
             break;
+        }
+
         case FileAppend:
             break;
         case Out:{
 
-            std::string stringSubstring = String::Substring(arguments, "\"", "\"");
-            arguments = String::Replace(arguments, "\"" + stringSubstring + "\"", "");
-            arguments = String::NonAlphaStrip(arguments);
+            std::string stringSubstring = StringExt::Substring(arguments, "\"", "\"");
+            arguments = StringExt::Replace(arguments, "\"" + stringSubstring + "\"", "");
+            arguments = StringExt::NonAlphaStrip(arguments);
 
-            std::vector<std::string> args = String::Split(arguments, ",");
+            std::vector<std::string> args = StringExt::Split(arguments, ",");
 
-            Token::CleanTokens(args);
-            Token::ConvertToTokenValues(args);
+            Variable::CleanTokens(args);
+            Variable::ConvertToTokenValues(args);
 
             std::string initialString = stringSubstring;
             for (int i = 0; i < args.size();i++){
                 std::string formattingBracket = "{" + std::to_string(i) + "}";
                 std::string awahhh = args[i];
-                initialString = String::Replace(initialString, "{" + std::to_string(i) + "}", args[i]);
+                initialString = StringExt::Replace(initialString, "{" + std::to_string(i) + "}", args[i]);
             }
 
             std::cout << initialString;
@@ -103,37 +107,37 @@ Token SystemFunction::HandleCall(std::string function, std::string arguments) {
         case Null:
             break;
         case InitRand:{
-            Token::ConvertToTokenValue(arguments);
-            if (!String::IsInteger(arguments)){
+            Variable::ConvertToTokenValue(arguments);
+            if (!StringExt::IsInteger(arguments)){
                 exitMessage.Error("rand", "Random Seed is not of type integer!", arguments, 1);
             }
-            Token::DefineVariable("System::Random(RandomSeed)", arguments, Token::t_integer, false);
+            Variable::DefineVariable("System::Random(RandomSeed)", arguments, Variable::t_integer, false);
             break;
         }
         case RandInt:{
-            std::vector<std::string> args = String::Split(arguments, ",");
+            std::vector<std::string> args = StringExt::Split(arguments, ",");
 
-            Token::CleanTokens(args);
-            Token::ConvertToTokenValues(args);
+            Variable::CleanTokens(args);
+            Variable::ConvertToTokenValues(args);
 
-            if (!Token::tokenExists("System::Random(RandomSeed)")){
+            if (!Variable::variableExists("System::Random(RandomSeed)")){
                 exitMessage.Error("randint", "Random Seed was not initialized!", arguments, 1);
             }
 
-            if (String::ToInteger(Token::getToken("System::Random(RandomSeed)").value) == 0) srand(time(NULL));
-            else srand(String::ToInteger(Token::getToken("System::Random(RandomSeed)").value));
+            if (StringExt::ToInteger(Variable::getVariable("System::Random(RandomSeed)").value) == 0) srand(time(NULL));
+            else srand(StringExt::ToInteger(Variable::getVariable("System::Random(RandomSeed)").value));
 
             int randNum;
-            if (!String::IsInteger(args[0]) || !String::IsInteger(args[1])){
+            if (!StringExt::IsInteger(args[0]) || !StringExt::IsInteger(args[1])){
                 exitMessage.Error("RandInt", "One or more of the arguments is not of type Integer!\n", arguments, 1);
             }
 
 
-            randNum = rand() % String::ToInteger(args[1]) + String::ToInteger(args[0]);
+            randNum = rand() % StringExt::ToInteger(args[1]) + StringExt::ToInteger(args[0]);
 
-            Token tkn;
+            Variable tkn;
             tkn.value = std::to_string(randNum);
-            tkn.dataType = Token::t_integer;
+            tkn.dataType = Variable::t_integer;
 
             return tkn;
         }

@@ -84,7 +84,7 @@ public:
                          "\n"
                          "# Non Traditional Output\n"
                          "int favoriteNumber = 42;\n"
-                         "ref System::out(\"Your favorite number is {0}\"\\, favoriteNumber)\n"
+                         "ref System::out(\"Your favorite number is {0}\" , favoriteNumber)\n"
                          "```";
             docStream << "Skipt only contains 1 type of input, this corresponds to the `<` character, followed shortly by a variable. Skipt will convert the variable to it's specified type\n"
                          "\n"

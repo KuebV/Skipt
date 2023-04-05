@@ -22,7 +22,7 @@ enum ClassFunctions{
 ClassFunctions HashString(std::string const& str){
     if (str == "System") return System;
     else if (str == "Math") return Math;
-    else if (str == "String") return String;
+    else if (str == "StringExt") return String;
     else if (str == "Array") return Array;
     else if (str == "Internal") return Internal;
     else return Null;
@@ -31,31 +31,31 @@ ClassFunctions HashString(std::string const& str){
 // This is modified from ExpressionParser.cpp, for functions, we need to parse by commas, not by spaces
 std::string ModifiedReplaceVariableNames(std::string line){
     std::string temp = line;
-    std::vector<std::string> values = String::Split(line, ",");
+    std::vector<std::string> values = StringExt::Split(line, ",");
 
     // Serialize them in case they contain any spaces
     for (int i = 0; i < values.size(); i++){
-        values[i] = String::Strip(values[i]);
+        values[i] = StringExt::Strip(values[i]);
 
-        if (Token::tokenExists(values[i])){
-            temp = String::Replace(temp, values[i] ,Token::getToken(values[i]).value);
+        if (Variable::variableExists(values[i])){
+            temp = StringExt::Replace(temp, values[i] , Variable::getVariable(values[i]).value);
         }
     }
     return temp;
 }
 
-Token Functions::HandleCallFunction(std::string functionCall) {
+Variable Functions::HandleCallFunction(std::string functionCall) {
 
     size_t x = functionCall.find('(');
     std::string functionName = functionCall.substr(0, x);
 
-    std::vector<std::string> functionElements = String::Split(functionName, "::");
+    std::vector<std::string> functionElements = StringExt::Split(functionName, "::");
     std::string classFunction = functionElements[0];
     std::string methodFunction = functionElements[1];
 
-    std::string arguments = String::Substring(functionCall, "(", ")");
+    std::string arguments = StringExt::Substring(functionCall, "(", ")");
     arguments = ModifiedReplaceVariableNames(arguments);
-    arguments = String::Substring(functionCall, "(", ")");
+    arguments = StringExt::Substring(functionCall, "(", ")");
 
     switch (HashString(classFunction)){
         case Null:{

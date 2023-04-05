@@ -416,29 +416,77 @@ Compiler/Function/SystemFunction.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.s
 .PHONY : Compiler/Function/SystemFunction.cpp.s
 
-Compiler/Token.obj: Compiler/Token.cpp.obj
-.PHONY : Compiler/Token.obj
+Compiler/Variable.obj: Compiler/Variable.cpp.obj
+.PHONY : Compiler/Variable.obj
 
 # target to build an object file
-Compiler/Token.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Token.cpp.obj
-.PHONY : Compiler/Token.cpp.obj
+Compiler/Variable.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj
+.PHONY : Compiler/Variable.cpp.obj
 
-Compiler/Token.i: Compiler/Token.cpp.i
-.PHONY : Compiler/Token.i
+Compiler/Variable.i: Compiler/Variable.cpp.i
+.PHONY : Compiler/Variable.i
 
 # target to preprocess a source file
-Compiler/Token.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Token.cpp.i
-.PHONY : Compiler/Token.cpp.i
+Compiler/Variable.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Variable.cpp.i
+.PHONY : Compiler/Variable.cpp.i
 
-Compiler/Token.s: Compiler/Token.cpp.s
-.PHONY : Compiler/Token.s
+Compiler/Variable.s: Compiler/Variable.cpp.s
+.PHONY : Compiler/Variable.s
 
 # target to generate assembly for a file
-Compiler/Token.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Token.cpp.s
-.PHONY : Compiler/Token.cpp.s
+Compiler/Variable.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Variable.cpp.s
+.PHONY : Compiler/Variable.cpp.s
+
+Extensions/Array.obj: Extensions/Array.cpp.obj
+.PHONY : Extensions/Array.obj
+
+# target to build an object file
+Extensions/Array.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Extensions/Array.cpp.obj
+.PHONY : Extensions/Array.cpp.obj
+
+Extensions/Array.i: Extensions/Array.cpp.i
+.PHONY : Extensions/Array.i
+
+# target to preprocess a source file
+Extensions/Array.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Extensions/Array.cpp.i
+.PHONY : Extensions/Array.cpp.i
+
+Extensions/Array.s: Extensions/Array.cpp.s
+.PHONY : Extensions/Array.s
+
+# target to generate assembly for a file
+Extensions/Array.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Extensions/Array.cpp.s
+.PHONY : Extensions/Array.cpp.s
+
+ModifiedType/String.obj: ModifiedType/String.cpp.obj
+.PHONY : ModifiedType/String.obj
+
+# target to build an object file
+ModifiedType/String.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/ModifiedType/String.cpp.obj
+.PHONY : ModifiedType/String.cpp.obj
+
+ModifiedType/String.i: ModifiedType/String.cpp.i
+.PHONY : ModifiedType/String.i
+
+# target to preprocess a source file
+ModifiedType/String.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/ModifiedType/String.cpp.i
+.PHONY : ModifiedType/String.cpp.i
+
+ModifiedType/String.s: ModifiedType/String.cpp.s
+.PHONY : ModifiedType/String.s
+
+# target to generate assembly for a file
+ModifiedType/String.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/ModifiedType/String.cpp.s
+.PHONY : ModifiedType/String.cpp.s
 
 Property/PropertyFile.obj: Property/PropertyFile.cpp.obj
 .PHONY : Property/PropertyFile.obj
@@ -557,9 +605,15 @@ help:
 	@echo ... Compiler/Function/SystemFunction.obj
 	@echo ... Compiler/Function/SystemFunction.i
 	@echo ... Compiler/Function/SystemFunction.s
-	@echo ... Compiler/Token.obj
-	@echo ... Compiler/Token.i
-	@echo ... Compiler/Token.s
+	@echo ... Compiler/Variable.obj
+	@echo ... Compiler/Variable.i
+	@echo ... Compiler/Variable.s
+	@echo ... Extensions/Array.obj
+	@echo ... Extensions/Array.i
+	@echo ... Extensions/Array.s
+	@echo ... ModifiedType/String.obj
+	@echo ... ModifiedType/String.i
+	@echo ... ModifiedType/String.s
 	@echo ... Property/PropertyFile.obj
 	@echo ... Property/PropertyFile.i
 	@echo ... Property/PropertyFile.s

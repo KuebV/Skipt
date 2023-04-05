@@ -1,10 +1,11 @@
 #include <iostream>
 #include <chrono>
-#include "Compiler/Token.h"
+#include "Compiler/Variable.h"
 #include "Compiler/DefaultFiles.h"
-#include "Extensions/String.h"
+#include "Extensions/StringExt.h"
 #include "Compiler/Compile.h"
 #include "Compiler/Function/Functions.h"
+#include "ModifiedType/String.h"
 
 static PropertyReference propRef;
 static const std::string CompilerPropertiesFile = "compiler.properties";
@@ -26,7 +27,7 @@ int main() {
     propRef = PropertyFile::ReadPropertyFile(CompilerPropertiesFile);
     if (!PropertyFile::fileExists(propRef.getValue("FileToCompile"))){
         std::cout << "[PRE-COMPILER]  From " << CompilerPropertiesFile << ": \"" << propRef.getValue("FileToCompile") << "\" was not found!\n";
-        if (String::ToBoolean(propRef.getValue("GenerateNewFile"))){
+        if (StringExt::ToBoolean(propRef.getValue("GenerateNewFile"))){
             std::cout << "[PRE-COMPILER]   From " << CompilerPropertiesFile << ": Generating " << propRef.getValue("FileToCompile") << "\n";
             DefaultFiles::WriteDefaultGeneratedFile(propRef.getValue("FileToCompile"));
         }
@@ -36,7 +37,7 @@ int main() {
 
     std::cout << propRef.getValue("FileToCompile")  << " is now being executed, view below for potential output:\n-------------------------\n";
 
-    bool executionTime = String::ToBoolean(propRef.getValue("executionTime"));
+    bool executionTime = StringExt::ToBoolean(propRef.getValue("executionTime"));
     if (executionTime){
         auto stopwatchStart = std::chrono::high_resolution_clock::now();
         compiler.Run(propRef.getValue("FileToCompile"), false);
@@ -49,7 +50,8 @@ int main() {
         compiler.Run(propRef.getValue("FileToCompile"), false);
     }
 
-    if (String::ToBoolean(propRef.getValue("keepOpen"))){
+
+    if (StringExt::ToBoolean(propRef.getValue("keepOpen"))){
         int x = 0;
         std::cin >> x;
         exit(x);

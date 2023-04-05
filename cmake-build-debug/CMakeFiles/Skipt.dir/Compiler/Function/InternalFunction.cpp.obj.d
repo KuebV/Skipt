@@ -48,7 +48,7 @@ CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj: \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_map.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h \
  C:\Users\mary\Desktop\Skipt\Compiler\Function\InternalFunction.h \
- C:/Users/mary/Desktop/Skipt/Compiler/Token.h \
+ C:/Users/mary/Desktop/Skipt/Compiler/Variable.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/string \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stringfwd.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/char_traits.h \
@@ -155,11 +155,23 @@ CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj: \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ostream.tcc \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/istream \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/istream.tcc \
- C:/Users/mary/Desktop/Skipt/Extensions/String.h \
+ C:/Users/mary/Desktop/Skipt/Extensions/StringExt.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/sstream \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/sstream.tcc \
  C:/Users/mary/Desktop/Skipt/Compiler/Compile.h \
- C:/Users/mary/Desktop/Skipt/Compiler/Token.h \
+ C:/Users/mary/Desktop/Skipt/Compiler/Compile.h \
+ C:/Users/mary/Desktop/Skipt/Compiler/FileReader.h \
+ C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Parser.h \
+ C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser.h \
+ C:/Users/mary/Desktop/Skipt/Compiler/Variable.h \
+ C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Expression.h \
+ C:/Users/mary/Desktop/Skipt/Compiler/Conditional/Operator.h \
+ C:/Users/mary/Desktop/Skipt/Compiler/Variable.h \
+ C:/Users/mary/Desktop/Skipt/Extensions/StringExt.h \
+ C:/Users/mary/Desktop/Skipt/Extensions/Array.h \
+ C:/Users/mary/Desktop/Skipt/Compiler/Function/Functions.h \
+ C:/Users/mary/Desktop/Skipt/Compiler/Variable.h \
+ C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h \
  C:/Users/mary/Desktop/Skipt/Property/PropertyFile.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/fstream \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/codecvt.h \
@@ -168,4 +180,14 @@ CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj: \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fstream.tcc \
  C:/Users/mary/Desktop/Skipt/Property/Property.h \
  C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h \
+ C:/Users/mary/Desktop/Skipt/Compiler/ExitMessage.h \
+ C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cstring \
+ C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/string.h \
+ C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
+ C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/chrono \
+ C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio \
+ C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/limits \
+ C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ctime \
+ C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/parse_numbers.h \
+ C:/Users/mary/Desktop/Skipt/Property/PropertyFile.h \
  C:/Users/mary/Desktop/Skipt/Compiler/ExitMessage.h

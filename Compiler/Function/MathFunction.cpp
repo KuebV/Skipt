@@ -23,39 +23,39 @@ MathFunction::MethodFunctions GetMathFunction(std::string const& str){
     }
 }
 
-Token MathFunction::HandleCall(std::string function, std::string arguments) {
-    Token emptyToken;
+Variable MathFunction::HandleCall(std::string function, std::string arguments) {
+    Variable emptyToken;
     emptyToken.name = "voidToken";
     emptyToken.value = "";
-    emptyToken.dataType = Token::t_empty;
+    emptyToken.dataType = Variable::t_empty;
 
     switch (GetMathFunction(function)){
         case Modulo:{
 
-            std::vector<std::string> args = String::Split(arguments, ",");
-            Token::CleanTokens(args);
-            Token::ConvertToTokenValues(args);
+            std::vector<std::string> args = StringExt::Split(arguments, ",");
+            Variable::CleanTokens(args);
+            Variable::ConvertToTokenValues(args);
 
-            int left = String::ToInteger(args[0]);
-            int right = String::ToInteger(args[1]);
+            int left = StringExt::ToInteger(args[0]);
+            int right = StringExt::ToInteger(args[1]);
 
             int result = left % right;
 
-            Token moduloToken;
+            Variable moduloToken;
             moduloToken.value = std::to_string(result);
-            moduloToken.dataType = Token::t_integer;
+            moduloToken.dataType = Variable::t_integer;
 
             return moduloToken;
         }
         case Null:
             break;
         case IsPrime:
-            Token::ConvertToTokenValue(arguments);
+            Variable::ConvertToTokenValue(arguments);
 
-            Token token;
-            token.dataType = Token::t_boolean;
+            Variable token;
+            token.dataType = Variable::t_boolean;
 
-            int n = String::ToInteger(arguments);
+            int n = StringExt::ToInteger(arguments);
             if (n == 0 || n == 1){
                 token.value = "false";
                 return token;

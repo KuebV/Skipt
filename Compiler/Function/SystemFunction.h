@@ -6,7 +6,7 @@
 #define SKIPT_SYSTEMFUNCTION_H
 
 
-#include "../Token.h"
+#include "../Variable.h"
 
 
 class SystemFunction {
@@ -26,7 +26,7 @@ public:
         Out
     };
 
-    static Token HandleCall(std::string function, std::string arguments);
+    static Variable HandleCall(std::string function, std::string arguments);
 };
 
 

@@ -28,35 +28,35 @@ InternalFunction::MethodFunctions GetInternalFunction(std::string const& str){
 }
 
 
-Token::dataTypes StringToType(std::string specifiedType){
-    const std::unordered_map<std::string, Token::dataTypes> typeTable{
-            { "int", Token::dataTypes::t_integer},
-            { "double", Token::dataTypes::t_integer},
-            { "bool", Token::dataTypes::t_integer},
-            { "string", Token::dataTypes::t_integer},
-            { "float", Token::dataTypes::t_float}
+Variable::dataTypes StringToType(std::string specifiedType){
+    const std::unordered_map<std::string, Variable::dataTypes> typeTable{
+            { "int",    Variable::dataTypes::t_integer},
+            { "double", Variable::dataTypes::t_integer},
+            { "bool",   Variable::dataTypes::t_integer},
+            { "string", Variable::dataTypes::t_integer},
+            { "float",  Variable::dataTypes::t_float}
     };
     auto it = typeTable.find(specifiedType);
     if (it != typeTable.end())
         return it->second;
     else{
         std::cout << "[Error] | [InternalFucnction.cpp] [StringToType] : Invalid Type Conversion!\n";
-        return Token::dataTypes::t_empty;
+        return Variable::dataTypes::t_empty;
     }
 }
 
 
-Token InternalFunction::HandleCall(std::string function, std::string arguments) {
-    Token emptyToken;
+Variable InternalFunction::HandleCall(std::string function, std::string arguments) {
+    Variable emptyToken;
     emptyToken.name = "voidToken";
     emptyToken.value = "";
-    emptyToken.dataType = Token::t_empty;
+    emptyToken.dataType = Variable::t_empty;
 
     ExitMessage exitMsg = ExitMessage("InternalFunction.cpp");
 
     switch (GetInternalFunction(function)){
         case RunSkiptFile:{
-            Token::ConvertToTokenValue(arguments);
+            Variable::ConvertToTokenValue(arguments);
             if (!PropertyFile::fileExists(arguments)){
                 std::cout << "[Error] | [InternalFunction.cpp] [Execute-Skipt]: File does not exist!\n";
                 std::cout << "        |> " << arguments << "\n";
@@ -68,8 +68,8 @@ Token InternalFunction::HandleCall(std::string function, std::string arguments) 
             return emptyToken;
         }
         case ListTokens:
-            for (auto it = Token::tokenMap.begin(); it != Token::tokenMap.end(); it++){
-                Token tkn = it->second;
+            for (auto it = Variable::variableMap.begin(); it != Variable::variableMap.end(); it++){
+                Variable tkn = it->second;
                 std::cout << "Name : " << tkn.name << "\tValue: " << tkn.value << "\tAddress: " << &it->second << "\tSizeof: " << sizeof(it->second) <<"\n";
             }
             return emptyToken;;

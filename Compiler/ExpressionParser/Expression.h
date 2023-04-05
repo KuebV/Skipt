@@ -8,6 +8,7 @@
 
 #include <map>
 #include <string>
+#include "unordered_map"
 
 class Expression
 {
@@ -20,7 +21,7 @@ public:
 
     virtual double evaluate() = 0;
 protected:
-    static std::map<std::string, double> vars;
+    static std::unordered_map<std::string, double> vars;
 };
 
 class NumberExpression : public Expression

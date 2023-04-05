@@ -6,7 +6,7 @@
 #define SKIPT_ARRAYFUNCTIONS_H
 
 
-#include "../Token.h"
+#include "../Variable.h"
 
 class ArrayFunctions {
 public:
@@ -17,7 +17,7 @@ public:
         Length,
         Null
     };
-    static Token HandleCall(std::string function, std::string arguments);
+    static Variable HandleCall(std::string function, std::string arguments);
 };
 
 

@@ -163,16 +163,25 @@
 		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/SystemFunction.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Token.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Variable.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Token.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Variable.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Extensions/Array.cpp">
 			<Option target="Skipt"/>
 		</Unit>
 		<Unit filename="C:/Users/mary/Desktop/Skipt/Extensions/Array.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="C:/Users/mary/Desktop/Skipt/Extensions/String.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Extensions/StringExt.h">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/ModifiedType/String.cpp">
+			<Option target="Skipt"/>
+		</Unit>
+		<Unit filename="C:/Users/mary/Desktop/Skipt/ModifiedType/String.h">
 			<Option target="Skipt"/>
 		</Unit>
 		<Unit filename="C:/Users/mary/Desktop/Skipt/Property/Property.h">

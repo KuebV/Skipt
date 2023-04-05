@@ -6,10 +6,10 @@
 #include <cmath>
 #include <iostream>
 
-std::map<std::string, double> Expression::vars;
+std::unordered_map<std::string, double> Expression::vars;
 
-Expression::Expression() {}
-Expression::~Expression() {}
+Expression::Expression() = default;
+Expression::~Expression() = default;
 
 double Expression::lookUp(const std::string& var) {
     if (vars.find(var) != vars.end())
@@ -22,9 +22,7 @@ void Expression::record(const std::string& var, double value)
     vars[var] = value;
 }
 
-NumberExpression::NumberExpression(double val) : value(val)
-{
-}
+NumberExpression::NumberExpression(double val) : value(val) {}
 
 double NumberExpression::evaluate() {
     return value;

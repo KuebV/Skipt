@@ -4,7 +4,7 @@
 
 #include <unordered_map>
 #include "ExpressionParser.h"
-#include "../Extensions/String.h"
+#include "../Extensions/StringExt.h"
 
 
 std::string ExpressionParser::ReplaceVariableNames(std::string line) {
@@ -16,14 +16,14 @@ std::string ExpressionParser::ReplaceVariableNames(std::string line) {
            {"MATH.EULER", 2.71828},
            {"MATH.GOLDEN_RATIO", 1.61803398874989484820458683436563811}};
 
-    std::vector<std::string> values = String::Split(line, " ");
+    std::vector<std::string> values = StringExt::Split(line, " ");
     for (int i = 0; i < values.size(); i++){
-        if (Token::tokenExists(values[i])){
-            temp = String::Replace(temp, values[i] ,Token::getToken(values[i]).value);
+        if (Variable::variableExists(values[i])){
+            temp = StringExt::Replace(temp, values[i] , Variable::getVariable(values[i]).value);
         }
 
         if (map.find(values[i]) != map.end()){
-            temp = String::Replace(temp, values[i], std::to_string(map[values[i]]));
+            temp = StringExt::Replace(temp, values[i], std::to_string(map[values[i]]));
         }
     }
 

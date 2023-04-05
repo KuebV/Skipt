@@ -6,7 +6,7 @@
 #define SKIPT_EXPRESSIONPARSER_H
 
 
-#include "Token.h"
+#include "Variable.h"
 
 class ExpressionParser {
 public:

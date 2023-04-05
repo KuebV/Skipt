@@ -6,14 +6,28 @@
 #define SKIPT_COMPILE_H
 
 
-#include <vector>
-#include "Token.h"
+#include "Compile.h"
+#include "FileReader.h"
+#include "../Extensions/StringExt.h"
+#include "ExpressionParser/Parser.h"
+#include "ExpressionParser.h"
+#include "../Compiler/ExpressionParser/Expression.h"
+#include "Conditional/Operator.h"
+#include "Function/Functions.h"
+#include "../Property/PropertyReference.h"
+#include "../Property/PropertyFile.h"
+#include "ExitMessage.h"
+#include <string>
+#include <cstring>
+#include <unordered_map>
+#include <chrono>
+#include "Variable.h"
 
 class Compile {
 public:
     void Run(std::string fileName, bool asExternal);
     std::string parseString(std::string line, int lineNumber);
-    bool sameDataType(Token token, std::string value, int lineNumber);
+    bool sameDataType(Variable token, std::string value, int lineNumber);
 
     enum VariableTypes{
         Integer,

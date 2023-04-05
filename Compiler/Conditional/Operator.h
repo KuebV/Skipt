@@ -6,8 +6,8 @@
 #define SKIPT_OPERATOR_H
 
 #include <string>
-#include "../Token.h"
-#include "../../Extensions/String.h"
+#include "../Variable.h"
+#include "../../Extensions/StringExt.h"
 #include "../../Extensions/Array.h"
 
 
@@ -72,12 +72,12 @@ public:
     }
 
     // There has to be a better way of doing this?
-    static bool Condition(Token t_one, Token t_two, Operators op){
+    static bool Condition(Variable t_one, Variable t_two, Operators op){
 
-        if (t_one.dataType != Token::t_boolean || t_two.dataType != Token::t_boolean){
+        if (t_one.dataType != Variable::t_boolean || t_two.dataType != Variable::t_boolean){
             double var1, var2;
-            var1 = String::ToDouble(t_one.value);
-            var2 = String::ToDouble(t_two.value);
+            var1 = StringExt::ToDouble(t_one.value);
+            var2 = StringExt::ToDouble(t_two.value);
 
             switch (op){
                 case Operators::GreaterThan:
@@ -106,22 +106,22 @@ public:
                     return false;
                 case Operators::In:{
                     switch (t_two.dataType){
-                        case Token::t_intArray:
-                            if (Array::Contains(String::ToIntVector(t_two.value), String::ToInteger(t_one.value)))
+                        case Variable::t_intArray:
+                            if (Array::Contains(StringExt::ToIntVector(t_two.value), StringExt::ToInteger(t_one.value)))
                                 return true;
                             return false;
-                        case Token::t_doubleArray:
-                            if (Array::Contains(String::ToDoubleVector(t_two.value), String::ToDouble(t_one.value)))
+                        case Variable::t_doubleArray:
+                            if (Array::Contains(StringExt::ToDoubleVector(t_two.value), StringExt::ToDouble(t_one.value)))
                                 return true;
                             return false;
                     }
                 }
             }
         }
-        else if (t_one.dataType == Token::t_boolean || t_two.dataType == Token::t_boolean){
+        else if (t_one.dataType == Variable::t_boolean || t_two.dataType == Variable::t_boolean){
             bool var1, var2;
-            var1 = String::ToBoolean(t_one.value);
-            var2 = String::ToBoolean(t_two.value);
+            var1 = StringExt::ToBoolean(t_one.value);
+            var2 = StringExt::ToBoolean(t_two.value);
 
             switch (op){
                 case Operators::EqualTo:{
@@ -138,11 +138,11 @@ public:
         }
     }
 
-    static std::string ResultOfOperator(Token tempTokenOne, Token tempTokenTwo, Operators op, Token::dataTypes expectingType){
+    static std::string ResultOfOperator(Variable tempTokenOne, Variable tempTokenTwo, Operators op, Variable::dataTypes expectingType){
         std::string tempString = "";
         switch (op){
             case Operators::Modulo:
-                tempString = std::to_string(String::ToInteger(tempTokenOne.value) % String::ToInteger(tempTokenTwo.value));
+                tempString = std::to_string(StringExt::ToInteger(tempTokenOne.value) % StringExt::ToInteger(tempTokenTwo.value));
                 return tempString;
             case Operators::Increment:
                 break;

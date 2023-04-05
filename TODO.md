@@ -1,10 +1,10 @@
 # TODO : Skipt
 
 ## Compile.cpp:
-- Migrate parseString to using String::Substring
+- Migrate parseString to using StringExt::Substring
 
 ## Functions.cpp:
-- Complete Math, String, Array, Internal
+- Complete Math, StringExt, Array, Internal
 - Internal may contain functions that allow Skipt to interact directly with the Skipt Compiler?
 
 ## Conditional::Operators.h:
