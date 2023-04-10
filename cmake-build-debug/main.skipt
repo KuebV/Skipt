@@ -1,4 +1,8 @@
-double num = 10
-num = num / 3;
+double num = 5.000;
+ref Internal::list_variables()
+
+ref Internal::convert(num, int)
+
+ref Internal::list_variables()
 
 > num

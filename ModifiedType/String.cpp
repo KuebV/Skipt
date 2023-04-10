@@ -3,6 +3,7 @@
 //
 
 
+#include <iostream>
 #include "String.h"
 
 bool String::Contains(std::string search) {
@@ -70,7 +71,7 @@ String String::ReplaceMulti(std::string oldValue, std::string newValue) {
 String String::ReplaceMulti(String oldValue, String newValue) {
     std::unique_ptr<size_t> startPos = std::make_unique<size_t>();
     std::unique_ptr<std::string> ptrContent = std::make_unique<std::string>(content);
-    while ((*startPos = content.find(oldValue.content, *startPos)) != std::string::npos){
+    while ((*startPos = ptrContent->find(oldValue.content, *startPos)) != std::string::npos){
         ptrContent->replace(*startPos, oldValue.content.length(), newValue.content);
         *startPos += newValue.content.length();
     }
@@ -80,7 +81,7 @@ String String::ReplaceMulti(String oldValue, String newValue) {
 void String::ptr_ReplaceMulti(std::string oldValue, std::string newValue) {
     std::unique_ptr<size_t> startPos = std::make_unique<size_t>();
     std::unique_ptr<std::string> ptrContent = std::make_unique<std::string>(content);
-    while ((*startPos = content.find(oldValue, *startPos)) != std::string::npos){
+    while ((*startPos = ptrContent->find(oldValue, *startPos)) != std::string::npos){
         ptrContent->replace(*startPos, oldValue.length(), newValue);
         *startPos += newValue.length();
     }
@@ -90,7 +91,7 @@ void String::ptr_ReplaceMulti(std::string oldValue, std::string newValue) {
 void String::ptr_ReplaceMulti(String oldValue, String newValue) {
     std::unique_ptr<size_t> startPos = std::make_unique<size_t>();
     std::unique_ptr<std::string> ptrContent = std::make_unique<std::string>(content);
-    while ((*startPos = content.find(oldValue.content, *startPos)) != std::string::npos){
+    while ((*startPos = ptrContent->find(oldValue.content, *startPos)) != std::string::npos){
         ptrContent->replace(*startPos, oldValue.content.length(), newValue.content);
         *startPos += newValue.content.length();
     }
@@ -200,6 +201,37 @@ String String::Strip(StripOptions options){
             return String(*tempString);
         }
     }
+}
+
+void String::ptr_Strip(String::StripOptions options) {
+    switch (options){
+        case StripOptions::Beginning:{
+            std::unique_ptr<std::string> tempString = std::make_unique<std::string>("");
+            int alphaNumIndex = 0;
+            for (int i = 0; i < content.length(); i++){
+                if (std::isspace(content[i])){
+                    alphaNumIndex = i;
+                    break;
+                }
+            }
+
+            *Ptr_content = Ptr_content->substr(alphaNumIndex, (content.length() - alphaNumIndex));
+        }
+        case StripOptions::All:{
+            std::unique_ptr<std::string> tempString = std::make_unique<std::string>("");
+            for (int i = 0; i < content.length(); i++){
+                if (!std::isspace(content[i]))
+                    *tempString += content[i];
+            }
+
+            Ptr_content = std::make_unique<std::string>(*tempString);
+            content = *tempString;
+        }
+    }
+}
+
+void String::MakeUnique(std::string string) {
+    Ptr_content = std::make_unique<std::string>(string);
 }
 
 

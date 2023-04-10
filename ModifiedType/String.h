@@ -22,11 +22,15 @@ public:
     explicit String(const std::string& string){
         content = string;
         Length = string.length();
+
+        Ptr_content = std::make_unique<std::string>(content);
     }
 
     String(const String &string){
         content = string.content;
-        Length = content.length();
+        Length = string.content.length();
+
+        Ptr_content = std::make_unique<std::string>(content);
     }
 
     int Length;
@@ -62,10 +66,14 @@ public:
 
     bool ContainsAny(std::vector<std::string> searchElements);
     String Strip(StripOptions stripOptions);
+    void ptr_Strip(StripOptions stripOptions);
+
+    void MakeUnique(std::string string);
 
 
 
 private:
+    std::unique_ptr<std::string> Ptr_content;
     std::string content;
 };
 

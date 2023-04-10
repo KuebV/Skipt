@@ -70,10 +70,45 @@ Variable InternalFunction::HandleCall(std::string function, std::string argument
         case ListVariables:
             for (auto it = Variable::variableMap.begin(); it != Variable::variableMap.end(); it++){
                 Variable tkn = it->second;
-                std::cout << "Name : " << tkn.name << "\tValue: " << tkn.value << "\tAddress: " << &it->second << "\tSizeof: " << sizeof(it->second) <<"\n";
+                std::cout << "Name : " << tkn.name << "\tValue: " << tkn.value << "\tAddress: " << &it->second << "\tData_Type: " << Variable::EnumToString(it->second.dataType) <<"\n";
             }
             return emptyToken;;
+        case Convert:{
+            std::vector<std::string> args = StringExt::Split(arguments, ",");
+            Variable::CleanTokens(args);
 
+            // ref Internal::convert(variable, type)
+            if (!Variable::Exists(args[0])){
+                exitMsg.Error("ConvertVariable", "Variable does not exist!", arguments, 1);
+            }
+            std::unique_ptr<Variable> variable = std::make_unique<Variable>(Variable::Get(args[0]));
+            Variable::dataTypes oldDatatype = variable->dataType;
+            Variable::dataTypes newDatatype = StringToType(args[1]);
+            if (newDatatype == Variable::t_empty){
+                exitMsg.Error("ConvertVariable", "Datatype does not exist!", arguments, 1);
+            }
+
+            if (Variable::IsArray(newDatatype) || Variable::IsArray(oldDatatype)){
+                exitMsg.Error("ConvertVariable", "You cannot recast variables if they are arrays", arguments, 1);
+            }
+
+            switch (newDatatype){
+                case Variable::t_integer:{
+                    int n = StringExt::ToInteger(variable->value);
+                    Variable::variableMap[variable->name].dataType = newDatatype;
+                    Variable::variableMap[variable->name].value = std::to_string(n);
+                    break;
+                }
+                case Variable::t_double:{
+                    Variable::variableMap[variable->name].dataType = newDatatype;
+                    break;
+                }
+                case Variable::t_string:{
+                    Variable::variableMap[variable->name].dataType = newDatatype;
+                    break;
+                }
+            }
+        }
         case Null:
             break;
     }

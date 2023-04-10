@@ -42,6 +42,12 @@ public:
         value = "0.0";
     }
 
+    Variable(std::string name, std::string value, dataTypes type){
+        if (Variable::Exists(name)){
+
+        }
+    }
+
     static void DefineVariable(std::string _name, std::string value, dataTypes varType, bool isConditional){
         Variable newToken; newToken.name = _name; newToken.value = value; newToken.dataType = varType;
         if (isConditional){
@@ -63,6 +69,12 @@ public:
     static void modifyVariable(Variable token, std::string value){
         Variable newToken = token; newToken.value = value;
         variableMap.find(token.name)->second = newToken;
+    }
+
+    void modifyVariable(Variable newVariable){
+        name = newVariable.name;
+        value = newVariable.value;
+        dataType = newVariable.dataType;
     }
 
     static Variable Get(std::string name){
@@ -163,6 +175,14 @@ public:
         }
         return false;
     }
+
+    static bool IsArray(dataTypes type){
+        if (type == t_intArray || type == t_doubleArray || type == t_strArray || type == t_floatArray){
+            return true;
+        }
+        return false;
+    }
+
 
     static std::string EnumToString(int enumValue){
         switch (enumValue){

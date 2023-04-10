@@ -505,33 +505,6 @@ void Compile::Run(std::string fileName, bool asExternal) {
 
         }
 
-        /*std::string lexerString = "";
-        for (int j = 0; j < line.length(); j++){
-            if (std::isalpha(line[j]))
-                continue;
-
-            char currentCharacter = line[j];
-            char nextCharacter;
-            if (j < line.length() - 1)
-                nextCharacter = line[j + 1];
-
-            if (!Operator::IsOperator(currentCharacter, nextCharacter))
-                continue;
-            else{
-                std::string operatorString; operatorString += currentCharacter; operatorString += nextCharacter;
-                Operator::Operators _operator = Operator::ParseOperator(operatorString);
-                if (Operator::RequireSecondVariable(_operator)){
-                    std::string subString = line.substr(i + 5, (line.length() - i));
-                    subString = StringExt::Strip(subString);
-
-
-                    if (_operator == Operator::Operators::Increment){
-
-                    }
-                }
-            }
-        }*/
-
 
         String lineString(line);
         if (lineString.Contains('=')){
@@ -543,7 +516,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 lineString.ptr_ReplaceMulti("-=", "=");
 
             std::unique_ptr<String> potentialVariable = std::make_unique<String>(lineString.Substring(0, lineString.Until('=')));
-            *potentialVariable = potentialVariable->Strip(String::StripOptions::All);
+            potentialVariable->ptr_Strip(String::StripOptions::All);
 
             if (!Variable::Exists(potentialVariable->ToString())){
                 exitMsg.Error("Lexer", "Variable does not exist!", line, 1);
