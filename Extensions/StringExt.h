@@ -8,6 +8,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <memory>
 
 class StringExt{
 public:
@@ -163,6 +164,23 @@ public:
         size_t start = line.find(stringToFind);
         if (start != std::string::npos)
             return start;
+    }
+
+    static std::string ReplaceLiterals(std::string s1){
+        std::unique_ptr<std::string> ptrString = std::make_unique<std::string>(s1);
+        for (int i = 0; i < s1.length(); i++){
+            char currentChar = s1[i];
+            if (currentChar == '\\'){
+                switch (s1[i + 1]){
+                    case 'n':{
+                        *ptrString = StringExt::Replace(*ptrString, "\\n", "\n");
+                        break;
+                    }
+                }
+            }
+        }
+
+        return *ptrString;
     }
 
 };

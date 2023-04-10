@@ -8,7 +8,7 @@ Compile::VariableTypes GetVariableTypes(std::string const& str){
             { "int", Compile::VariableTypes::Integer},
             { "double", Compile::VariableTypes::Double},
             { "float", Compile::VariableTypes::Float},
-            { "string", Compile::VariableTypes::String},
+            { "string", Compile::VariableTypes::StringType},
             { "bool", Compile::VariableTypes::Boolean},
             { "int[]", Compile::VariableTypes::IntegerArray},
             { "double[]", Compile::VariableTypes::DoubleArray},
@@ -69,9 +69,16 @@ void Compile::Run(std::string fileName, bool asExternal) {
 
         switch (GetVariableTypes(lineElements[0])){ // Defining a new variable
             case Integer:{
-                if (Variable::variableExists(lineElements[1])){
+                if (Variable::Exists(lineElements[1])){
                     exitMsg.Error("Define Integer", lineElements[1] + " has already been defined as a variable!", line, 1);
                 }
+
+                if (std::isdigit(lineElements[1][0])){
+                    exitMsg.Error("StringArray Definition", "Variable Name cannot start with a numeric digit!", line, 1);
+                }
+
+                if (asExternal)
+                    lineElements[1] = fileNameModified + "[" + lineElements[1] + "]";
 
                 if (!StringExt::Contains(line, "=")){
                     Variable::DefineVariable(lineElements[1], "0", Variable::t_integer, inConditional);
@@ -86,14 +93,21 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 }
 
                 Variable::DefineVariable(lineElements[1], variableValue, Variable::t_integer, inConditional);
-                break;
+                continue;
             }
-            case String: {
-                if (Variable::variableExists(lineElements[1])){
+            case StringType: {
+                if (Variable::Exists(lineElements[1])){
                     std::cout << "[Error] | [Compile.cpp] [Define Variable]: " << lineElements[1] << " has already been defined as a variable!\n";
                     std::cout << "        |> " << line << "\n";
                     exit(1);
                 }
+
+                if (std::isdigit(lineElements[1][0])){
+                    exitMsg.Error("StringArray Definition", "Variable Name cannot start with a numeric digit!", line, 1);
+                }
+
+                if (asExternal)
+                    lineElements[1] = fileNameModified + "[" + lineElements[1] + "]";
 
                 if (!StringExt::Contains(line, "=")){
                     Variable::DefineVariable(lineElements[1], "", Variable::t_string, inConditional);
@@ -111,19 +125,27 @@ void Compile::Run(std::string fileName, bool asExternal) {
 
                 Variable::DefineVariable(lineElements[1], variableValue, Variable::t_string, inConditional);
 
-                break;
+                continue;
             }
             case Double:{
-                if (Variable::variableExists(lineElements[1])){
+                if (Variable::Exists(lineElements[1])){
                     std::cout << "[Error] | [Compile.cpp] [Define Variable]: " << lineElements[1] << " has already been defined as a variable!\n";
                     std::cout << "        |> " << line << "\n";
                     exit(1);
                 }
 
+                if (std::isdigit(lineElements[1][0])){
+                    exitMsg.Error("StringArray Definition", "Variable Name cannot start with a numeric digit!", line, 1);
+                }
+
+                if (asExternal)
+                    lineElements[1] = fileNameModified + "[" + lineElements[1] + "]";
+
                 if (!StringExt::Contains(line, "=")){
                     Variable::DefineVariable(lineElements[1], "0.0", Variable::t_double, inConditional);
                     break;
                 }
+
 
                 std::string variableValue = StringExt::Strip(StringExt::Split(line, "=")[1]);
                 if (!StringExt::IsDouble(variableValue)){
@@ -133,14 +155,21 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 }
 
                 Variable::DefineVariable(lineElements[1], variableValue, Variable::t_double, inConditional);
-                break;
+                continue;
             }
             case Float:{
-                if (Variable::variableExists(lineElements[1])){
+                if (Variable::Exists(lineElements[1])){
                     std::cout << "[Error] | [Compile.cpp] [Define Variable]: " << lineElements[1] << " has already been defined as a variable!\n";
                     std::cout << "        |> " << line << "\n";
                     exit(1);
                 }
+
+                if (std::isdigit(lineElements[1][0])){
+                    exitMsg.Error("StringArray Definition", "Variable Name cannot start with a numeric digit!", line, 1);
+                }
+
+                if (asExternal)
+                    lineElements[1] = fileNameModified + "[" + lineElements[1] + "]";
 
                 if (!StringExt::Contains(line, "=")){
                     Variable::DefineVariable(lineElements[1], "0f", Variable::t_float, inConditional);
@@ -155,14 +184,21 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 }
 
                 Variable::DefineVariable(lineElements[1], variableValue, Variable::t_floatArray, inConditional);
-                break;
+                continue;
             }
             case Boolean:{
-                if (Variable::variableExists(lineElements[1])){
+                if (Variable::Exists(lineElements[1])){
                     std::cout << "[Error] | [Compile.cpp] [Define Variable]: " << lineElements[1] << " has already been defined as a variable!\n";
                     std::cout << "        |> " << line << "\n";
                     exit(1);
                 }
+
+                if (std::isdigit(lineElements[1][0])){
+                    exitMsg.Error("StringArray Definition", "Variable Name cannot start with a numeric digit!", line, 1);
+                }
+
+                if (asExternal)
+                    lineElements[1] = fileNameModified + "[" + lineElements[1] + "]";
 
                 if (!StringExt::Contains(line, "=")){
                     Variable::DefineVariable(lineElements[1], "false", Variable::t_boolean, inConditional);
@@ -171,14 +207,21 @@ void Compile::Run(std::string fileName, bool asExternal) {
 
                 std::string variableValue = StringExt::Strip(StringExt::Split(line, "=")[1]);
                 Variable::DefineVariable(lineElements[1], variableValue, Variable::t_boolean, inConditional);
-                break;
+                continue;
             }
             case IntegerArray:{
-                if (Variable::variableExists(lineElements[1])){
+                if (Variable::Exists(lineElements[1])){
                     std::cout << "[Error] | [Compile.cpp] [Define Variable]: " << lineElements[1] << " has already been defined as a variable!\n";
                     std::cout << "        |> " << line << "\n";
                     exit(1);
                 }
+
+                if (std::isdigit(lineElements[1][0])){
+                    exitMsg.Error("StringArray Definition", "Variable Name cannot start with a numeric digit!", line, 1);
+                }
+
+                if (asExternal)
+                    lineElements[1] = fileNameModified + "[" + lineElements[1] + "]";
 
                 if (!StringExt::Contains(line, "=")){
                     Variable integerArrayToken;
@@ -203,13 +246,17 @@ void Compile::Run(std::string fileName, bool asExternal) {
 
                     Variable::DefineVariable(variableName, variableValue, Variable::t_integer, inConditional);
                 }
-                break;
+                continue;
             }
             case DoubleArray:{
-                if (Variable::variableExists(lineElements[1])){
+                if (Variable::Exists(lineElements[1])){
                     std::cout << "[Error] | [Compile.cpp] [Define Variable]: " << lineElements[1] << " has already been defined as a variable!\n";
                     std::cout << "        |> " << line << "\n";
                     exit(1);
+                }
+
+                if (std::isdigit(lineElements[1][0])){
+                    exitMsg.Error("StringArray Definition", "Variable Name cannot start with a numeric digit!", line, 1);
                 }
 
                 if (!StringExt::Contains(line, "=")){
@@ -235,13 +282,17 @@ void Compile::Run(std::string fileName, bool asExternal) {
 
                     Variable::DefineVariable(variableName, variableValue, Variable::t_double, inConditional);
                 }
-                break;
+                continue;
             }
             case StringArray:{
-                if (Variable::variableExists(lineElements[1])){
+                if (Variable::Exists(lineElements[1])){
                     std::cout << "[Error] | [Compile.cpp] [Define Variable]: " << lineElements[1] << " has already been defined as a variable!\n";
                     std::cout << "        |> " << line << "\n";
                     exit(1);
+                }
+
+                if (std::isdigit(lineElements[1][0])){
+                    exitMsg.Error("StringArray Definition", "Variable Name cannot start with a numeric digit!", line, 1);
                 }
 
                 if (!StringExt::Contains(line, "=")){
@@ -269,7 +320,8 @@ void Compile::Run(std::string fileName, bool asExternal) {
 
                     Variable::DefineVariable(variableName, variableValue, Variable::t_strArray, inConditional);
                 }
-                break;
+
+                continue;
             }
             case Reference:{
                 std::string refVariableName = StringExt::Split(line, " ")[1];
@@ -292,11 +344,11 @@ void Compile::Run(std::string fileName, bool asExternal) {
                     std::string getTokenName = StringExt::Split(line, ">>")[1];
                     getTokenName = StringExt::Strip(getTokenName);
 
-                    Variable getToken = Variable::getAllVariables(getTokenName);
+                    Variable getToken = Variable::Get(getTokenName);
                     if (getToken.dataType != returnToken.dataType){
                         std::cout << "[Error] | [Compile.cpp] [Reference Handler]: Return Variable and Defined Variable are not the same data-type!\n";
                         std::cout << "        |> " << line << "\n";
-                        std::cout << "[Context for Above]:\nReturn Variable: " << returnToken.dataType << "\nDefined Variable: " << getToken.dataType << "\n";
+                        std::cout << "[Context for Above]:\nReturn Variable: " << Variable::EnumToString(returnToken.dataType) << "\nDefined Variable: " << Variable::EnumToString(getToken.dataType) << "\n";
                         exit(1);
                     }
                     Variable::modifyVariable(getToken, returnToken.value);
@@ -306,7 +358,8 @@ void Compile::Run(std::string fileName, bool asExternal) {
                     std::cout << "        |> " << line << "\n";
                     exit(1);
                 }
-                break;
+
+                continue;
             }
             case Free:{
                 std::string freeToken = line.substr(StringExt::IndexOf(line, " ") + 1, (line.length() - StringExt::IndexOf(line, " ")));
@@ -314,12 +367,12 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 if (StringExt::Contains(freeToken, "[") && StringExt::Contains(freeToken, "]")){
                     exitMsg.Error("Compile::Run", "Cannot free an element of an array", line, 1);
                 }
-                if (Variable::getAllVariables(freeToken).dataType == Variable::dataTypes::t_intArray ||
-                        Variable::getAllVariables(freeToken).dataType == Variable::dataTypes::t_strArray ||
-                        Variable::getAllVariables(freeToken).dataType == Variable::dataTypes::t_floatArray ||
-                        Variable::getAllVariables(freeToken).dataType == Variable::dataTypes::t_doubleArray){
+                if (Variable::Get(freeToken).dataType == Variable::dataTypes::t_intArray ||
+                        Variable::Get(freeToken).dataType == Variable::dataTypes::t_strArray ||
+                        Variable::Get(freeToken).dataType == Variable::dataTypes::t_floatArray ||
+                        Variable::Get(freeToken).dataType == Variable::dataTypes::t_doubleArray){
 
-                    Variable t = Variable::getAllVariables(freeToken);
+                    Variable t = Variable::Get(freeToken);
                     int totalTokens = StringExt::Split(t.value, ",").size();
                     for (int j = 0; j < totalTokens; j++){
                         std::string *x = new std::string();
@@ -328,6 +381,8 @@ void Compile::Run(std::string fileName, bool asExternal) {
                         free(x);
                     }
                 }
+
+                continue;
             }
             case UnsafeFree:{
                 // In the case of arrays, the unsafe array will delete the element without resizing, or checking the parent array
@@ -335,17 +390,19 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 std::string freeToken = line.substr(StringExt::IndexOf(line, " ") + 1, (line.length() - StringExt::IndexOf(line, " ")));
                 freeToken = StringExt::Strip(freeToken);
 
-                if (!Variable::variableExists(freeToken)){
+                if (!Variable::Exists(freeToken)){
                     std::cout << "[Error] | [Compile.cpp] [Freeing Variables]: Variable was unable to be freed, because it does not exist!\n";
                     std::cout << "        |> " << freeToken << "\n";
                     exit(1);
                 }
-                Variable t = Variable::getVariable(freeToken);
+                Variable t = Variable::Get(freeToken);
                 bool x = Variable::DeleteToken(freeToken);
                 if (!x){
                     std::cout << freeToken << " was unable to be freed from memory\n";
                 }
-                break;
+
+                continue;
+
             }
             case If:{
                 std::string expression = StringExt::Substring(line, "(", ")");
@@ -359,24 +416,24 @@ void Compile::Run(std::string fileName, bool asExternal) {
                     Variable tokenOne;
                     Variable tokenTwo;
 
-                    if (!Variable::variableExists(variableOne) && !Variable::variableExists(variableTwo)){
+                    if (!Variable::Exists(variableOne) && !Variable::Exists(variableTwo)){
                         std::cout << "[Error] | [Compile.cpp] [Conditional Statement(If)]: Conditional operator does not contain a consistent token!\n";
                         std::cout << "        |> " << line << "\n";
                         exit(1);
                     }
 
-                    if (Variable::variableExists(variableOne)){
-                        tokenOne = Variable::getVariable(variableOne);
+                    if (Variable::Exists(variableOne)){
+                        tokenOne = Variable::Get(variableOne);
                     }
                     else{
                         Variable tempVariableTwo;
-                        tempVariableTwo = Variable::getVariable(variableTwo);
+                        tempVariableTwo = Variable::Get(variableTwo);
                         Variable::dataTypes primitiveType = Variable::GetPrimitiveType(tempVariableTwo.dataType);
                         tokenOne.name = "conditionalVariable_1"; tokenOne.dataType = primitiveType; tokenOne.value = variableOne;
                     }
 
-                    if (Variable::variableExists(variableTwo)){
-                        tokenTwo = Variable::getVariable(variableTwo);
+                    if (Variable::Exists(variableTwo)){
+                        tokenTwo = Variable::Get(variableTwo);
                     }
                     else{
                         tokenTwo.name = "conditionalVariable_2"; tokenTwo.dataType = tokenOne.dataType; tokenTwo.value = variableTwo;
@@ -388,6 +445,8 @@ void Compile::Run(std::string fileName, bool asExternal) {
                         inConditional = true;
                         inConditionalStarts = i + 1;
                     }
+
+                    continue;
                 }
             }
             case While:{
@@ -399,25 +458,25 @@ void Compile::Run(std::string fileName, bool asExternal) {
                     Variable tokenOne;
                     Variable tokenTwo;
 
-                    if (!Variable::variableExists(variableOne) && !Variable::variableExists(variableTwo)){
+                    if (!Variable::Exists(variableOne) && !Variable::Exists(variableTwo)){
                         std::cout << "[Error] | [Compile.cpp] [Conditional Statement(While)]: Conditional operator does not contain a consistent token!\n";
                         std::cout << "        |> " << line << "\n";
                         exit(1);
                     }
 
                     // This is exactly what the conditional statement for if does
-                    if (Variable::variableExists(variableOne)){
-                        tokenOne = Variable::getVariable(variableOne);
+                    if (Variable::Exists(variableOne)){
+                        tokenOne = Variable::Get(variableOne);
                     }
                     else{
                         Variable tempVariableTwo;
-                        tempVariableTwo = Variable::getVariable(variableTwo);
+                        tempVariableTwo = Variable::Get(variableTwo);
                         Variable::dataTypes primitiveType = Variable::GetPrimitiveType(tempVariableTwo.dataType);
                         tokenOne.name = "conditionalVariable_1"; tokenOne.dataType = primitiveType; tokenOne.value = variableOne;
                     }
 
-                    if (Variable::variableExists(variableTwo)){
-                        tokenTwo = Variable::getVariable(variableTwo);
+                    if (Variable::Exists(variableTwo)){
+                        tokenTwo = Variable::Get(variableTwo);
                     }
                     else{
                         tokenTwo.name = "conditionalVariable_2"; tokenTwo.dataType = tokenOne.dataType; tokenTwo.value = variableTwo;
@@ -436,57 +495,86 @@ void Compile::Run(std::string fileName, bool asExternal) {
                         whileStatement = false;
                     }
 
+                    continue;
+
                 }
             }
-            default:
+            default:{
                 break;
+            }
+
         }
 
+        /*std::string lexerString = "";
+        for (int j = 0; j < line.length(); j++){
+            if (std::isalpha(line[j]))
+                continue;
+
+            char currentCharacter = line[j];
+            char nextCharacter;
+            if (j < line.length() - 1)
+                nextCharacter = line[j + 1];
+
+            if (!Operator::IsOperator(currentCharacter, nextCharacter))
+                continue;
+            else{
+                std::string operatorString; operatorString += currentCharacter; operatorString += nextCharacter;
+                Operator::Operators _operator = Operator::ParseOperator(operatorString);
+                if (Operator::RequireSecondVariable(_operator)){
+                    std::string subString = line.substr(i + 5, (line.length() - i));
+                    subString = StringExt::Strip(subString);
 
 
-        // Modify Variable
-        if (Variable::variableExists(StringExt::Split(line, " = ")[0]) && !StringExt::Contains(line, ":")){
-            // Get the token that is being modified
-            Variable token = Variable::getVariable(StringExt::Split(line, " = ")[0]);
+                    if (_operator == Operator::Operators::Increment){
 
-            if (token.dataType == Variable::t_string){
-                std::string str = parseString(line, i);
-                Variable::modifyVariable(token, str);
+                    }
+                }
+            }
+        }*/
+
+
+        String lineString(line);
+        if (lineString.Contains('=')){
+
+            if (lineString.Contains("+="))
+                lineString.ptr_ReplaceMulti("+=", "=");
+
+            if (lineString.Contains("-="))
+                lineString.ptr_ReplaceMulti("-=", "=");
+
+            std::unique_ptr<String> potentialVariable = std::make_unique<String>(lineString.Substring(0, lineString.Until('=')));
+            *potentialVariable = potentialVariable->Strip(String::StripOptions::All);
+
+            if (!Variable::Exists(potentialVariable->ToString())){
+                exitMsg.Error("Lexer", "Variable does not exist!", line, 1);
             }
 
-            int lineLength = line.length();
-            size_t equals = line.find('=');
-            std::string str = line.substr(equals + 1, lineLength - 1);
-
-            str = ExpressionParser::ReplaceVariableNames(str);
-            str = StringExt::Strip(str);
-
-            if (StringExt::Split(str, " ").size() <= 1){
-                Variable::modifyVariable(token, str);
+            Variable var = Variable::Get(potentialVariable->ToString());
+            if (var.dataType == Variable::t_string){
+                Variable::modifyVariable(var, lineString.ContentBetween("\"", "\"").ToString());
+                break;
             }
 
+            std::vector<std::string> expressionOperators = {"+", "-", "/", "*", "%", "(", ")"};
+            if (lineString.ContainsAny(expressionOperators)){
+                size_t startIndex = lineString.Until('=');
+                std::string expression = lineString.Substring(startIndex + 1, (lineString.Length - startIndex)).ToString();
+                expression = StringExt::Strip(expression);
 
-            // Expression Parser
-            if (StringExt::Contains(line, "+") || StringExt::Contains(line, "-") || StringExt::Contains(line, "*") || StringExt::Contains(line, "/")){
-                int lineLength = line.length();
-                size_t equals = line.find('=');
-                std::string str = line.substr(equals + 1, lineLength - 1);
+                std::string expressionReplaced = ExpressionParser::ReplaceVariableNames(expression);
 
-                str = ExpressionParser::ReplaceVariableNames(str);
-                char* char_array = new char[str.length() + 1];
-                std::strcpy(char_array, str.c_str());
+                char* char_array = new char[expressionReplaced.length() + 1];
+                std::strcpy(char_array, expressionReplaced.c_str());
 
                 Parser p(char_array);
-                Expression *expression = p.statement();
+                Expression *expressionParser = p.statement();
 
-                if (expression){
-                    Variable::modifyVariable(token, std::to_string(expression->evaluate()));
-                    delete expression;
+                if (expressionParser){
+                    Variable::modifyVariable(var, std::to_string(expressionParser->evaluate()));
+                    delete expressionParser;
                 }
                 else{
-                    std::cout << "[Error] | [Compile.cpp] [Expression Parser]: Unable to compute expression!\n";
-                    std::cout << "        |> " << line << "\n";
-                    exit(1);
+                    exitMsg.Error("Lexer.ExpressionParser", "Cannot Compute Expression, view expression below", expression, 1);
                 }
             }
         }
@@ -503,11 +591,11 @@ void Compile::Run(std::string fileName, bool asExternal) {
             }
             else{
                 if (inConditional){
-                    Variable token = Variable::getAllVariables(StringExt::Split(line, " ")[1]);
+                    Variable token = Variable::Get(StringExt::Split(line, " ")[1]);
                     std::cout << token.value;
                 }
                 else{
-                    Variable token = Variable::getVariable(StringExt::Split(line, " ")[1]);
+                    Variable token = Variable::Get(StringExt::Split(line, " ")[1]);
                     std::cout << token.value;
                 }
 
@@ -515,7 +603,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
         }
 
         if (line[0] == '<'){ // Input
-            Variable token = Variable::getVariable(StringExt::Split(line, " ")[1]);
+            Variable token = Variable::Get(StringExt::Split(line, " ")[1]);
 
             std::string input;
             std::getline(std::cin, input);
@@ -559,7 +647,6 @@ void Compile::Run(std::string fileName, bool asExternal) {
 }
 
 std::string Compile::parseString(std::string line, int lineNumber) {
-    std::string parsedString;
 
     lineNumber++;
 
@@ -577,17 +664,15 @@ std::string Compile::parseString(std::string line, int lineNumber) {
     }
 
     firstInstance++;
-    parsedString = line.substr(firstInstance, (lastInstance - firstInstance));
+    String parsedString(line.substr(firstInstance, (lastInstance - firstInstance)));
 
-    for (int j = 0; j < parsedString.length(); j++){
-        char c = parsedString[j];
+    for (int j = 0; j < parsedString.ToString().length(); j++){
+        char c = parsedString.ToString()[j];
         if (c == '\\'){ // Literal
-            switch (parsedString[j + 1]){
+            switch (parsedString.ToString()[j + 1]){
                 case 'n':
+                    parsedString.ptr_ReplaceMulti("\\n", "\n");
 
-                    // Jesus christ, I'm stupid. Parsed StringExt wasn't being set to the newly replaced string.
-                    // Possibly change StringExt::Replace to contain the & modify operator?
-                    parsedString = StringExt::Replace(parsedString, "\\n", "\n");
                     break;
                 default:
                     break;
@@ -595,6 +680,6 @@ std::string Compile::parseString(std::string line, int lineNumber) {
         }
 
     }
-    return parsedString;
+    return parsedString.ToString();
 }
 

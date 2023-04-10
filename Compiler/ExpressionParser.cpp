@@ -5,10 +5,11 @@
 #include <unordered_map>
 #include "ExpressionParser.h"
 #include "../Extensions/StringExt.h"
+#include "../ModifiedType/String.h"
 
 
 std::string ExpressionParser::ReplaceVariableNames(std::string line) {
-    std::string temp = line;
+    String temp(line);
 
     std::unordered_map<std::string, double> map;
     map = {{"MATH.PI", 3.1415926535},
@@ -18,16 +19,16 @@ std::string ExpressionParser::ReplaceVariableNames(std::string line) {
 
     std::vector<std::string> values = StringExt::Split(line, " ");
     for (int i = 0; i < values.size(); i++){
-        if (Variable::variableExists(values[i])){
-            temp = StringExt::Replace(temp, values[i] , Variable::getVariable(values[i]).value);
+        if (Variable::Exists(values[i])){
+            temp.ptr_ReplaceMulti(values[i], Variable::Get(values[i]).value);
         }
 
         if (map.find(values[i]) != map.end()){
-            temp = StringExt::Replace(temp, values[i], std::to_string(map[values[i]]));
+            temp.ptr_ReplaceMulti(values[i], std::to_string(map[values[i]]));
         }
     }
 
-    return temp;
+    return temp.ToString();
 
 
 

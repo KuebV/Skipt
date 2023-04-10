@@ -1,2 +1,4 @@
-string[] lines;
-ref Internal::print_tokens()
+double num = 10
+num = num / 3;
+
+> num

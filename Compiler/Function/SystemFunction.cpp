@@ -101,6 +101,9 @@ Variable SystemFunction::HandleCall(std::string function, std::string arguments)
                 initialString = StringExt::Replace(initialString, "{" + std::to_string(i) + "}", args[i]);
             }
 
+            initialString = StringExt::ReplaceLiterals(initialString);
+            std::string x = initialString;
+
             std::cout << initialString;
             return emptyToken;
         }
@@ -120,12 +123,12 @@ Variable SystemFunction::HandleCall(std::string function, std::string arguments)
             Variable::CleanTokens(args);
             Variable::ConvertToTokenValues(args);
 
-            if (!Variable::variableExists("System::Random(RandomSeed)")){
+            if (!Variable::Exists("System::Random(RandomSeed)")){
                 exitMessage.Error("randint", "Random Seed was not initialized!", arguments, 1);
             }
 
-            if (StringExt::ToInteger(Variable::getVariable("System::Random(RandomSeed)").value) == 0) srand(time(NULL));
-            else srand(StringExt::ToInteger(Variable::getVariable("System::Random(RandomSeed)").value));
+            if (StringExt::ToInteger(Variable::Get("System::Random(RandomSeed)").value) == 0) srand(time(NULL));
+            else srand(StringExt::ToInteger(Variable::Get("System::Random(RandomSeed)").value));
 
             int randNum;
             if (!StringExt::IsInteger(args[0]) || !StringExt::IsInteger(args[1])){

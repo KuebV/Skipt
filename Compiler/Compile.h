@@ -22,6 +22,7 @@
 #include <unordered_map>
 #include <chrono>
 #include "Variable.h"
+#include "../ModifiedType/String.h"
 
 class Compile {
 public:
@@ -31,7 +32,7 @@ public:
 
     enum VariableTypes{
         Integer,
-        String,
+        StringType,
         Double,
         Float,
         Boolean,

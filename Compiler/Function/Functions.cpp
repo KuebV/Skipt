@@ -16,17 +16,9 @@ enum ClassFunctions{
     String,
     Array,
     Internal,
+    Statistics,
     Null
 };
-
-ClassFunctions HashString(std::string const& str){
-    if (str == "System") return System;
-    else if (str == "Math") return Math;
-    else if (str == "StringExt") return String;
-    else if (str == "Array") return Array;
-    else if (str == "Internal") return Internal;
-    else return Null;
-}
 
 // This is modified from ExpressionParser.cpp, for functions, we need to parse by commas, not by spaces
 std::string ModifiedReplaceVariableNames(std::string line){
@@ -37,11 +29,13 @@ std::string ModifiedReplaceVariableNames(std::string line){
     for (int i = 0; i < values.size(); i++){
         values[i] = StringExt::Strip(values[i]);
 
-        if (Variable::variableExists(values[i])){
-            temp = StringExt::Replace(temp, values[i] , Variable::getVariable(values[i]).value);
+        if (Variable::Exists(values[i])){
+            temp = StringExt::Replace(temp, values[i] , Variable::Get(values[i]).value);
         }
     }
     return temp;
+
+
 }
 
 Variable Functions::HandleCallFunction(std::string functionCall) {
@@ -56,6 +50,17 @@ Variable Functions::HandleCallFunction(std::string functionCall) {
     std::string arguments = StringExt::Substring(functionCall, "(", ")");
     arguments = ModifiedReplaceVariableNames(arguments);
     arguments = StringExt::Substring(functionCall, "(", ")");
+
+    auto HashString = [](std::string const& str){
+        if (str == "System") return System;
+        else if (str == "Math") return Math;
+        else if (str == "StringType") return String;
+        else if (str == "Array") return Array;
+        else if (str == "Internal") return Internal;
+        else if (str == "Statistics") return Statistics;
+        else if (str == "Stats") return Statistics;
+        else return Null;
+    };
 
     switch (HashString(classFunction)){
         case Null:{
@@ -74,6 +79,7 @@ Variable Functions::HandleCallFunction(std::string functionCall) {
             return ArrayFunctions::HandleCall(methodFunction, arguments);
         case Internal:
             return InternalFunction::HandleCall(methodFunction,arguments);
+        case Statistics:
             break;
     }
 

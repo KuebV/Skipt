@@ -42,7 +42,7 @@ Variable ArrayFunctions::HandleCall(std::string function, std::string arguments)
             std::vector<std::string> args = StringExt::Split(arguments, ",");
             Variable::CleanTokens(args);
 
-            if (!Variable::variableExists(args[0])){
+            if (!Variable::Exists(args[0])){
                 exitMsg.Error("HandleCall.At", args[0] + " is not a defined array variable!", arguments, 1);
             }
             std::string preArray = args[0];
@@ -59,18 +59,22 @@ Variable ArrayFunctions::HandleCall(std::string function, std::string arguments)
             }
 
             std::string arrayIndexer = preArray + "[" + args[1] + "]";
-            std::string arrayItem = Variable::getVariable(arrayIndexer).value;
+            std::string arrayItem = Variable::Get(arrayIndexer).value;
 
-            Variable returnToken;
-            returnToken.dataType = Variable::t_string;
-            returnToken.value = arrayItem;
-            return returnToken;
+            // We need to find the parent array data-type
+            // We should be able to do this via subtracting the parent enum by 5
+            Variable::dataTypes parentType =  static_cast<Variable::dataTypes>(Variable::Get(preArray).dataType - 5);
+
+            Variable returnVariable;
+            returnVariable.dataType = parentType;
+            returnVariable.value = arrayItem;
+            return returnVariable;
         }
         case Length:{
-            if (!Variable::variableExists(arguments)){
+            if (!Variable::Exists(arguments)){
                 exitMsg.Error("HandleCall.Length", arguments + " is not a defined array variable!", arguments, 1);
             }
-            if (!Variable::IsArray(Variable::getAllVariables(arguments))){
+            if (!Variable::IsArray(Variable::Get(arguments))){
                 exitMsg.Error("HandleCall.Length", arguments + " is not of type array!", arguments, 1);
             }
 

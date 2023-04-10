@@ -5,6 +5,7 @@
 #include <iostream>
 #include "StringFunction.h"
 #include "../ExitMessage.h"
+#include "../../ModifiedType/String.h"
 
 StringFunction::MethodFunctions GetStringFunction(std::string const& str){
     const std::unordered_map<std::string, StringFunction::MethodFunctions> functionTable{
@@ -42,7 +43,10 @@ Variable StringFunction::HandleCall(std::string function, std::string arguments)
 
             std::string initialString = args[0];
             for (int i = 1; i < args.size();i++){
-                initialString = StringExt::Replace(initialString, "{" + std::to_string(i - 1) + "}", args[i]);
+                if (args.size() >= 100)
+                    initialString = String(initialString).ReplaceMulti("{" + std::to_string(i - 1) + "}", args[i]).ToString();
+                else
+                    initialString = StringExt::Replace(initialString, "{" + std::to_string(i - 1) + "}", args[i]);
             }
 
             Variable formatToken;

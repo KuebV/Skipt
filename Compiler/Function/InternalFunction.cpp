@@ -10,10 +10,10 @@
 #include "../ExitMessage.h"
 
 
-InternalFunction::MethodFunctions GetInternalFunction(std::string const& str){
+InternalFunction::MethodFunctions GetStatisticalFunction(std::string const& str){
     const std::unordered_map<std::string, InternalFunction::MethodFunctions> functionTable{
             { "execute_skipt", InternalFunction::MethodFunctions::RunSkiptFile},
-            { "print_tokens", InternalFunction::MethodFunctions::ListTokens},
+            { "list_variables", InternalFunction::MethodFunctions::ListVariables},
             { "convert", InternalFunction::MethodFunctions::Convert}
     };
 
@@ -54,7 +54,7 @@ Variable InternalFunction::HandleCall(std::string function, std::string argument
 
     ExitMessage exitMsg = ExitMessage("InternalFunction.cpp");
 
-    switch (GetInternalFunction(function)){
+    switch (GetStatisticalFunction(function)){
         case RunSkiptFile:{
             Variable::ConvertToTokenValue(arguments);
             if (!PropertyFile::fileExists(arguments)){
@@ -67,7 +67,7 @@ Variable InternalFunction::HandleCall(std::string function, std::string argument
             functionCompiler.Run(std::move(arguments), true);
             return emptyToken;
         }
-        case ListTokens:
+        case ListVariables:
             for (auto it = Variable::variableMap.begin(); it != Variable::variableMap.end(); it++){
                 Variable tkn = it->second;
                 std::cout << "Name : " << tkn.name << "\tValue: " << tkn.value << "\tAddress: " << &it->second << "\tSizeof: " << sizeof(it->second) <<"\n";

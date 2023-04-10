@@ -11,7 +11,7 @@
 class InternalFunction {
 public:
     enum MethodFunctions{
-        ListTokens,
+        ListVariables,
         RunSkiptFile,
         Convert,
         Null

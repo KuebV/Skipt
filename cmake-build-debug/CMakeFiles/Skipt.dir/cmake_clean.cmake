@@ -19,6 +19,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj.d"
   "CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.obj"
   "CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.obj.d"
+  "CMakeFiles/Skipt.dir/Compiler/Function/StatisticsFunction.cpp.obj"
+  "CMakeFiles/Skipt.dir/Compiler/Function/StatisticsFunction.cpp.obj.d"
   "CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.obj"
   "CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.obj.d"
   "CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.obj"

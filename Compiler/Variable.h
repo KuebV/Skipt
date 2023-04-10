@@ -36,6 +36,12 @@ public:
     std::string name;
     std::string value;
 
+    Variable(){
+        dataType = t_empty;
+        name = "undefinedVariable";
+        value = "0.0";
+    }
+
     static void DefineVariable(std::string _name, std::string value, dataTypes varType, bool isConditional){
         Variable newToken; newToken.name = _name; newToken.value = value; newToken.dataType = varType;
         if (isConditional){
@@ -59,15 +65,7 @@ public:
         variableMap.find(token.name)->second = newToken;
     }
 
-    static Variable getVariable(std::string name){
-        return variableMap[name];
-    }
-
-    static Variable getTemporaryVariable(std::string name){
-        return ConditionalVariableMap[name];
-    }
-
-    static Variable getAllVariables(std::string name){ // Really helpful for conditional statements in which we are allowed to look into both tokens
+    static Variable Get(std::string name){
         if (variableMap.find(name) != variableMap.end())
             return variableMap[name];
 
@@ -77,7 +75,16 @@ public:
         return {};
     }
 
-    static bool variableExists(std::string name){
+
+    static std::vector<std::string> GetVariableNames(){
+        std::unique_ptr<std::vector<std::string>> vector = std::make_unique<std::vector<std::string>>();
+        for (auto it = variableMap.begin(); it != variableMap.end(); it++){
+            vector->push_back(it->first);
+        }
+        return *vector;
+    }
+
+    static bool Exists(std::string name){
         if (variableMap.find(name) == variableMap.end())
             return false;
         return true;
@@ -133,20 +140,20 @@ public:
 
     static void ConvertToTokenValues(std::vector<std::string> &tokens){
         if (tokens.size() == 1){
-            tokens[0] = Variable::getVariable(tokens[0]).value;
+            tokens[0] = Variable::Get(tokens[0]).value;
         }
         else{
             for (int i = 0; i < tokens.size(); i++){
-                if (Variable::variableExists(tokens[i])){
-                    tokens[i] = Variable::getVariable(tokens[i]).value;
+                if (Variable::Exists(tokens[i])){
+                    tokens[i] = Variable::Get(tokens[i]).value;
                 }
             }
         }
     }
 
     static void ConvertToTokenValue(std::string& token){
-        if (Variable::variableExists(token)){
-            token = Variable::getVariable(token).value;
+        if (Variable::Exists(token)){
+            token = Variable::Get(token).value;
         }
     }
 
@@ -155,6 +162,39 @@ public:
             return true;
         }
         return false;
+    }
+
+    static std::string EnumToString(int enumValue){
+        switch (enumValue){
+            case 0:
+                return "int";
+            case 1:
+                return "string";
+            case 2:
+                return "double";
+            case 3:
+                return "float";
+            case 4:
+                return "char";
+            case 5:
+                return "int[]";
+            case 6:
+                return "string[]";
+            case 7:
+                return "double[]";
+            case 8:
+                return "float[]";
+            case 9:
+                return "char[]";
+            case 10:
+                return "reference";
+            case 11:
+                return "unknown[]";
+            case 12:
+                return "empty";
+            case 13:
+                return "boolean";
+        }
     }
 
     static std::map<std::string, Variable> variableMap;

@@ -1,11 +1,3 @@
-string name;
-int id;
-int age;
+int studentID = 497133
+int studentGrade = 5
 
-< name
->
-< age
->
-< id
-
-ref Internal::print_tokens()

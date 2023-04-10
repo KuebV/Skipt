@@ -27,9 +27,18 @@ public:
         SingleDecrement,
         Decrement,
         In,
+        Null
 
 
     };
+
+    static bool IsOperator(char currentCharacter, char nextCharacter){
+        std::string op; op += currentCharacter; op += nextCharacter;
+        if (ParseOperator(op) != Null)
+            return true;
+        return false;
+
+    }
 
     static Operators ParseOperator(std::string str){
         if (str == ">")
@@ -68,7 +77,13 @@ public:
         if (str == "in")
             return In;
 
-        return NotEqualTo;
+        return Null;
+    }
+
+    static bool RequireSecondVariable(Operators _operator){
+        if (_operator == Modulo || _operator == Increment || _operator == Decrement)
+            return true;
+        return false;
     }
 
     // There has to be a better way of doing this?
@@ -149,6 +164,19 @@ public:
         }
 
         return "";
+    }
+
+    static void ExecuteOperator(Variable variable, Operators _operator){
+        switch (_operator){
+            case Operators::SingleIncrement:{
+                if (variable.dataType == Variable::dataTypes::t_integer || variable.dataType == Variable::dataTypes::t_double || variable.dataType == Variable::dataTypes::t_float){
+                    double newValue = StringExt::ToDouble(Variable::Get(variable.name).value) + 1;
+                    Variable::modifyVariable(variable, std::to_string(newValue));
+                }else{
+
+                }
+            }
+        }
     }
 };
 
