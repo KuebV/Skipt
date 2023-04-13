@@ -46,7 +46,10 @@ void Compile::Run(std::string fileName, bool asExternal) {
     bool whileStatement = false;
     int whileStatementStarts = 0;
 
-    std::cout << fileName << " => Length: " << fileContents.size() << "\n";
+
+    if (StringExt::ToBoolean(propertyReference.getValue("outputExecutingFile"))){
+        std::cout << fileName << " => Length: " << fileContents.size() << "\n";
+    }
 
     for (int i = 0; i < fileContents.size(); i++){
         if (fileContents[i][0] == '#'){
@@ -226,7 +229,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 if (!StringExt::Contains(line, "=")){
                     Variable integerArrayToken;
                     integerArrayToken.name = lineElements[1];
-                    integerArrayToken.dataType = Variable::t_intArray;
+                    integerArrayToken.type = Variable::t_intArray;
 
                     Variable::DefineVariable(integerArrayToken);
 
@@ -262,7 +265,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 if (!StringExt::Contains(line, "=")){
                     Variable arrayToken;
                     arrayToken.name = lineElements[1];
-                    arrayToken.dataType = Variable::t_doubleArray;
+                    arrayToken.type = Variable::t_doubleArray;
 
                     Variable::DefineVariable(arrayToken);
 
@@ -298,7 +301,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 if (!StringExt::Contains(line, "=")){
                     Variable arrayToken;
                     arrayToken.name = lineElements[1];
-                    arrayToken.dataType = Variable::t_strArray;
+                    arrayToken.type = Variable::t_strArray;
 
                     Variable::DefineVariable(arrayToken);
 
@@ -340,20 +343,20 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 }
 
                 Variable returnToken = Functions::HandleCallFunction(functionCall);
-                if (StringExt::Contains(line, ">>") && returnToken.dataType != Variable::t_empty){
+                if (StringExt::Contains(line, ">>") && returnToken.type != Variable::t_empty){
                     std::string getTokenName = StringExt::Split(line, ">>")[1];
                     getTokenName = StringExt::Strip(getTokenName);
 
                     Variable getToken = Variable::Get(getTokenName);
-                    if (getToken.dataType != returnToken.dataType){
+                    if (getToken.type != returnToken.type){
                         std::cout << "[Error] | [Compile.cpp] [Reference Handler]: Return Variable and Defined Variable are not the same data-type!\n";
                         std::cout << "        |> " << line << "\n";
-                        std::cout << "[Context for Above]:\nReturn Variable: " << Variable::EnumToString(returnToken.dataType) << "\nDefined Variable: " << Variable::EnumToString(getToken.dataType) << "\n";
+                        std::cout << "[Context for Above]:\nReturn Variable: " << Variable::EnumToString(returnToken.type) << "\nDefined Variable: " << Variable::EnumToString(getToken.type) << "\n";
                         exit(1);
                     }
                     Variable::modifyVariable(getToken, returnToken.value);
                 }
-                else if (StringExt::Contains(line, ">>") && returnToken.dataType == Variable::t_empty){
+                else if (StringExt::Contains(line, ">>") && returnToken.type == Variable::t_empty){
                     std::cout << "[Error] | [Compile.cpp] [Reference Handler]: There is no return value for " << refVariableName << "\n";
                     std::cout << "        |> " << line << "\n";
                     exit(1);
@@ -367,10 +370,10 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 if (StringExt::Contains(freeToken, "[") && StringExt::Contains(freeToken, "]")){
                     exitMsg.Error("Compile::Run", "Cannot free an element of an array", line, 1);
                 }
-                if (Variable::Get(freeToken).dataType == Variable::dataTypes::t_intArray ||
-                        Variable::Get(freeToken).dataType == Variable::dataTypes::t_strArray ||
-                        Variable::Get(freeToken).dataType == Variable::dataTypes::t_floatArray ||
-                        Variable::Get(freeToken).dataType == Variable::dataTypes::t_doubleArray){
+                if (Variable::Get(freeToken).type == Variable::dataTypes::t_intArray ||
+                    Variable::Get(freeToken).type == Variable::dataTypes::t_strArray ||
+                    Variable::Get(freeToken).type == Variable::dataTypes::t_floatArray ||
+                    Variable::Get(freeToken).type == Variable::dataTypes::t_doubleArray){
 
                     Variable t = Variable::Get(freeToken);
                     int totalTokens = StringExt::Split(t.value, ",").size();
@@ -428,15 +431,15 @@ void Compile::Run(std::string fileName, bool asExternal) {
                     else{
                         Variable tempVariableTwo;
                         tempVariableTwo = Variable::Get(variableTwo);
-                        Variable::dataTypes primitiveType = Variable::GetPrimitiveType(tempVariableTwo.dataType);
-                        tokenOne.name = "conditionalVariable_1"; tokenOne.dataType = primitiveType; tokenOne.value = variableOne;
+                        Variable::dataTypes primitiveType = Variable::GetNonArrayType(tempVariableTwo.type);
+                        tokenOne.name = "conditionalVariable_1"; tokenOne.type = primitiveType; tokenOne.value = variableOne;
                     }
 
                     if (Variable::Exists(variableTwo)){
                         tokenTwo = Variable::Get(variableTwo);
                     }
                     else{
-                        tokenTwo.name = "conditionalVariable_2"; tokenTwo.dataType = tokenOne.dataType; tokenTwo.value = variableTwo;
+                        tokenTwo.name = "conditionalVariable_2"; tokenTwo.type = tokenOne.type; tokenTwo.value = variableTwo;
                     }
 
                     Operator::Operators parsedOperator = Operator::ParseOperator(_operator);
@@ -471,15 +474,15 @@ void Compile::Run(std::string fileName, bool asExternal) {
                     else{
                         Variable tempVariableTwo;
                         tempVariableTwo = Variable::Get(variableTwo);
-                        Variable::dataTypes primitiveType = Variable::GetPrimitiveType(tempVariableTwo.dataType);
-                        tokenOne.name = "conditionalVariable_1"; tokenOne.dataType = primitiveType; tokenOne.value = variableOne;
+                        Variable::dataTypes primitiveType = Variable::GetNonArrayType(tempVariableTwo.type);
+                        tokenOne.name = "conditionalVariable_1"; tokenOne.type = primitiveType; tokenOne.value = variableOne;
                     }
 
                     if (Variable::Exists(variableTwo)){
                         tokenTwo = Variable::Get(variableTwo);
                     }
                     else{
-                        tokenTwo.name = "conditionalVariable_2"; tokenTwo.dataType = tokenOne.dataType; tokenTwo.value = variableTwo;
+                        tokenTwo.name = "conditionalVariable_2"; tokenTwo.type = tokenOne.type; tokenTwo.value = variableTwo;
                     }
 
                     Operator::Operators parsedOperator = Operator::ParseOperator(_operator);
@@ -523,7 +526,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
             }
 
             Variable var = Variable::Get(potentialVariable->ToString());
-            if (var.dataType == Variable::t_string){
+            if (var.type == Variable::t_string){
                 Variable::modifyVariable(var, lineString.ContentBetween("\"", "\"").ToString());
                 break;
             }

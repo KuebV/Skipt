@@ -31,7 +31,7 @@ Variable StringFunction::HandleCall(std::string function, std::string arguments)
     Variable emptyToken;
     emptyToken.name = "voidToken";
     emptyToken.value = "";
-    emptyToken.dataType = Variable::t_empty;
+    emptyToken.type = Variable::t_empty;
 
     ExitMessage exitMessage = ExitMessage("StringFunction.cpp");
 
@@ -51,7 +51,7 @@ Variable StringFunction::HandleCall(std::string function, std::string arguments)
 
             Variable formatToken;
             formatToken.value = initialString;
-            formatToken.dataType = Variable::t_string;
+            formatToken.type = Variable::t_string;
 
             return formatToken;
         }
@@ -71,7 +71,7 @@ Variable StringFunction::HandleCall(std::string function, std::string arguments)
             initialString = StringExt::Replace(initialString, args[1], args[2]);
 
             replaceToken.value = initialString;
-            replaceToken.dataType = Variable::t_string;
+            replaceToken.type = Variable::t_string;
 
             return replaceToken;
         }
@@ -91,7 +91,7 @@ Variable StringFunction::HandleCall(std::string function, std::string arguments)
             int lengthOf = StringExt::ToInteger(args[2]);
 
             Variable token;
-            token.dataType = Variable::t_string;
+            token.type = Variable::t_string;
             token.value = args[0].substr(atIndex, lengthOf);
 
             return token;
@@ -107,7 +107,7 @@ Variable StringFunction::HandleCall(std::string function, std::string arguments)
             Variable::ConvertToTokenValues(args);
 
             Variable token;
-            token.dataType = Variable::t_boolean;
+            token.type = Variable::t_boolean;
             token.value = StringExt::Contains(args[0], args[1]) ? "true" : "false";
 
             return token;

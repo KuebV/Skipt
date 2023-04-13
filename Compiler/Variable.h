@@ -32,24 +32,18 @@ public:
         t_boolean
     };
 
-    dataTypes dataType;
+    dataTypes type;
     std::string name;
     std::string value;
 
     Variable(){
-        dataType = t_empty;
+        type = t_empty;
         name = "undefinedVariable";
         value = "0.0";
     }
 
-    Variable(std::string name, std::string value, dataTypes type){
-        if (Variable::Exists(name)){
-
-        }
-    }
-
     static void DefineVariable(std::string _name, std::string value, dataTypes varType, bool isConditional){
-        Variable newToken; newToken.name = _name; newToken.value = value; newToken.dataType = varType;
+        Variable newToken; newToken.name = _name; newToken.value = value; newToken.type = varType;
         if (isConditional){
             ConditionalVariableMap.insert({_name, newToken});
         }
@@ -62,7 +56,7 @@ public:
     }
 
     static void recastVariable(std::string name, dataTypes newType, std::string value){
-        Variable token; token.name = name; token.value = value; token.dataType = newType;
+        Variable token; token.name = name; token.value = value; token.type = newType;
         variableMap.find(name)->second = token;
     }
 
@@ -71,10 +65,8 @@ public:
         variableMap.find(token.name)->second = newToken;
     }
 
-    void modifyVariable(Variable newVariable){
-        name = newVariable.name;
-        value = newVariable.value;
-        dataType = newVariable.dataType;
+    static void modifyVariable(Variable newVariable){
+        variableMap.find(newVariable.name)->second = newVariable;
     }
 
     static Variable Get(std::string name){
@@ -110,8 +102,8 @@ public:
         return int(doub);
     }
 
-    static bool ValidateType(std::string value, dataTypes expcectedType){
-        switch (expcectedType){
+    static bool ValidateType(std::string value, dataTypes expectedType){
+        switch (expectedType){
             case t_integer:
                 if (StringExt::IsInteger(value)){
                     return true;
@@ -122,15 +114,29 @@ public:
                     return true;
                 }
                 return false;
+            case t_float:
+                if (StringExt::IsDouble(value))
+                    return true;
+                return false;
+            case t_string:{
+                if (!StringExt::Substring(value, "\"", "\"").empty()){
+                    return true;
+                }
+                return false;
+            }
         }
     }
 
-    static dataTypes GetPrimitiveType(dataTypes advancedType){
+    static dataTypes GetNonArrayType(dataTypes advancedType){
         switch (advancedType){
             case t_intArray:
                 return t_integer;
             case t_doubleArray:
                 return t_double;
+            case t_strArray:
+                return t_string;
+            case t_floatArray:
+                return t_float;
             default:
                 return advancedType;
         }
@@ -170,7 +176,7 @@ public:
     }
 
     static bool IsArray(Variable token){
-        if (token.dataType == t_intArray || token.dataType == t_doubleArray || token.dataType == t_strArray || token.dataType == t_floatArray){
+        if (token.type == t_intArray || token.type == t_doubleArray || token.type == t_strArray || token.type == t_floatArray){
             return true;
         }
         return false;

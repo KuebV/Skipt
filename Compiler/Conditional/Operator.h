@@ -89,7 +89,7 @@ public:
     // There has to be a better way of doing this?
     static bool Condition(Variable t_one, Variable t_two, Operators op){
 
-        if (t_one.dataType != Variable::t_boolean || t_two.dataType != Variable::t_boolean){
+        if (t_one.type != Variable::t_boolean || t_two.type != Variable::t_boolean){
             double var1, var2;
             var1 = StringExt::ToDouble(t_one.value);
             var2 = StringExt::ToDouble(t_two.value);
@@ -120,7 +120,7 @@ public:
                         return true;
                     return false;
                 case Operators::In:{
-                    switch (t_two.dataType){
+                    switch (t_two.type){
                         case Variable::t_intArray:
                             if (Array::Contains(StringExt::ToIntVector(t_two.value), StringExt::ToInteger(t_one.value)))
                                 return true;
@@ -133,7 +133,7 @@ public:
                 }
             }
         }
-        else if (t_one.dataType == Variable::t_boolean || t_two.dataType == Variable::t_boolean){
+        else if (t_one.type == Variable::t_boolean || t_two.type == Variable::t_boolean){
             bool var1, var2;
             var1 = StringExt::ToBoolean(t_one.value);
             var2 = StringExt::ToBoolean(t_two.value);
@@ -169,7 +169,7 @@ public:
     static void ExecuteOperator(Variable variable, Operators _operator){
         switch (_operator){
             case Operators::SingleIncrement:{
-                if (variable.dataType == Variable::dataTypes::t_integer || variable.dataType == Variable::dataTypes::t_double || variable.dataType == Variable::dataTypes::t_float){
+                if (variable.type == Variable::dataTypes::t_integer || variable.type == Variable::dataTypes::t_double || variable.type == Variable::dataTypes::t_float){
                     double newValue = StringExt::ToDouble(Variable::Get(variable.name).value) + 1;
                     Variable::modifyVariable(variable, std::to_string(newValue));
                 }else{

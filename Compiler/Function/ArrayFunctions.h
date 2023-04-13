@@ -15,6 +15,7 @@ public:
         Add,
         Remove,
         Length,
+        Sort,
         Null
     };
     static Variable HandleCall(std::string function, std::string arguments);

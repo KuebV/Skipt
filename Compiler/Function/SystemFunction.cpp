@@ -38,7 +38,7 @@ Variable SystemFunction::HandleCall(std::string function, std::string arguments)
     Variable emptyToken;
     emptyToken.name = "voidToken";
     emptyToken.value = "";
-    emptyToken.dataType = Variable::t_empty;
+    emptyToken.type = Variable::t_empty;
 
     ExitMessage exitMessage = ExitMessage("SystemFunction.cpp");
 
@@ -58,7 +58,7 @@ Variable SystemFunction::HandleCall(std::string function, std::string arguments)
             Variable::ConvertToTokenValue(arguments);
             Variable returnFileExistsToken;
             returnFileExistsToken.name = "booleanFileExists";
-            returnFileExistsToken.dataType = Variable::t_boolean;
+            returnFileExistsToken.type = Variable::t_boolean;
             if (FILE *p_file = fopen(arguments.c_str(), "r")){
                 fclose(p_file);
                 returnFileExistsToken.value = "true";
@@ -77,7 +77,7 @@ Variable SystemFunction::HandleCall(std::string function, std::string arguments)
             break;
         case FileRead:{
             Variable fileContents;
-            fileContents.dataType = Variable::t_strArray;
+            fileContents.type = Variable::t_strArray;
             break;
         }
 
@@ -140,7 +140,7 @@ Variable SystemFunction::HandleCall(std::string function, std::string arguments)
 
             Variable tkn;
             tkn.value = std::to_string(randNum);
-            tkn.dataType = Variable::t_integer;
+            tkn.type = Variable::t_integer;
 
             return tkn;
         }

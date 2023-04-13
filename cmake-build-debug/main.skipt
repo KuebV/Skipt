@@ -1,8 +1,14 @@
-double num = 5.000;
+int n = 1000;
+int i = 0;
+
+int[] arr = {0}
+
+while (i < 100)
+{
+    ref Array::add(arr, i)
+    ref System::out("{0} has been added\n", i)
+
+    i = i + 1
+}
+
 ref Internal::list_variables()
-
-ref Internal::convert(num, int)
-
-ref Internal::list_variables()
-
-> num

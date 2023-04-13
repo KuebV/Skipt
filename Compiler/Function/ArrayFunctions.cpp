@@ -8,6 +8,7 @@
 #include "InternalFunction.h"
 #include "../ExitMessage.h"
 #include "../../Property/PropertyFile.h"
+#include "../../ModifiedType/String.h"
 
 ArrayFunctions::MethodFunctions GetArrayFunction(std::string const& str){
     const std::unordered_map<std::string, ArrayFunctions::MethodFunctions> functionTable{
@@ -31,7 +32,7 @@ Variable ArrayFunctions::HandleCall(std::string function, std::string arguments)
     Variable emptyToken;
     emptyToken.name = "voidToken";
     emptyToken.value = "";
-    emptyToken.dataType = Variable::t_empty;
+    emptyToken.type = Variable::t_empty;
 
     ExitMessage exitMsg = ExitMessage("ArrayFunctions.cpp");
 
@@ -63,10 +64,10 @@ Variable ArrayFunctions::HandleCall(std::string function, std::string arguments)
 
             // We need to find the parent array data-type
             // We should be able to do this via subtracting the parent enum by 5
-            Variable::dataTypes parentType =  static_cast<Variable::dataTypes>(Variable::Get(preArray).dataType - 5);
+            Variable::dataTypes parentType =  static_cast<Variable::dataTypes>(Variable::Get(preArray).type - 5);
 
             Variable returnVariable;
-            returnVariable.dataType = parentType;
+            returnVariable.type = parentType;
             returnVariable.value = arrayItem;
             return returnVariable;
         }
@@ -82,9 +83,40 @@ Variable ArrayFunctions::HandleCall(std::string function, std::string arguments)
             int items = std::count(arguments.begin(),  arguments.end(), ',') + 1;
 
             Variable returnToken;
-            returnToken.dataType = Variable::t_integer;
+            returnToken.type = Variable::t_integer;
             returnToken.value = std::to_string(items);
             return returnToken;
+        }
+        case Add:{
+            std::vector<std::string> args = StringExt::Split(arguments, ",");
+            Variable::CleanTokens(args);
+
+            if (!Variable::Exists(args[0])){
+                exitMsg.Error("HandleCall.At", args[0] + " is not a defined array variable!", arguments, 1);
+            }
+            std::string preArray = args[0];
+            Variable array = Variable::Get(args[0]);
+            Variable::dataTypes arrayType = Variable::GetNonArrayType(array.type);
+            std::unique_ptr<Variable> valueAppended = std::make_unique<Variable>();
+            if (!Variable::Exists(args[1])){
+                if (!Variable::ValidateType(args[1], arrayType)){
+                    exitMsg.Error("Array.Add", "Variable Data-Type does not match that of the array type!", arguments, 1);
+                }
+
+                valueAppended->type = arrayType;
+                valueAppended->value = args[1];
+            }
+            String arrayStr(array.value);
+            int elements = arrayStr.Count(",");
+
+            std::unique_ptr<std::string> newArrayElement = std::make_unique<std::string>(preArray + "[" + std::to_string(elements) + "]");
+            valueAppended->name = *newArrayElement;
+
+            array.value += ", " + valueAppended->value;
+            Variable::modifyVariable(array);
+            Variable::DefineVariable(*valueAppended);
+
+            return emptyToken;
         }
     }
 }

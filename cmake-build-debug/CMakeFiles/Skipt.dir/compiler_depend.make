@@ -1208,7 +1208,8 @@ CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj: C:/Users/mary/Des
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fstream.tcc \
   C:/Users/mary/Desktop/Skipt/Property/Property.h \
-  C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h
+  C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h \
+  C:/Users/mary/Desktop/Skipt/ModifiedType/String.h
 
 CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Function/Functions.cpp \
   C:/Users/mary/Desktop/Skipt/Compiler/Function/Functions.h \

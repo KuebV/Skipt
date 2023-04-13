@@ -27,7 +27,7 @@ Variable MathFunction::HandleCall(std::string function, std::string arguments) {
     Variable emptyToken;
     emptyToken.name = "voidToken";
     emptyToken.value = "";
-    emptyToken.dataType = Variable::t_empty;
+    emptyToken.type = Variable::t_empty;
 
     switch (GetMathFunction(function)){
         case Modulo:{
@@ -43,7 +43,7 @@ Variable MathFunction::HandleCall(std::string function, std::string arguments) {
 
             Variable moduloToken;
             moduloToken.value = std::to_string(result);
-            moduloToken.dataType = Variable::t_integer;
+            moduloToken.type = Variable::t_integer;
 
             return moduloToken;
         }
@@ -53,7 +53,7 @@ Variable MathFunction::HandleCall(std::string function, std::string arguments) {
             Variable::ConvertToTokenValue(arguments);
 
             Variable token;
-            token.dataType = Variable::t_boolean;
+            token.type = Variable::t_boolean;
 
             int n = StringExt::ToInteger(arguments);
             if (n == 0 || n == 1){
