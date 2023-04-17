@@ -233,6 +233,14 @@ void Compile::Run(std::string fileName, bool asExternal) {
 
                     Variable::DefineVariable(integerArrayToken);
 
+                    intptr_t addr = Variable::ReturnAddress(Variable::Get(integerArrayToken.name));
+                    Variable addrSize;
+                    addrSize.name = std::to_string(addr);
+                    addrSize.type = Variable::t_integer;
+                    addrSize.value = "1";
+
+                    Variable::DefineVariable(addrSize);
+
                     break;
                 }
 
@@ -249,6 +257,8 @@ void Compile::Run(std::string fileName, bool asExternal) {
 
                     Variable::DefineVariable(variableName, variableValue, Variable::t_integer, inConditional);
                 }
+
+                Variable::DefineVariable("Compiler::ArraySize[" + lineElements[1] + "]", std::to_string(intArrayElements.size()), Variable::t_integer, inConditional);
                 continue;
             }
             case DoubleArray:{

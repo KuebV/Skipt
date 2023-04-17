@@ -106,8 +106,16 @@ Variable ArrayFunctions::HandleCall(std::string function, std::string arguments)
                 valueAppended->type = arrayType;
                 valueAppended->value = args[1];
             }
-            String arrayStr(array.value);
-            int elements = arrayStr.Count(",");
+            else{
+                if (!Variable::ValidateType(Variable::Get(args[1]).value, arrayType)){
+                    exitMsg.Error("Array.Add", "Variable Data-Type does not match that of the array type!", arguments, 1);
+                }
+
+                valueAppended = std::make_unique<Variable>(Variable::Get(args[1]));
+            }
+            std::unique_ptr<Variable> variableSizePtr = std::make_unique<Variable>(Variable::Get("Compiler::ArraySize[" + args[0] + "]"));
+            std::cout << "\nArray Functions: Array Size: " << variableSizePtr->value << "\n";
+            int elements = StringExt::ToInteger(variableSizePtr->value);
 
             std::unique_ptr<std::string> newArrayElement = std::make_unique<std::string>(preArray + "[" + std::to_string(elements) + "]");
             valueAppended->name = *newArrayElement;
@@ -115,6 +123,11 @@ Variable ArrayFunctions::HandleCall(std::string function, std::string arguments)
             array.value += ", " + valueAppended->value;
             Variable::modifyVariable(array);
             Variable::DefineVariable(*valueAppended);
+
+            variableSizePtr->value = std::to_string(elements++);
+            Variable::modifyVariable(*variableSizePtr);
+
+
 
             return emptyToken;
         }

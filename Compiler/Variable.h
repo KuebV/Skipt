@@ -43,6 +43,12 @@ public:
     }
 
     static void DefineVariable(std::string _name, std::string value, dataTypes varType, bool isConditional){
+        if (variableMap.find(_name) != variableMap.end()){
+            std::cout << "[Error] | [Variable.h] [Define Variable]: " << _name << " has already been defined as a variable!\n";
+            std::cout << "        |> " << _name << "\n";
+            exit(1);
+        }
+
         Variable newToken; newToken.name = _name; newToken.value = value; newToken.type = varType;
         if (isConditional){
             ConditionalVariableMap.insert({_name, newToken});
@@ -52,7 +58,19 @@ public:
     }
 
     static void DefineVariable(Variable token){
+        if (variableMap.find(token.name) != variableMap.end()){
+            std::cout << "[Error] | [Variable.h] [Define Variable]: " << token.name << " has already been defined as a variable!\n";
+            std::cout << "        |> " << token.name << "\n";
+            exit(1);
+        }
+
         variableMap.insert({token.name, token});
+    }
+
+    static intptr_t ReturnAddress(Variable variable){
+        auto addr = &variableMap[variable.name];
+        std::cout << addr << "\n";
+        return reinterpret_cast<intptr_t>(addr);
     }
 
     static void recastVariable(std::string name, dataTypes newType, std::string value){
