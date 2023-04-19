@@ -67,10 +67,14 @@ public:
         variableMap.insert({token.name, token});
     }
 
-    static intptr_t ReturnAddress(Variable variable){
-        auto addr = &variableMap[variable.name];
-        std::cout << addr << "\n";
-        return reinterpret_cast<intptr_t>(addr);
+    static std::string ReturnAddress(Variable variable){
+        intptr_t ptrAddr = reinterpret_cast<intptr_t>(&variableMap[variable.name]);
+        return std::to_string(ptrAddr);
+    }
+
+    static std::string ReturnAddress(std::string variableName){
+        intptr_t ptrAddr = reinterpret_cast<intptr_t>(&variableMap[variableName]);
+        return std::to_string(ptrAddr);
     }
 
     static void recastVariable(std::string name, dataTypes newType, std::string value){
@@ -239,6 +243,12 @@ public:
             case 13:
                 return "boolean";
         }
+    }
+
+    static bool isNum(Variable variable){
+        if (variable.type == t_integer || variable.type == t_float || variable.type == t_doubleArray)
+            return true;
+        return false;
     }
 
     static std::map<std::string, Variable> variableMap;

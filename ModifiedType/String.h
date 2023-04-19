@@ -53,6 +53,7 @@ public:
     void ptr_ReplaceMulti(String oldValue, String newValue);
 
     String ContentBetween(std::string startingElement, std::string endingElement);
+    void ptr_ContentBetween(std::string startingElement, std::string endingElement);
     String ReplaceLiterals();
 
     size_t Until(char untilChar);

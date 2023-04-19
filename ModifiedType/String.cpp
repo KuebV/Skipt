@@ -130,6 +130,13 @@ String String::ContentBetween(std::string startingElement, std::string endingEle
     return String(content.substr(*startElement + 1, (*endElement - *startElement) - 1));
 }
 
+void String::ptr_ContentBetween(std::string startingElement, std::string endingElement) {
+    std::unique_ptr<size_t> startElement = std::make_unique<size_t>(content.find(startingElement));
+    std::unique_ptr<size_t> endElement = std::make_unique<size_t>(content.find_last_of(endingElement));
+
+    content = content.substr(*startElement + 1, (*endElement - *startElement) - 1);
+}
+
 String String::ReplaceLiterals() {
     std::unique_ptr<std::string> ptrString = std::make_unique<std::string>(content);
     for (int i = 0; i < content.length(); i++){
@@ -233,6 +240,8 @@ void String::ptr_Strip(String::StripOptions options) {
 void String::MakeUnique(std::string string) {
     Ptr_content = std::make_unique<std::string>(string);
 }
+
+
 
 
 

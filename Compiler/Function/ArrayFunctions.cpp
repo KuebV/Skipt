@@ -113,22 +113,24 @@ Variable ArrayFunctions::HandleCall(std::string function, std::string arguments)
 
                 valueAppended = std::make_unique<Variable>(Variable::Get(args[1]));
             }
-            std::unique_ptr<Variable> variableSizePtr = std::make_unique<Variable>(Variable::Get("Compiler::ArraySize[" + args[0] + "]"));
-            std::cout << "\nArray Functions: Array Size: " << variableSizePtr->value << "\n";
-            int elements = StringExt::ToInteger(variableSizePtr->value);
 
-            std::unique_ptr<std::string> newArrayElement = std::make_unique<std::string>(preArray + "[" + std::to_string(elements) + "]");
+            std::string arrAddr = Variable::ReturnAddress(args[0]);
+            int arraySize = StringExt::ToInteger(Variable::Get(arrAddr).value);
+
+            std::unique_ptr<std::string> newArrayElement = std::make_unique<std::string>(preArray + "[" + std::to_string(arraySize) + "]");
             valueAppended->name = *newArrayElement;
 
             array.value += ", " + valueAppended->value;
             Variable::modifyVariable(array);
             Variable::DefineVariable(*valueAppended);
 
-            variableSizePtr->value = std::to_string(elements++);
-            Variable::modifyVariable(*variableSizePtr);
+            Variable sizeVariable;
+            sizeVariable.name = Variable::ReturnAddress(args[0]);
+            arraySize += 1;
+            sizeVariable.value = std::to_string(arraySize);
+            sizeVariable.type = Variable::t_integer;
 
-
-
+            Variable::modifyVariable(sizeVariable);
             return emptyToken;
         }
     }

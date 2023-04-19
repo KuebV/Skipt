@@ -108,6 +108,8 @@ Variable InternalFunction::HandleCall(std::string function, std::string argument
                     break;
                 }
             }
+
+            return emptyToken;
         }
         case Null:
             break;

@@ -208,7 +208,8 @@ CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj: C:/Users/mary/Desktop/Skipt/Compi
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_algo.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/algorithmfwd.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_heap.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uniform_int_dist.h
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uniform_int_dist.h \
+  C:/Users/mary/Desktop/Skipt/Compiler/Function/ArrayFunctions.h
 
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_map \
@@ -1201,6 +1202,7 @@ CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj: C:/Users/mary/Des
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward/auto_ptr.h \
   C:/Users/mary/Desktop/Skipt/Compiler/Function/InternalFunction.h \
   C:/Users/mary/Desktop/Skipt/Compiler/ExitMessage.h \
+  C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h \
   C:/Users/mary/Desktop/Skipt/Property/PropertyFile.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/fstream \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/codecvt.h \
@@ -1209,6 +1211,7 @@ CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj: C:/Users/mary/Des
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fstream.tcc \
   C:/Users/mary/Desktop/Skipt/Property/Property.h \
   C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h \
+  C:/Users/mary/Desktop/Skipt/Property/PropertyFile.h \
   C:/Users/mary/Desktop/Skipt/ModifiedType/String.h
 
 CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Function/Functions.cpp \
@@ -2132,6 +2135,15 @@ CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.obj: C:/Users/mary/Des
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_lockfree_defines.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward/auto_ptr.h \
   C:/Users/mary/Desktop/Skipt/Compiler/ExitMessage.h \
+  C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h \
+  C:/Users/mary/Desktop/Skipt/Property/PropertyFile.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/fstream \
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/codecvt.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fstream.tcc \
+  C:/Users/mary/Desktop/Skipt/Property/Property.h \
+  C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h \
   C:/Users/mary/Desktop/Skipt/ModifiedType/String.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/algorithm \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_algo.h \
@@ -2318,7 +2330,11 @@ CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.obj: C:/Users/mary/Des
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_base.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_lockfree_defines.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward/auto_ptr.h \
-  C:/Users/mary/Desktop/Skipt/Compiler/ExitMessage.h
+  C:/Users/mary/Desktop/Skipt/Compiler/ExitMessage.h \
+  C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h \
+  C:/Users/mary/Desktop/Skipt/Property/PropertyFile.h \
+  C:/Users/mary/Desktop/Skipt/Property/Property.h \
+  C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h
 
 CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Variable.cpp \
   C:/Users/mary/Desktop/Skipt/Compiler/Variable.h \

@@ -141,6 +141,7 @@ Variable SystemFunction::HandleCall(std::string function, std::string arguments)
             Variable tkn;
             tkn.value = std::to_string(randNum);
             tkn.type = Variable::t_integer;
+            tkn.name = "returnReference";
 
             return tkn;
         }
