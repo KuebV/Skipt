@@ -9,6 +9,9 @@
 #include "../Variable.h"
 #include "../../Extensions/StringExt.h"
 #include "../../Extensions/Array.h"
+#include "../Function/ArrayFunctions.h"
+#include "../../ModifiedType/String.h"
+#include "../ExitMessage.h"
 
 
 class Operator {
@@ -27,7 +30,9 @@ public:
         SingleDecrement,
         Decrement,
         In,
-        Null
+        Null,
+        Multiplication,
+        Division
 
 
     };
@@ -78,12 +83,6 @@ public:
             return In;
 
         return Null;
-    }
-
-    static bool RequireSecondVariable(Operators _operator){
-        if (_operator == Modulo || _operator == Increment || _operator == Decrement)
-            return true;
-        return false;
     }
 
     // There has to be a better way of doing this?
@@ -153,28 +152,284 @@ public:
         }
     }
 
-    static std::string ResultOfOperator(Variable tempTokenOne, Variable tempTokenTwo, Operators op, Variable::dataTypes expectingType){
-        std::string tempString = "";
-        switch (op){
-            case Operators::Modulo:
-                tempString = std::to_string(StringExt::ToInteger(tempTokenOne.value) % StringExt::ToInteger(tempTokenTwo.value));
-                return tempString;
-            case Operators::Increment:
-                break;
-        }
 
-        return "";
-    }
-
-    static void ExecuteOperator(Variable variable, Operators _operator){
+    static void ExecuteOperator(Operators _operator, std::string line){
+        ExitMessage exitMsg("Operator.h");
+        String lineString(line);
         switch (_operator){
-            case Operators::SingleIncrement:{
-                if (variable.type == Variable::dataTypes::t_integer || variable.type == Variable::dataTypes::t_double || variable.type == Variable::dataTypes::t_float){
-                    double newValue = StringExt::ToDouble(Variable::Get(variable.name).value) + 1;
-                    Variable::modifyVariable(variable, std::to_string(newValue));
-                }else{
+            case Operators::Increment:{
+                size_t indexAdd = lineString.Until('+');
+                String variableInitial(lineString.Substring(0, indexAdd));
+                variableInitial.ptr_Strip(String::StripOptions::All);
 
+                if (!Variable::Exists(variableInitial.ToString())){
+                    exitMsg.Error("ExecuteOperator", "Variable does not exist!", line, 1);
                 }
+
+                size_t indexEquals = lineString.Until("+=");
+                String extraVariable(lineString.Substring(indexEquals + 2, lineString.Length));
+                extraVariable.ptr_Strip(String::StripOptions::All);
+
+                extraVariable.ptr_Strip(String::StripOptions::All);
+                if (Variable::Exists(extraVariable.ToString())){
+                    extraVariable.ptr_ReplaceSingle(extraVariable.ToString(), Variable::Get(extraVariable.ToString()).value);
+                }
+
+                Variable variableToModify = Variable::Get(variableInitial.ToString());
+
+                std::unique_ptr<bool> modify = std::make_unique<bool>();
+
+                switch (variableToModify.type){
+                    case Variable::t_string:{
+                        extraVariable.ptr_ContentBetween("\"", "\"");
+                        variableToModify.value += extraVariable.ToString();
+                        *modify = true;
+                        break;
+                    }
+                    case Variable::t_integer:
+                    case Variable::t_double:
+                    case Variable::t_float:{
+                        if (!StringExt::IsDouble(extraVariable.ToString())){
+                            exitMsg.Error("ExecuteOperator", extraVariable.ToString() + " is not compatible with " + variableInitial.ToString(), line, 1);
+                        }
+
+                        double extraValue = StringExt::ToDouble(extraVariable.ToString());
+                        double initialValue = StringExt::ToDouble(variableToModify.value);
+
+                        initialValue += extraValue;
+                        variableToModify.value = std::to_string(initialValue);
+                        *modify = true;
+                        break;
+                    }
+                    case Variable::t_strArray:
+                    case Variable::t_doubleArray:
+                    case Variable::t_intArray:
+                    case Variable::t_floatArray:{
+                        ArrayFunctions::HandleCall("add", variableToModify.name + ", " + extraVariable.ToString());
+                        *modify = false;
+                        break;
+                    }
+                }
+                if (*modify)
+                    Variable::modifyVariable(variableToModify);
+
+                break;
+            }
+            case Operators::Decrement:{
+                size_t indexAdd = lineString.Until('-');
+                String variableInitial(lineString.Substring(0, indexAdd));
+                variableInitial.ptr_Strip(String::StripOptions::All);
+
+                if (!Variable::Exists(variableInitial.ToString())){
+                    exitMsg.Error("ExecuteOperator", "Variable does not exist!", line, 1);
+                }
+
+                size_t indexEquals = lineString.Until("-=");
+                String extraVariable(lineString.Substring(indexEquals + 2, lineString.Length));
+                extraVariable.ptr_Strip(String::StripOptions::All);
+
+                if (Variable::Exists(extraVariable.ToString())){
+                    extraVariable.ptr_ReplaceSingle(extraVariable.ToString(), Variable::Get(extraVariable.ToString()).value);
+                }
+
+                Variable variableToModify = Variable::Get(variableInitial.ToString());
+
+                std::unique_ptr<bool> modify = std::make_unique<bool>();
+
+                switch (variableToModify.type){
+                    case Variable::t_string:{
+                        exitMsg.Error("ExecuteOperator", "Cannot decrement a string!", line, 1);
+                        break;
+                    }
+                    case Variable::t_integer:
+                    case Variable::t_double:
+                    case Variable::t_float:{
+                        if (!StringExt::IsDouble(extraVariable.ToString())){
+                            exitMsg.Error("ExecuteOperator", extraVariable.ToString() + " is not compatible with " + variableInitial.ToString(), line, 1);
+                        }
+
+                        double extraValue = StringExt::ToDouble(extraVariable.ToString());
+                        double initialValue = StringExt::ToDouble(variableToModify.value);
+
+                        initialValue += extraValue;
+                        variableToModify.value = std::to_string(initialValue);
+                        *modify = true;
+                        break;
+                    }
+                    case Variable::t_strArray:
+                    case Variable::t_doubleArray:
+                    case Variable::t_intArray:
+                    case Variable::t_floatArray:{
+                        exitMsg.Error("ExecuteOperator", "Cannot decrement an array!", line, 1);
+                        break;
+                    }
+                }
+                if (*modify)
+                    Variable::modifyVariable(variableToModify);
+
+                break;
+            }
+            case Operators::Multiplication:{
+                size_t indexAdd = lineString.Until('*');
+                String variableInitial(lineString.Substring(0, indexAdd));
+                variableInitial.ptr_Strip(String::StripOptions::All);
+
+                if (!Variable::Exists(variableInitial.ToString())){
+                    exitMsg.Error("ExecuteOperator", "Variable does not exist!", line, 1);
+                }
+
+                size_t indexEquals = lineString.Until("*=");
+                String extraVariable(lineString.Substring(indexEquals + 2, lineString.Length));
+                extraVariable.ptr_Strip(String::StripOptions::All);
+
+                if (Variable::Exists(extraVariable.ToString())){
+                    extraVariable.ptr_ReplaceSingle(extraVariable.ToString(), Variable::Get(extraVariable.ToString()).value);
+                }
+
+                Variable variableToModify = Variable::Get(variableInitial.ToString());
+
+                std::unique_ptr<bool> modify = std::make_unique<bool>();
+
+                switch (variableToModify.type){
+                    case Variable::t_string:{
+                        exitMsg.Error("ExecuteOperator", "Cannot multiply a string!", line, 1);
+                        break;
+                    }
+                    case Variable::t_integer:
+                    case Variable::t_double:
+                    case Variable::t_float:{
+                        if (!StringExt::IsDouble(extraVariable.ToString())){
+                            exitMsg.Error("ExecuteOperator", extraVariable.ToString() + " is not compatible with " + variableInitial.ToString(), line, 1);
+                        }
+
+                        double extraValue = StringExt::ToDouble(extraVariable.ToString());
+                        double initialValue = StringExt::ToDouble(variableToModify.value);
+
+                        initialValue *= extraValue;
+                        variableToModify.value = std::to_string(initialValue);
+                        *modify = true;
+                        break;
+                    }
+                    case Variable::t_strArray:
+                    case Variable::t_doubleArray:
+                    case Variable::t_intArray:
+                    case Variable::t_floatArray:{
+                        exitMsg.Error("ExecuteOperator", "Cannot multiply an array!", line, 1);
+                        break;
+                    }
+                }
+                if (*modify)
+                    Variable::modifyVariable(variableToModify);
+
+                break;
+            }
+            case Operators::Division:{
+                size_t indexAdd = lineString.Until('/');
+                String variableInitial(lineString.Substring(0, indexAdd));
+                variableInitial.ptr_Strip(String::StripOptions::All);
+
+                if (!Variable::Exists(variableInitial.ToString())){
+                    exitMsg.Error("ExecuteOperator", "Variable does not exist!", line, 1);
+                }
+
+                size_t indexEquals = lineString.Until("/=");
+                String extraVariable(lineString.Substring(indexEquals + 2, lineString.Length));
+                extraVariable.ptr_Strip(String::StripOptions::All);
+
+                if (Variable::Exists(extraVariable.ToString())){
+                    extraVariable.ptr_ReplaceSingle(extraVariable.ToString(), Variable::Get(extraVariable.ToString()).value);
+                }
+
+                Variable variableToModify = Variable::Get(variableInitial.ToString());
+
+                std::unique_ptr<bool> modify = std::make_unique<bool>();
+
+                switch (variableToModify.type){
+                    case Variable::t_string:{
+                        exitMsg.Error("ExecuteOperator", "Cannot divide a string!", line, 1);
+                        break;
+                    }
+                    case Variable::t_integer:
+                    case Variable::t_double:
+                    case Variable::t_float:{
+                        if (!StringExt::IsDouble(extraVariable.ToString())){
+                            exitMsg.Error("ExecuteOperator", extraVariable.ToString() + " is not compatible with " + variableInitial.ToString(), line, 1);
+                        }
+
+                        double extraValue = StringExt::ToDouble(extraVariable.ToString());
+                        double initialValue = StringExt::ToDouble(variableToModify.value);
+
+                        initialValue /= extraValue;
+                        variableToModify.value = std::to_string(initialValue);
+                        *modify = true;
+                        break;
+                    }
+                    case Variable::t_strArray:
+                    case Variable::t_doubleArray:
+                    case Variable::t_intArray:
+                    case Variable::t_floatArray:{
+                        exitMsg.Error("ExecuteOperator", "Cannot divide an array!", line, 1);
+                        break;
+                    }
+                }
+                if (*modify)
+                    Variable::modifyVariable(variableToModify);
+
+                break;
+            }
+            case Operators::Modulo:{
+                size_t indexAdd = lineString.Until('%');
+                String variableInitial(lineString.Substring(0, indexAdd));
+                variableInitial.ptr_Strip(String::StripOptions::All);
+
+                if (!Variable::Exists(variableInitial.ToString())){
+                    exitMsg.Error("ExecuteOperator", "Variable does not exist!", line, 1);
+                }
+
+                size_t indexEquals = lineString.Until("%=");
+                String extraVariable(lineString.Substring(indexEquals + 2, lineString.Length));
+                extraVariable.ptr_Strip(String::StripOptions::All);
+
+                if (Variable::Exists(extraVariable.ToString())){
+                    extraVariable.ptr_ReplaceSingle(extraVariable.ToString(), Variable::Get(extraVariable.ToString()).value);
+                }
+
+                Variable variableToModify = Variable::Get(variableInitial.ToString());
+
+                std::unique_ptr<bool> modify = std::make_unique<bool>();
+
+                switch (variableToModify.type){
+                    case Variable::t_string:{
+                        exitMsg.Error("ExecuteOperator", "Cannot find remainder of a string!", line, 1);
+                        break;
+                    }
+                    case Variable::t_integer:
+                    case Variable::t_double:
+                    case Variable::t_float:{
+                        if (!StringExt::IsDouble(extraVariable.ToString())){
+                            exitMsg.Error("ExecuteOperator", extraVariable.ToString() + " is not compatible with " + variableInitial.ToString(), line, 1);
+                        }
+
+                        int extraValue = StringExt::ToInteger(extraVariable.ToString());
+                        int initialValue = StringExt::ToInteger(variableToModify.value);
+
+                        initialValue = initialValue % extraValue;
+                        variableToModify.value = std::to_string(initialValue);
+                        *modify = true;
+                        break;
+                    }
+                    case Variable::t_strArray:
+                    case Variable::t_doubleArray:
+                    case Variable::t_intArray:
+                    case Variable::t_floatArray:{
+                        exitMsg.Error("ExecuteOperator", "Cannot find remainder of an array!", line, 1);
+                        break;
+                    }
+                }
+                if (*modify)
+                    Variable::modifyVariable(variableToModify);
+
+                break;
             }
         }
     }

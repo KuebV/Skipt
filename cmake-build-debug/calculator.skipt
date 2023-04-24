@@ -1,0 +1,76 @@
+# Comments are indicated by the '#' character at the start of each line. They cannot be put at the end of a statement.
+# You can define variables by using the following data-types
+# int, double, string, bool, int[], double[], string[], bool[]
+# Why you would ever want to make an array of booleans is beyond me
+# You must define a variable first before handling any sort of user input, calculation, or reference
+# You're able to compute mathmatical expressions by doing the following
+# int x = 0
+# x = x + 2
+# With Skipt, we're able to use conditional statements such as if-statements, and while-statements
+# Please visit the Github to learn about proper-code styling
+
+double numOne = 0;
+double numTwo = 0;
+
+ref System::out("Skipt Calculator\n---------------\n");
+ref System::out("Enter your first number:");
+
+< numOne
+ref System::out("\nGreat! Now enter the second number!");
+< numTwo
+
+> "\nNow select which operation you want to do:\n"
+ref System::out("[1] Addition = {0} + {1}\n", numOne, numTwo);
+ref System::out("[2] Subtraction = {0} - {1}\n", numOne, numTwo);
+ref System::out("[3] Multiplication = {0} * {1}\n", numOne, numTwo);
+ref System::out("[4] Division = {0} / {1}\n", numOne, numTwo);
+ref System::out("[5] Modulo = {0} % {1}\n", numOne, numTwo);
+> "\nUse the corresponding number to select an option";
+
+int selection = 0;
+< selection
+
+if (selection < 1)
+{
+    > "\nSelection out of range, must be a number betwee 1 - 5\n";
+    ref System::exit(1)
+}
+
+if (selection > 5)
+{
+    > "\nSelection out of range, must be a number betwee 1 - 5\n";
+    ref System::exit(1)
+}
+
+if (selection == 1)
+{
+    numOne += numTwo
+    ref System::out("\nAnswer: {0}", numOne)
+}
+
+if (selection == 2)
+{
+    numOne -= numTwo
+    ref System::out("\nAnswer: {0}", numOne)
+}
+
+if (selection == 3)
+{
+    numOne *= numTwo
+    ref System::out("\nAnswer: {0}", numOne)
+}
+
+if (selection == 4)
+{
+    numOne /= numTwo
+    ref System::out("\nAnswer: {0}", numOne)
+}
+
+if (selection == 5)
+{
+    numOne %= numTwo
+    ref System::out("\nAnswer: {0}", numOne)
+}
+
+
+

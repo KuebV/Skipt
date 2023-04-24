@@ -59,6 +59,8 @@ Variable ArrayFunctions::HandleCall(std::string function, std::string arguments)
                 exitMsg.Error("HandleCall.At", "segfault", arguments, 1);
             }
 
+            args[1] = StringExt::ToInteger(args[1]);
+
             std::string arrayIndexer = preArray + "[" + args[1] + "]";
             std::string arrayItem = Variable::Get(arrayIndexer).value;
 

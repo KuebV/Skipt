@@ -1,11 +1,9 @@
+# Fibonacci Program
 int n = 100;
-
 int count = 0
 int num1 = 0
 int num2 = 1
-
 int nth = 0
-
 while (count < n)
 {
     >
@@ -16,5 +14,6 @@ while (count < n)
     num1 = num2 * 1
     num2 = nth * 1
 
-    count = count + 1
+    count = count + 1;
 }
+

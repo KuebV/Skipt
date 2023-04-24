@@ -63,7 +63,6 @@ public:
             std::cout << "        |> " << token.name << "\n";
             exit(1);
         }
-
         variableMap.insert({token.name, token});
     }
 

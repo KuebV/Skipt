@@ -9,6 +9,3 @@
 # With Skipt, we're able to use conditional statements such as if-statements, and while-statements
 # Please visit the Github to learn about proper-code styling
 
-int i = 10;
-i += 1;
-> i

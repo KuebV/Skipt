@@ -48,7 +48,6 @@ void Compile::Run(std::string fileName, bool asExternal) {
     bool whileStatement = false;
     int whileStatementStarts = 0;
 
-
     if (StringExt::ToBoolean(propertyReference.getValue("outputExecutingFile"))){
         std::cout << fileName << " => Length: " << fileContents.size() << "\n";
     }
@@ -74,6 +73,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
 
         switch (GetVariableTypes(lineElements[0])){ // Defining a new variable
             case Integer:{
+
                 if (Variable::Exists(lineElements[1])){
                     exitMsg.Error("Define Integer", lineElements[1] + " has already been defined as a variable!", line, 1);
                 }
@@ -99,6 +99,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 continue;
             }
             case StringType: {
+
                 if (Variable::Exists(lineElements[1])){
                     exitMsg.Error("Define Variable", lineElements[1] + " has already been defined as a variable!\n", line, 1);
                 }
@@ -127,6 +128,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 continue;
             }
             case Double:{
+
                 if (Variable::Exists(lineElements[1])){
                     exitMsg.Error("Define Variable", lineElements[1] + " has already been defined as a variable!\n", line, 1);
                 }
@@ -153,6 +155,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 continue;
             }
             case Float:{
+
                 if (Variable::Exists(lineElements[1])){
                     exitMsg.Error("Define Variable", lineElements[1] + " has already been defined as a variable!\n", line, 1);
                 }
@@ -178,6 +181,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 continue;
             }
             case Boolean:{
+
                 if (Variable::Exists(lineElements[1])){
                     exitMsg.Error("Define Variable", lineElements[1] + " has already been defined as a variable!\n", line, 1);
                 }
@@ -199,6 +203,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 continue;
             }
             case IntegerArray:{
+
                 if (Variable::Exists(lineElements[1])){
                     exitMsg.Error("Define Variable", lineElements[1] + " has already been defined as a variable!\n", line, 1);
                 }
@@ -242,6 +247,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 continue;
             }
             case DoubleArray:{
+
                 if (Variable::Exists(lineElements[1])){
                     exitMsg.Error("Define Variable", lineElements[1] + " has already been defined as a variable!\n", line, 1);
                 }
@@ -281,6 +287,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 continue;
             }
             case StringArray:{
+
                 if (Variable::Exists(lineElements[1])){
                     exitMsg.Error("Define Variable", lineElements[1] + " has already been defined as a variable!\n", line, 1);
                 }
@@ -323,6 +330,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 continue;
             }
             case Reference:{
+
                 std::string refVariableName = StringExt::Split(line, " ")[1];
 
                 std::string functionCall = "";
@@ -401,6 +409,10 @@ void Compile::Run(std::string fileName, bool asExternal) {
 
             }
             case If:{
+                if (fileContents[i + 1][0] != '{'){
+                    exitMsg.Error("Conditional Statement(if)", "Could not find opening conditional bracket on line " + std::to_string((i + 1)), line, 1);
+                }
+
                 std::string expression = StringExt::Substring(line, "(", ")");
                 std::istringstream expressionStringStream(expression);
 
@@ -444,6 +456,10 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 }
             }
             case While:{
+                if (fileContents[i + 1][0] != '{'){
+                    exitMsg.Error("Conditional Statement(while)", "Could not find opening conditional bracket on line " + std::to_string((i + 1)), line, 1);
+                }
+
                 std::string expression = StringExt::Substring(line, "(", ")");
                 std::istringstream iss(expression);
 
@@ -502,62 +518,29 @@ void Compile::Run(std::string fileName, bool asExternal) {
         if (lineString.Contains('=')){
 
             if (lineString.Contains("+=")){
-                size_t indexAdd = lineString.Until('+');
-                String variableInitial(lineString.Substring(0, indexAdd));
-                variableInitial.ptr_Strip(String::StripOptions::All);
-
-                if (!Variable::Exists(variableInitial.ToString())){
-                    exitMsg.Error("Lexer", "Variable does not exist!", line, 1);
-                }
-
-                size_t indexEquals = lineString.Until("+=");
-                String extraVariable(lineString.Substring(indexEquals + 2, lineString.Length));
-
-                if (Variable::Exists(extraVariable.ToString())){
-                    extraVariable.ptr_ReplaceSingle(extraVariable.ToString(), Variable::Get(extraVariable.ToString()).value);
-                }
-
-                extraVariable.ptr_Strip(String::StripOptions::All);
-                Variable variableToModify = Variable::Get(variableInitial.ToString());
-
-                switch (variableToModify.type){
-                    case Variable::t_string:{
-                        extraVariable.ptr_ContentBetween("\"", "\"");
-                        variableToModify.value = extraVariable.ToString();
-                        break;
-                    }
-                    case Variable::t_integer:
-                    case Variable::t_double:
-                    case Variable::t_float:{
-                        if (!StringExt::IsDouble(extraVariable.ToString())){
-                            exitMsg.Error("Lexer", extraVariable.ToString() + " is not compatible with " + variableInitial.ToString(), line, 1);
-                        }
-
-                        double extraValue = StringExt::ToDouble(extraVariable.ToString());
-                        double initialValue = StringExt::ToDouble(variableToModify.value);
-
-                        initialValue += extraValue;
-                        variableToModify.value = std::to_string(initialValue);
-
-                        break;
-                    }
-                    case Variable::t_strArray:
-                    case Variable::t_doubleArray:
-                    case Variable::t_intArray:
-                    case Variable::t_floatArray:{
-                        ArrayFunctions::HandleCall("add", variableToModify.name + ", " + extraVariable.ToString());
-                        break;
-                    }
-                }
-                Variable::modifyVariable(variableToModify);
-
+                Operator::ExecuteOperator(Operator::Increment, line);
                 continue;
-
             }
 
+            if (lineString.Contains("-=")){
+                Operator::ExecuteOperator(Operator::Decrement, line);
+                continue;
+            }
 
-            if (lineString.Contains("-="))
-                lineString.ptr_ReplaceMulti("-=", "=");
+            if (lineString.Contains("*=")){
+                Operator::ExecuteOperator(Operator::Multiplication, line);
+                continue;
+            }
+
+            if (lineString.Contains("/=")){
+                Operator::ExecuteOperator(Operator::Division, line);
+                continue;
+            }
+
+            if (lineString.Contains("%=")){
+                Operator::ExecuteOperator(Operator::Modulo, line);
+                continue;
+            }
 
             std::unique_ptr<String> potentialVariable = std::make_unique<String>(lineString.Substring(0, lineString.Until('=')));
             potentialVariable->ptr_Strip(String::StripOptions::All);
@@ -630,7 +613,6 @@ void Compile::Run(std::string fileName, bool asExternal) {
         }
 
 
-
         if (line[0] == '{'){
             if (inConditionalStarts != i && inConditional){
                 exitMsg.Error("Starting Conditional Statement Bracket", "Conditional Statement should not begin on this line!", line, 1);
@@ -645,7 +627,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 }
             }
             catch (std::out_of_range orr){
-                continue;
+                exitMsg.Error("Lexer", "Peeked out of range", line, 2);
             }
         }
 
@@ -654,7 +636,13 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 inConditional = true;
                 inConditionalStarts = i + 2;
             }
-            else{
+
+            if (whileStatement){
+                i = whileStatementStarts;
+                continue;
+            }
+
+            if (inConditional){
                 inConditional = false;
                 Variable::ConditionalVariableMap.clear();
             }
