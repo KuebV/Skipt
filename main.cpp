@@ -22,6 +22,7 @@ int main() {
     if (!PropertyFile::fileExists(CompilerPropertiesFile)){
         std::cout << CompilerPropertiesFile << " being written\n";
         DefaultFiles::WriteConfigurationFile();
+        std::cout << "If you've never written in Skipt, please check the documentation.md for all documentation\n";
     }
 
     propRef = PropertyFile::ReadPropertyFile(CompilerPropertiesFile);

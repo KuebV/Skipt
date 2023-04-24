@@ -250,6 +250,28 @@ public:
         return false;
     }
 
+    static std::vector<std::string> GetVariableArrayContents(std::string arrayVariable){
+        std::unique_ptr<Variable> array = std::make_unique<Variable>(Variable::Get(arrayVariable));
+        if (!Variable::IsArray(array->type)){
+            std::cout << "[Error] | [Variable.h] [DGetVariableArrayContents]: " << array->name << " is not of type array!\n";
+            std::cout << "        |> " << arrayVariable << "\n";
+            exit(1);
+        }
+
+        std::vector<std::string> returnVector;
+
+        std::string address = Variable::ReturnAddress(array->name);
+        std::unique_ptr<Variable> arrayAddress = std::make_unique<Variable>(Variable::Get(address));
+
+        int arrayLength = StringExt::ToInteger(arrayAddress->value);
+        for (int i = 0; i < arrayLength; i++){
+            std::string variableName = arrayVariable + "[" + std::to_string(i) + "]";
+            returnVector.push_back(Variable::Get(variableName).value);
+        }
+        return returnVector;
+
+    }
+
     static std::map<std::string, Variable> variableMap;
     static std::map<std::string, Variable> ConditionalVariableMap;
 };
