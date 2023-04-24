@@ -73,16 +73,49 @@ Variable SystemFunction::HandleCall(std::string function, std::string arguments)
             std::remove(arguments.c_str());
             return emptyToken;
         }
-        case FileWrite:
-            break;
+        case FileWrite: {
+            std::vector<std::string> args = StringExt::Split(arguments, ",");
+            Variable::CleanTokens(args);
+
+            if (args.size() != 2) {
+                exitMessage.Error("FileWrite",
+                                  "Insufficent Arguments, you must include the file name, and the file contents",
+                                  arguments, 1);
+            };
+            std::vector<std::string> arrayContents = Variable::GetVariableArrayContents(args[1]);
+            std::ofstream fStream(args[0]);
+            for (int i = 0; i < arrayContents.size(); i++){
+                fStream << arrayContents[i];
+            }
+
+            fStream.close();
+            return emptyToken;
+        }
         case FileRead:{
             Variable fileContents;
             fileContents.type = Variable::t_strArray;
             break;
-        }
 
-        case FileAppend:
-            break;
+            // We have to modify compiler.cpp, It will need to fix the return variable.
+        }
+        case FileAppend:{
+            std::vector<std::string> args = StringExt::Split(arguments, ",");
+            Variable::CleanTokens(args);
+
+            if (args.size() != 2) {
+                exitMessage.Error("FileAppend",
+                                  "Insufficent Arguments, you must include the file name, and the file contents",
+                                  arguments, 1);
+            };
+            std::vector<std::string> arrayContents = Variable::GetVariableArrayContents(args[1]);
+            std::ofstream fStream(args[0], std::ios::app);
+            for (int i = 0; i < arrayContents.size(); i++){
+                fStream << arrayContents[i];
+            }
+
+            fStream.close();
+            return emptyToken;
+        }
         case Out:{
 
             std::string stringSubstring = StringExt::Substring(arguments, "\"", "\"");

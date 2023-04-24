@@ -10,7 +10,6 @@ Additionally, the language is designed to have the user have complete control of
 - int[]
 - double[]
 - string[]
-- bool[]
 
 **Example Variable & Output**
 ```

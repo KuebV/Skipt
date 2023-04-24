@@ -166,18 +166,6 @@ public:
         return "";
     }
 
-    static void ExecuteOperator(Variable variable, Operators _operator){
-        switch (_operator){
-            case Operators::SingleIncrement:{
-                if (variable.type == Variable::dataTypes::t_integer || variable.type == Variable::dataTypes::t_double || variable.type == Variable::dataTypes::t_float){
-                    double newValue = StringExt::ToDouble(Variable::Get(variable.name).value) + 1;
-                    Variable::modifyVariable(variable, std::to_string(newValue));
-                }else{
-
-                }
-            }
-        }
-    }
 };
 
 
