@@ -9,6 +9,7 @@
 #include "InternalFunction.h"
 #include "MathFunction.h"
 #include "ArrayFunctions.h"
+#include "../ExitMessage.h"
 
 enum ClassFunctions{
     System,
@@ -39,6 +40,8 @@ std::string ModifiedReplaceVariableNames(std::string line){
 }
 
 Variable Functions::HandleCallFunction(std::string functionCall) {
+
+    ExitMessage exitMsg("Functions.cpp");
 
     size_t x = functionCall.find('(');
     std::string functionName = functionCall.substr(0, x);

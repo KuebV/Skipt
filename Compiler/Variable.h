@@ -86,6 +86,14 @@ public:
         variableMap.find(token.name)->second = newToken;
     }
 
+    static void modifyVariable(std::string name, std::string value){
+        variableMap.find(name)->second.value = value;
+    }
+
+    static void SwapVariables(Variable oldVariable, Variable newVariable){
+        variableMap.find(oldVariable.name)->second = newVariable;
+    }
+
     static void modifyVariable(Variable newVariable){
         variableMap.find(newVariable.name)->second = newVariable;
     }
@@ -143,6 +151,12 @@ public:
                 if (!StringExt::Substring(value, "\"", "\"").empty()){
                     return true;
                 }
+
+                for (char i : value){
+                    if (std::isalnum(i))
+                        return true;
+                }
+
                 return false;
             }
         }

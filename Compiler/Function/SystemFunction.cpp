@@ -83,8 +83,13 @@ Variable SystemFunction::HandleCall(std::string function, std::string arguments)
                                   arguments, 1);
             };
             std::vector<std::string> arrayContents = Variable::GetVariableArrayContents(args[1]);
+
+            args[0] = Variable::Get(args[0]).value;
             std::ofstream fStream(args[0]);
+
+
             for (int i = 0; i < arrayContents.size(); i++){
+                StringExt::ReplaceLiterals(arrayContents[i]);
                 fStream << arrayContents[i];
             }
 
@@ -92,11 +97,34 @@ Variable SystemFunction::HandleCall(std::string function, std::string arguments)
             return emptyToken;
         }
         case FileRead:{
-            Variable fileContents;
-            fileContents.type = Variable::t_strArray;
-            break;
+            if (Variable::Exists(arguments))
+                arguments = Variable::Get(arguments).value;
 
-            // We have to modify compiler.cpp, It will need to fix the return variable.
+
+            if (!PropertyFile::fileExists(arguments)){
+                exitMessage.Error("FileRead",
+                                  "Specified File does not exist",
+                                  arguments, 1);
+            }
+            std::vector<std::string> fileContents;
+            std::ifstream fStream(arguments);
+
+            std::string mainArrayString;
+            std::string line;
+            while (std::getline(fStream, line)){
+                fileContents.push_back(line);
+                mainArrayString += ", " + line;
+            }
+
+            mainArrayString = mainArrayString.substr(2, mainArrayString.length() - 1);
+
+            Variable::DefineVariable("returnVariableArrayAddress", std::to_string(fileContents.size()), Variable::t_integer, false);
+            Variable returnArrayVariable;
+            returnArrayVariable.name = "returnVariable";
+            returnArrayVariable.value = mainArrayString;
+            returnArrayVariable.type = Variable::t_strArray;
+
+            return returnArrayVariable;
         }
         case FileAppend:{
             std::vector<std::string> args = StringExt::Split(arguments, ",");

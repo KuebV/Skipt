@@ -179,4 +179,14 @@ CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.obj: \
  C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_map.h \
  E:\C++\Skipt\Compiler\Function\InternalFunction.h \
  E:\C++\Skipt\Compiler\Function\MathFunction.h \
- E:\C++\Skipt\Compiler\Function\ArrayFunctions.h
+ E:\C++\Skipt\Compiler\Function\ArrayFunctions.h \
+ E:/C++/Skipt/Compiler/ExitMessage.h \
+ E:/C++/Skipt/Property/PropertyReference.h \
+ E:/C++/Skipt/Property/PropertyFile.h \
+ C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/fstream \
+ C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/codecvt.h \
+ C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+ C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+ C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fstream.tcc \
+ E:/C++/Skipt/Property/Property.h \
+ E:/C++/Skipt/Property/PropertyReference.h

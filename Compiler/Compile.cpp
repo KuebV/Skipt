@@ -350,13 +350,34 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 if (StringExt::Contains(line, ">>") && returnToken.type != Variable::t_empty){
                     std::string getTokenName = StringExt::Split(line, ">>")[1];
                     getTokenName = StringExt::Strip(getTokenName);
-
                     Variable getToken = Variable::Get(getTokenName);
-                    if (getToken.type != returnToken.type){
-                        std::cout << "[Context for Below]:\nReturn Variable: " << Variable::EnumToString(returnToken.type) << "\nDefined Variable: " << Variable::EnumToString(getToken.type) << "\n";
-                        exitMsg.Error("Reference Handler", "Return Variable and Defined Variable are not the same data-type!\n", line, 1);
+
+                    Variable::SwapVariables(getToken, returnToken);
+
+                    if (Variable::IsArray(returnToken)){
+                        int arrayLength = StringExt::ToInteger(Variable::Get("returnVariableArrayAddress").value);
+                        std::string arrayAddress = Variable::ReturnAddress(getToken.name);
+
+                        Variable::modifyVariable(arrayAddress, std::to_string(arrayLength));
+                        Variable::DeleteToken("returnVariableArrayAddress");
+
+                        std::vector<std::string> arrayObject = StringExt::Split(returnToken.value, ",");
+                        Variable::CleanTokens(arrayObject);
+
+                        for (int x = 0; x < arrayLength; x++){
+                            std::string arrayBuilder = getToken.name + "[" + std::to_string(x) + "]";
+                            Variable::DefineVariable(arrayBuilder, arrayObject[x], Variable::GetNonArrayType(returnToken.type), false);
+                        }
+                        continue;
                     }
-                    Variable::modifyVariable(getToken, returnToken.value);
+                    else{
+
+                        if (getToken.type != returnToken.type){
+                            std::cout << "[Context for Below]:\nReturn Variable: " << Variable::EnumToString(returnToken.type) << "\nDefined Variable: " << Variable::EnumToString(getToken.type) << "\n";
+                            exitMsg.Error("Reference Handler", "Return Variable and Defined Variable are not the same data-type!\n", line, 1);
+                        }
+                        Variable::modifyVariable(getToken, returnToken.value);
+                    }
                 }
                 else if (StringExt::Contains(line, ">>") && returnToken.type == Variable::t_empty){
                     exitMsg.Error("Reference Handler", "There is no return value for " + refVariableName + "\n", line, 1);

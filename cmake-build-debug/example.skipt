@@ -9,3 +9,12 @@
 # With Skipt, we're able to use conditional statements such as if-statements, and while-statements
 # Please visit the Github to learn about proper-code styling
 
+string fileName = "person.txt";
+
+string[] fileContents;
+ref System::file_read(fileName) >> fileContents;
+ref System::out("Hello!\nYou're name is, {0}\n", fileContents[0])
+
+
+
+

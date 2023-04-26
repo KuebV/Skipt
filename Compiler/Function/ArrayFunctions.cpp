@@ -94,7 +94,7 @@ Variable ArrayFunctions::HandleCall(std::string function, std::string arguments)
             Variable::CleanTokens(args);
 
             if (!Variable::Exists(args[0])){
-                exitMsg.Error("HandleCall.At", args[0] + " is not a defined array variable!", arguments, 1);
+                exitMsg.Error("HandleCall.Add", args[0] + " is not a defined array variable!", arguments, 1);
             }
             std::string preArray = args[0];
             Variable array = Variable::Get(args[0]);
@@ -122,7 +122,12 @@ Variable ArrayFunctions::HandleCall(std::string function, std::string arguments)
             std::unique_ptr<std::string> newArrayElement = std::make_unique<std::string>(preArray + "[" + std::to_string(arraySize) + "]");
             valueAppended->name = *newArrayElement;
 
-            array.value += ", " + valueAppended->value;
+            if (arraySize <= 1){
+                array.value = valueAppended->value;
+            }
+            else
+                array.value += ", " + valueAppended->value;
+
             Variable::modifyVariable(array);
             Variable::DefineVariable(*valueAppended);
 
