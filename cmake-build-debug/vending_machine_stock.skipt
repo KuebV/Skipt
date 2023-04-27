@@ -1,0 +1,23 @@
+string itemName;
+string exitString = "exit";
+string fileFormatter = "{0}\n";
+
+int n = 0;
+int i = 0;
+> "How many items are you submitting?\n";
+< vending_machine_stock[n];
+
+while (vending_machine_stock[i] < vending_machine_stock[n])
+{
+    > "Input Item Name:\n";
+    < vending_machine_stock[itemName];
+
+    ref String::format(vending_machine_stock[fileFormatter], vending_machine_stock[itemName]) >> vending_machine_stock[itemName];
+    ref System::file_append(vendingFile, vending_machine_stock[itemName])
+    ref Internal::list_variables()
+
+    > "\n\n\n";
+    vending_machine_stock[i] += 1;
+}
+
+

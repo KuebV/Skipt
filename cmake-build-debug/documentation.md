@@ -39,8 +39,7 @@ int favoriteNumber = 42;
 # Non Traditional Output
 int favoriteNumber = 42;
 ref System::out("Your favorite number is {0}" , favoriteNumber)
-```
-Skipt only contains 1 type of input, this corresponds to the `<` character, followed shortly by a variable. Skipt will convert the variable to it's specified type
+```Skipt only contains 1 type of input, this corresponds to the `<` character, followed shortly by a variable. Skipt will convert the variable to it's specified type
 
 ### Conditional Statements
 
@@ -48,7 +47,7 @@ Skipt is very direct with conditional statements, you can only have one conditio
 
 **If-Statements**
 
-```cpp
+```
 bool isAdult;
 int age = 0;
 if (age >= 18)
@@ -64,8 +63,7 @@ else
 
 ```
 With If-Statements, there is one key formatting you must keep in mind. There must be a starting bracket the line after the conditional statement is defined. Here are a few examples:
-
-```cpp
+```
 # Valid
 if (x == y)
 {
@@ -83,7 +81,7 @@ if (x == y)
 ```
 
 **While-Loops**
-```cpp
+```
 int i = 0
 while (i < 10)
 {
@@ -98,49 +96,3 @@ while (i < 10)
 ```
 
 *As seen above, even though we defined i as an integer, it displayed as if it was a double. This is because of how Skipt calcuates and stores variables. When a variable is defined as an integer, the program will register it as an integer, but in calculations, and processes, it is calculated as if it's a double. This is done to reduce the amount of conversions that the compiler has to do from one data-type to another.*
-
-### Operators
-
-Operators cover the following symbols: +=, -=, /=, *=, %=. These can be used to modify variables, and are very easy to use
-
-**Valid Examples**
-```cpp
-int numOne = 1;
-int numTwo = 2;
-
-numOne += numTwo;
-> numOne
-# // Output -> 3
-
-numOne -= numTwo;
-> numOne
-# // Output -> 1
-
-numOne *= 5;
-> numOne
-# // Output -> 5
-
-numOne /= 5;
-> numOne
-# // Output -> 1
-
-numOne = 10;
-numOne %= 2;
-> numOne
-# // Output -> 0
-```
-
-**Invalid Examples**
-```cpp
-int numOne = 1;
-int numTwo = 2;
-int numThree = 0;
-
-# // Invalid, you cannot assign an operation to another variable
-numThree = numOne += numTwo;
-
-if (numOne %= 2 == 0)
-{
-    # // Invalid, you cannot include any increment, decrement, or any of the sort operators inside a conditional statement
-}
-```

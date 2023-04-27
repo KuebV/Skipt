@@ -8,207 +8,207 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="E:/C++/Skipt/cmake-build-debug"/>
+				<Option working_dir="C:/Users/mary/Desktop/Skipt/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Skipt">
-				<Option output="E:/C++/Skipt/cmake-build-debug/Skipt.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="E:/C++/Skipt/cmake-build-debug"/>
+				<Option output="C:/Users/mary/Desktop/Skipt/cmake-build-debug/Skipt.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/mary/Desktop/Skipt/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 Skipt"/>
-					<CompileFile command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 Skipt"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Skipt/fast">
-				<Option output="E:/C++/Skipt/cmake-build-debug/Skipt.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="E:/C++/Skipt/cmake-build-debug"/>
+				<Option output="C:/Users/mary/Desktop/Skipt/cmake-build-debug/Skipt.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/mary/Desktop/Skipt/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 Skipt/fast"/>
-					<CompileFile command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 Skipt/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="E:/C++/Skipt/cmake-build-debug"/>
+				<Option working_dir="C:/Users/mary/Desktop/Skipt/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="E:/C++/Skipt/cmake-build-debug"/>
+				<Option working_dir="C:/Users/mary/Desktop/Skipt/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/C++/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/mary/Desktop/Skipt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="E:/C++/Skipt/Compiler/Compile.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Compile.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Compile.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Compile.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Conditional/Operator.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Conditional/Operator.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/DefaultFiles.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/DefaultFiles.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/ExitMessage.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExitMessage.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/ExpressionParser.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/ExpressionParser.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/ExpressionParser/Expression.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Expression.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/ExpressionParser/Expression.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Expression.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/ExpressionParser/Parser.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Parser.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/ExpressionParser/Parser.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Parser.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/ExpressionParser/Tokenizer.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Tokenizer.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/ExpressionParser/Tokenizer.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Tokenizer.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/FileReader.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/FileReader.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/FileReader.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/FileReader.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Function/ArrayFunctions.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/ArrayFunctions.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Function/ArrayFunctions.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/ArrayFunctions.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Function/Functions.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/Functions.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Function/Functions.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/Functions.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Function/InternalFunction.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/InternalFunction.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Function/InternalFunction.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/InternalFunction.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Function/MathFunction.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/MathFunction.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Function/MathFunction.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/MathFunction.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Function/StatisticsFunction.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/StatisticsFunction.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Function/StatisticsFunction.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/StatisticsFunction.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Function/StringFunction.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/StringFunction.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Function/StringFunction.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/StringFunction.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Function/SystemFunction.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/SystemFunction.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Function/SystemFunction.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Function/SystemFunction.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Variable.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Variable.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/Variable.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Compiler/Variable.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Extensions/Array.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Extensions/Array.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Extensions/Array.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Extensions/Array.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Extensions/StringExt.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Extensions/StringExt.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/ModifiedType/String.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/ModifiedType/String.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/ModifiedType/String.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/ModifiedType/String.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Property/Property.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Property/Property.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Property/PropertyFile.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Property/PropertyFile.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Property/PropertyFile.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Property/PropertyFile.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Property/PropertyReference.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Property/PropertyReference.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Property/PropertyReference.h">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/Property/PropertyReference.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/main.cpp">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/main.cpp">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/CMakeLists.txt">
+		<Unit filename="C:/Users/mary/Desktop/Skipt/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

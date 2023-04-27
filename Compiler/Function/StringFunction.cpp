@@ -49,6 +49,8 @@ Variable StringFunction::HandleCall(std::string function, std::string arguments)
                     initialString = StringExt::Replace(initialString, "{" + std::to_string(i - 1) + "}", args[i]);
             }
 
+            initialString = StringExt::ReplaceLiterals(initialString);
+
             Variable formatToken;
             formatToken.value = initialString;
             formatToken.type = Variable::t_string;
@@ -99,8 +101,25 @@ Variable StringFunction::HandleCall(std::string function, std::string arguments)
 
         case At:
             break;
-        case Find:
-            break;
+        case Find:{
+            std::vector<std::string> args = StringExt::Split(arguments, ",");
+            Variable::CleanTokens(args);
+            Variable::ConvertToTokenValues(args);
+
+            if (args.size() != 2){
+                exitMessage.Error("Find", "2 Arguments Required for String::Find(string, lookingFor)", arguments, 1);
+            }
+
+            Variable var;
+            if (args[0].find(args[1]) != std::string::npos){
+                var.value = "true";
+            }
+            else
+                var.value = "false";
+
+            var.type = Variable::t_boolean;
+            return var;
+        }
         case Contains:{
             std::vector<std::string> args = StringExt::Split(arguments, ",");
             Variable::CleanTokens(args);

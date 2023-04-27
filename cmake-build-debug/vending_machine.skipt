@@ -1,0 +1,36 @@
+# Comments are indicated by the '#' character at the start of each line. They cannot be put at the end of a statement.
+# You can define variables by using the following data-types
+# int, double, string, bool, int[], double[], string[], bool[]
+# Why you would ever want to make an array of booleans is beyond me
+# You must define a variable first before handling any sort of user input, calculation, or reference
+# You're able to compute mathmatical expressions by doing the following
+# int x = 0
+# x = x + 2
+# With Skipt, we're able to use conditional statements such as if-statements, and while-statements
+# Please visit the Github to learn about proper-code styling
+
+string vendingFile = "vending_machine.txt";
+
+> "Vending Machine Application\n[1] Stock Items\n[2] View Items\n[3] Remove Items\n";
+> "Input Option: ";
+
+int option = 0;
+< option;
+
+if (option <= 0)
+{
+    > "\nCannot input value less than 1\n";
+    ref System::exit(1);
+}
+
+if (option > 3)
+{
+    > "\nCannot input value greater than 3\n";
+    ref System::exit(1);
+}
+
+if (option == 1)
+{
+    ref Internal::execute_skipt(vending_machine_stock.skipt);
+}
+

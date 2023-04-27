@@ -89,7 +89,7 @@ Variable SystemFunction::HandleCall(std::string function, std::string arguments)
 
 
             for (int i = 0; i < arrayContents.size(); i++){
-                StringExt::ReplaceLiterals(arrayContents[i]);
+                arrayContents[i] = StringExt::ReplaceLiterals(arrayContents[i]);
                 fStream << arrayContents[i];
             }
 
@@ -135,11 +135,21 @@ Variable SystemFunction::HandleCall(std::string function, std::string arguments)
                                   "Insufficent Arguments, you must include the file name, and the file contents",
                                   arguments, 1);
             };
-            std::vector<std::string> arrayContents = Variable::GetVariableArrayContents(args[1]);
+
+            args[0] = Variable::Get(args[0]).value;
+
             std::ofstream fStream(args[0], std::ios::app);
-            for (int i = 0; i < arrayContents.size(); i++){
-                fStream << arrayContents[i];
+            Variable arrayVar = Variable::Get(args[1]);
+            if (arrayVar.type != Variable::t_strArray){
+                fStream << arrayVar.value;
             }
+            else {
+                std::vector<std::string> arrayContents = Variable::GetVariableArrayContents(args[1]);
+                for (int i = 0; i < arrayContents.size(); i++){
+                    fStream << arrayContents[i];
+                }
+            }
+
 
             fStream.close();
             return emptyToken;

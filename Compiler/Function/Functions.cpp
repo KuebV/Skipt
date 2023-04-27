@@ -57,7 +57,7 @@ Variable Functions::HandleCallFunction(std::string functionCall) {
     auto HashString = [](std::string const& str){
         if (str == "System") return System;
         else if (str == "Math") return Math;
-        else if (str == "StringType") return String;
+        else if (str == "String") return String;
         else if (str == "Array") return Array;
         else if (str == "Internal") return Internal;
         else if (str == "Statistics") return Statistics;

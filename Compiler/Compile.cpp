@@ -598,6 +598,15 @@ void Compile::Run(std::string fileName, bool asExternal) {
                     exitMsg.Error("Lexer.ExpressionParser", "Cannot Compute Expression, view expression below", expression, 1);
                 }
             }
+            else{
+                String value(lineString.Substring(lineString.Until('=') + 1,  lineString.Length - 1));
+                value.ptr_Strip(String::StripOptions::All);
+
+                std::string strValue = ExpressionParser::ReplaceVariableNames(value.ToString());
+                Variable::modifyVariable(potentialVariable->ToString(), strValue);
+                continue;
+            }
+
 
         }
 
