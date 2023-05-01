@@ -1,0 +1,26 @@
+# Student Program
+string name = "Rob Thompson"
+int age = 19;
+int minutesToCommute = 10;
+int totalClasses = 4;
+
+string phrase = ""
+< phrase
+
+ref System::out("Name: {0}\nAge: {1}\nClasses: {2}\nPhrase: {3}\n", name, age, totalClasses, phrase);
+
+# Mathmatical Equations
+double x = 10;
+double y = 5;
+
+double z = 0;
+z = x * y;
+ref System::out("Z: {0}\n", z);
+
+z = z / 25;
+ref System::out("Z: {0}\n", z);
+
+# Expected Output: Z: 50
+# Expected output: Z: 2
+
+

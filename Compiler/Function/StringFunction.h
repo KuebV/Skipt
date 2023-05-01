@@ -18,7 +18,8 @@ public:
         At,
         Find,
         Contains,
-        Null
+        Null,
+        Length
 
     };
 

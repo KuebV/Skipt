@@ -14,6 +14,7 @@ static Compile compiler;
 int main() {
 
     std::cout << ">--- >> Skipt << ---<\n";
+
     std::cout << "[PRE-COMPILER] Attempting to read " << CompilerPropertiesFile << "\n";
 
     // Compiler Properties:

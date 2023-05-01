@@ -12,9 +12,8 @@ StringFunction::MethodFunctions GetStringFunction(std::string const& str){
             { "format", StringFunction::MethodFunctions::Format},
             { "replace", StringFunction::MethodFunctions::Replace},
             { "substring", StringFunction::MethodFunctions::Substring},
-            { "at", StringFunction::MethodFunctions::At},
             { "find", StringFunction::MethodFunctions::Find},
-            { "contains", StringFunction::MethodFunctions::Contains}
+            { "length", StringFunction::MethodFunctions::Length}
     };
 
     auto it = functionTable.find(str);
@@ -98,9 +97,6 @@ Variable StringFunction::HandleCall(std::string function, std::string arguments)
 
             return token;
         }
-
-        case At:
-            break;
         case Find:{
             std::vector<std::string> args = StringExt::Split(arguments, ",");
             Variable::CleanTokens(args);
@@ -120,16 +116,12 @@ Variable StringFunction::HandleCall(std::string function, std::string arguments)
             var.type = Variable::t_boolean;
             return var;
         }
-        case Contains:{
-            std::vector<std::string> args = StringExt::Split(arguments, ",");
-            Variable::CleanTokens(args);
-            Variable::ConvertToTokenValues(args);
-
-            Variable token;
-            token.type = Variable::t_boolean;
-            token.value = StringExt::Contains(args[0], args[1]) ? "true" : "false";
-
-            return token;
+        case Length:{
+            Variable::ConvertToTokenValue(arguments);
+            Variable var;
+            var.type = Variable::t_integer;
+            var.value = std::to_string(arguments.length());
+            return var;
 
         }
 

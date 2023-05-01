@@ -241,6 +241,17 @@ void String::MakeUnique(std::string string) {
     Ptr_content = std::make_unique<std::string>(string);
 }
 
+bool String::StartsWith(const char &c) {
+    if (content[0] == c)
+        return true;
+    return false;
+}
+
+bool String::EndsWith(const char &c) {
+    if (content[content.length() - 1] == c)
+        return true;
+    return false;
+}
 
 
 

@@ -11,9 +11,9 @@ while (count < n)
 
     nth = num1 + num2
 
-    num1 = num2 * 1
-    num2 = nth * 1
+    num1 = num2
+    num2 = nth
 
-    count = count + 1;
+    count += 1
 }
 

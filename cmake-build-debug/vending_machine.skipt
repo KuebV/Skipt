@@ -34,3 +34,8 @@ if (option == 1)
     ref Internal::execute_skipt(vending_machine_stock.skipt);
 }
 
+if (option == 2)
+{
+    ref Internal::execute_skipt(vending_machine_view.skipt)
+}
+

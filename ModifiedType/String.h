@@ -71,6 +71,10 @@ public:
 
     void MakeUnique(std::string string);
 
+    bool StartsWith(const char& c);
+
+    bool EndsWith(const char& c);
+
 
 
 private:

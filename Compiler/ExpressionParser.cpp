@@ -8,6 +8,9 @@
 #include "../ModifiedType/String.h"
 
 
+////////////////////////
+//  Consider removing this awful function and placing it inside Variable.h. There's no reason why it should be here, under this class name. It has literally nothing to do with expression parsing!
+////////////////////////
 std::string ExpressionParser::ReplaceVariableNames(std::string line) {
     String temp(line);
 

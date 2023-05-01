@@ -8,3 +8,30 @@
 # x = x + 2
 # With Skipt, we're able to use conditional statements such as if-statements, and while-statements
 # Please visit the Github to learn about proper-code styling
+
+string itemName;
+string exitString = "exit";
+string fileFormatter = "{0}\n";
+
+string stockVendingMachineFile = "vending_machine.txt";
+
+int n = 0;
+int i = 0;
+> "How many items are you submitting?\n";
+< n
+
+while (i < n)
+{
+    > "Input Item Name:\n";
+    < itemName;
+
+    ref String::format(fileFormatter, itemName) >> itemName;
+    ref System::file_append(stockVendingMachineFile, itemName)
+    ref Internal::list_variables()
+
+    > "\n\n\n";
+    i += 1;
+}
+
+
+

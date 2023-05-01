@@ -259,7 +259,7 @@ public:
     }
 
     static bool isNum(Variable variable){
-        if (variable.type == t_integer || variable.type == t_float || variable.type == t_doubleArray)
+        if (variable.type == t_integer || variable.type == t_float || variable.type == t_double)
             return true;
         return false;
     }

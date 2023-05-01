@@ -43,19 +43,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2022.3.1\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\cmake\win\x64\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2022.3.1\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\cmake\win\x64\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\mary\Desktop\Skipt
+CMAKE_SOURCE_DIR = E:\C++\Skipt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\mary\Desktop\Skipt\cmake-build-debug
+CMAKE_BINARY_DIR = E:\C++\Skipt\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Skipt.dir/depend.make
@@ -69,270 +69,270 @@ include CMakeFiles/Skipt.dir/progress.make
 include CMakeFiles/Skipt.dir/flags.make
 
 CMakeFiles/Skipt.dir/main.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/main.cpp.obj: C:/Users/mary/Desktop/Skipt/main.cpp
+CMakeFiles/Skipt.dir/main.cpp.obj: E:/C++/Skipt/main.cpp
 CMakeFiles/Skipt.dir/main.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Skipt.dir/main.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/main.cpp.obj -MF CMakeFiles\Skipt.dir\main.cpp.obj.d -o CMakeFiles\Skipt.dir\main.cpp.obj -c C:\Users\mary\Desktop\Skipt\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Skipt.dir/main.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/main.cpp.obj -MF CMakeFiles\Skipt.dir\main.cpp.obj.d -o CMakeFiles\Skipt.dir\main.cpp.obj -c E:\C++\Skipt\main.cpp
 
 CMakeFiles/Skipt.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/main.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\main.cpp > CMakeFiles\Skipt.dir\main.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\main.cpp > CMakeFiles\Skipt.dir\main.cpp.i
 
 CMakeFiles/Skipt.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/main.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\main.cpp -o CMakeFiles\Skipt.dir\main.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\main.cpp -o CMakeFiles\Skipt.dir\main.cpp.s
 
 CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.obj: C:/Users/mary/Desktop/Skipt/Property/PropertyFile.cpp
+CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.obj: E:/C++/Skipt/Property/PropertyFile.cpp
 CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.obj -MF CMakeFiles\Skipt.dir\Property\PropertyFile.cpp.obj.d -o CMakeFiles\Skipt.dir\Property\PropertyFile.cpp.obj -c C:\Users\mary\Desktop\Skipt\Property\PropertyFile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.obj -MF CMakeFiles\Skipt.dir\Property\PropertyFile.cpp.obj.d -o CMakeFiles\Skipt.dir\Property\PropertyFile.cpp.obj -c E:\C++\Skipt\Property\PropertyFile.cpp
 
 CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Property\PropertyFile.cpp > CMakeFiles\Skipt.dir\Property\PropertyFile.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Property\PropertyFile.cpp > CMakeFiles\Skipt.dir\Property\PropertyFile.cpp.i
 
 CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Property/PropertyFile.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Property\PropertyFile.cpp -o CMakeFiles\Skipt.dir\Property\PropertyFile.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Property\PropertyFile.cpp -o CMakeFiles\Skipt.dir\Property\PropertyFile.cpp.s
 
 CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.obj: C:/Users/mary/Desktop/Skipt/Property/PropertyReference.cpp
+CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.obj: E:/C++/Skipt/Property/PropertyReference.cpp
 CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.obj -MF CMakeFiles\Skipt.dir\Property\PropertyReference.cpp.obj.d -o CMakeFiles\Skipt.dir\Property\PropertyReference.cpp.obj -c C:\Users\mary\Desktop\Skipt\Property\PropertyReference.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.obj -MF CMakeFiles\Skipt.dir\Property\PropertyReference.cpp.obj.d -o CMakeFiles\Skipt.dir\Property\PropertyReference.cpp.obj -c E:\C++\Skipt\Property\PropertyReference.cpp
 
 CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Property\PropertyReference.cpp > CMakeFiles\Skipt.dir\Property\PropertyReference.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Property\PropertyReference.cpp > CMakeFiles\Skipt.dir\Property\PropertyReference.cpp.i
 
 CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Property/PropertyReference.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Property\PropertyReference.cpp -o CMakeFiles\Skipt.dir\Property\PropertyReference.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Property\PropertyReference.cpp -o CMakeFiles\Skipt.dir\Property\PropertyReference.cpp.s
 
 CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Variable.cpp
+CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj: E:/C++/Skipt/Compiler/Variable.cpp
 CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Variable.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Variable.cpp.obj -c C:\Users\mary\Desktop\Skipt\Compiler\Variable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Variable.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Variable.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Variable.cpp.obj -c E:\C++\Skipt\Compiler\Variable.cpp
 
 CMakeFiles/Skipt.dir/Compiler/Variable.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Compiler/Variable.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Compiler\Variable.cpp > CMakeFiles\Skipt.dir\Compiler\Variable.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Compiler\Variable.cpp > CMakeFiles\Skipt.dir\Compiler\Variable.cpp.i
 
 CMakeFiles/Skipt.dir/Compiler/Variable.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/Variable.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\Variable.cpp -o CMakeFiles\Skipt.dir\Compiler\Variable.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Compiler\Variable.cpp -o CMakeFiles\Skipt.dir\Compiler\Variable.cpp.s
 
 CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/FileReader.cpp
+CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj: E:/C++/Skipt/Compiler/FileReader.cpp
 CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\FileReader.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\FileReader.cpp.obj -c C:\Users\mary\Desktop\Skipt\Compiler\FileReader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\FileReader.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\FileReader.cpp.obj -c E:\C++\Skipt\Compiler\FileReader.cpp
 
 CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Compiler\FileReader.cpp > CMakeFiles\Skipt.dir\Compiler\FileReader.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Compiler\FileReader.cpp > CMakeFiles\Skipt.dir\Compiler\FileReader.cpp.i
 
 CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/FileReader.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\FileReader.cpp -o CMakeFiles\Skipt.dir\Compiler\FileReader.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Compiler\FileReader.cpp -o CMakeFiles\Skipt.dir\Compiler\FileReader.cpp.s
 
 CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Compile.cpp
+CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj: E:/C++/Skipt/Compiler/Compile.cpp
 CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Compile.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Compile.cpp.obj -c C:\Users\mary\Desktop\Skipt\Compiler\Compile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Compile.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Compile.cpp.obj -c E:\C++\Skipt\Compiler\Compile.cpp
 
 CMakeFiles/Skipt.dir/Compiler/Compile.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Compiler/Compile.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Compiler\Compile.cpp > CMakeFiles\Skipt.dir\Compiler\Compile.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Compiler\Compile.cpp > CMakeFiles\Skipt.dir\Compiler\Compile.cpp.i
 
 CMakeFiles/Skipt.dir/Compiler/Compile.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/Compile.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\Compile.cpp -o CMakeFiles\Skipt.dir\Compiler\Compile.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Compiler\Compile.cpp -o CMakeFiles\Skipt.dir\Compiler\Compile.cpp.s
 
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser.cpp
+CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj: E:/C++/Skipt/Compiler/ExpressionParser.cpp
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\ExpressionParser.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\ExpressionParser.cpp.obj -c C:\Users\mary\Desktop\Skipt\Compiler\ExpressionParser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\ExpressionParser.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\ExpressionParser.cpp.obj -c E:\C++\Skipt\Compiler\ExpressionParser.cpp
 
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Compiler\ExpressionParser.cpp > CMakeFiles\Skipt.dir\Compiler\ExpressionParser.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Compiler\ExpressionParser.cpp > CMakeFiles\Skipt.dir\Compiler\ExpressionParser.cpp.i
 
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\ExpressionParser.cpp -o CMakeFiles\Skipt.dir\Compiler\ExpressionParser.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Compiler\ExpressionParser.cpp -o CMakeFiles\Skipt.dir\Compiler\ExpressionParser.cpp.s
 
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Parser.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Parser.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Parser.cpp
+CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Parser.cpp.obj: E:/C++/Skipt/Compiler/ExpressionParser/Parser.cpp
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Parser.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Parser.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Parser.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Parser.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Parser.cpp.obj -c C:\Users\mary\Desktop\Skipt\Compiler\ExpressionParser\Parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Parser.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Parser.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Parser.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Parser.cpp.obj -c E:\C++\Skipt\Compiler\ExpressionParser\Parser.cpp
 
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Parser.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Compiler\ExpressionParser\Parser.cpp > CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Parser.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Compiler\ExpressionParser\Parser.cpp > CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Parser.cpp.i
 
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Parser.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\ExpressionParser\Parser.cpp -o CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Parser.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Compiler\ExpressionParser\Parser.cpp -o CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Parser.cpp.s
 
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Tokenizer.cpp
+CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.obj: E:/C++/Skipt/Compiler/ExpressionParser/Tokenizer.cpp
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Tokenizer.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Tokenizer.cpp.obj -c C:\Users\mary\Desktop\Skipt\Compiler\ExpressionParser\Tokenizer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Tokenizer.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Tokenizer.cpp.obj -c E:\C++\Skipt\Compiler\ExpressionParser\Tokenizer.cpp
 
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Compiler\ExpressionParser\Tokenizer.cpp > CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Tokenizer.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Compiler\ExpressionParser\Tokenizer.cpp > CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Tokenizer.cpp.i
 
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Tokenizer.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\ExpressionParser\Tokenizer.cpp -o CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Tokenizer.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Compiler\ExpressionParser\Tokenizer.cpp -o CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Tokenizer.cpp.s
 
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/ExpressionParser/Expression.cpp
+CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.obj: E:/C++/Skipt/Compiler/ExpressionParser/Expression.cpp
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Expression.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Expression.cpp.obj -c C:\Users\mary\Desktop\Skipt\Compiler\ExpressionParser\Expression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Expression.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Expression.cpp.obj -c E:\C++\Skipt\Compiler\ExpressionParser\Expression.cpp
 
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Compiler\ExpressionParser\Expression.cpp > CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Expression.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Compiler\ExpressionParser\Expression.cpp > CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Expression.cpp.i
 
 CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\ExpressionParser\Expression.cpp -o CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Expression.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Compiler\ExpressionParser\Expression.cpp -o CMakeFiles\Skipt.dir\Compiler\ExpressionParser\Expression.cpp.s
 
 CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Function/Functions.cpp
+CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.obj: E:/C++/Skipt/Compiler/Function/Functions.cpp
 CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Function\Functions.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Function\Functions.cpp.obj -c C:\Users\mary\Desktop\Skipt\Compiler\Function\Functions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Function\Functions.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Function\Functions.cpp.obj -c E:\C++\Skipt\Compiler\Function\Functions.cpp
 
 CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Compiler\Function\Functions.cpp > CMakeFiles\Skipt.dir\Compiler\Function\Functions.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Compiler\Function\Functions.cpp > CMakeFiles\Skipt.dir\Compiler\Function\Functions.cpp.i
 
 CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/Function/Functions.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\Function\Functions.cpp -o CMakeFiles\Skipt.dir\Compiler\Function\Functions.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Compiler\Function\Functions.cpp -o CMakeFiles\Skipt.dir\Compiler\Function\Functions.cpp.s
 
 CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Function/SystemFunction.cpp
+CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.obj: E:/C++/Skipt/Compiler/Function/SystemFunction.cpp
 CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Function\SystemFunction.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Function\SystemFunction.cpp.obj -c C:\Users\mary\Desktop\Skipt\Compiler\Function\SystemFunction.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Function\SystemFunction.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Function\SystemFunction.cpp.obj -c E:\C++\Skipt\Compiler\Function\SystemFunction.cpp
 
 CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Compiler\Function\SystemFunction.cpp > CMakeFiles\Skipt.dir\Compiler\Function\SystemFunction.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Compiler\Function\SystemFunction.cpp > CMakeFiles\Skipt.dir\Compiler\Function\SystemFunction.cpp.i
 
 CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/Function/SystemFunction.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\Function\SystemFunction.cpp -o CMakeFiles\Skipt.dir\Compiler\Function\SystemFunction.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Compiler\Function\SystemFunction.cpp -o CMakeFiles\Skipt.dir\Compiler\Function\SystemFunction.cpp.s
 
 CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Function/StringFunction.cpp
+CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.obj: E:/C++/Skipt/Compiler/Function/StringFunction.cpp
 CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Function\StringFunction.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Function\StringFunction.cpp.obj -c C:\Users\mary\Desktop\Skipt\Compiler\Function\StringFunction.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Function\StringFunction.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Function\StringFunction.cpp.obj -c E:\C++\Skipt\Compiler\Function\StringFunction.cpp
 
 CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Compiler\Function\StringFunction.cpp > CMakeFiles\Skipt.dir\Compiler\Function\StringFunction.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Compiler\Function\StringFunction.cpp > CMakeFiles\Skipt.dir\Compiler\Function\StringFunction.cpp.i
 
 CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/Function/StringFunction.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\Function\StringFunction.cpp -o CMakeFiles\Skipt.dir\Compiler\Function\StringFunction.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Compiler\Function\StringFunction.cpp -o CMakeFiles\Skipt.dir\Compiler\Function\StringFunction.cpp.s
 
 CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Function/InternalFunction.cpp
+CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj: E:/C++/Skipt/Compiler/Function/InternalFunction.cpp
 CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Function\InternalFunction.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Function\InternalFunction.cpp.obj -c C:\Users\mary\Desktop\Skipt\Compiler\Function\InternalFunction.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Function\InternalFunction.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Function\InternalFunction.cpp.obj -c E:\C++\Skipt\Compiler\Function\InternalFunction.cpp
 
 CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Compiler\Function\InternalFunction.cpp > CMakeFiles\Skipt.dir\Compiler\Function\InternalFunction.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Compiler\Function\InternalFunction.cpp > CMakeFiles\Skipt.dir\Compiler\Function\InternalFunction.cpp.i
 
 CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\Function\InternalFunction.cpp -o CMakeFiles\Skipt.dir\Compiler\Function\InternalFunction.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Compiler\Function\InternalFunction.cpp -o CMakeFiles\Skipt.dir\Compiler\Function\InternalFunction.cpp.s
 
 CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Function/MathFunction.cpp
+CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.obj: E:/C++/Skipt/Compiler/Function/MathFunction.cpp
 CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Function\MathFunction.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Function\MathFunction.cpp.obj -c C:\Users\mary\Desktop\Skipt\Compiler\Function\MathFunction.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Function\MathFunction.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Function\MathFunction.cpp.obj -c E:\C++\Skipt\Compiler\Function\MathFunction.cpp
 
 CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Compiler\Function\MathFunction.cpp > CMakeFiles\Skipt.dir\Compiler\Function\MathFunction.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Compiler\Function\MathFunction.cpp > CMakeFiles\Skipt.dir\Compiler\Function\MathFunction.cpp.i
 
 CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/Function/MathFunction.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\Function\MathFunction.cpp -o CMakeFiles\Skipt.dir\Compiler\Function\MathFunction.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Compiler\Function\MathFunction.cpp -o CMakeFiles\Skipt.dir\Compiler\Function\MathFunction.cpp.s
 
 CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Function/ArrayFunctions.cpp
+CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj: E:/C++/Skipt/Compiler/Function/ArrayFunctions.cpp
 CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Function\ArrayFunctions.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Function\ArrayFunctions.cpp.obj -c C:\Users\mary\Desktop\Skipt\Compiler\Function\ArrayFunctions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Function\ArrayFunctions.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Function\ArrayFunctions.cpp.obj -c E:\C++\Skipt\Compiler\Function\ArrayFunctions.cpp
 
 CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Compiler\Function\ArrayFunctions.cpp > CMakeFiles\Skipt.dir\Compiler\Function\ArrayFunctions.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Compiler\Function\ArrayFunctions.cpp > CMakeFiles\Skipt.dir\Compiler\Function\ArrayFunctions.cpp.i
 
 CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/Function/ArrayFunctions.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\Function\ArrayFunctions.cpp -o CMakeFiles\Skipt.dir\Compiler\Function\ArrayFunctions.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Compiler\Function\ArrayFunctions.cpp -o CMakeFiles\Skipt.dir\Compiler\Function\ArrayFunctions.cpp.s
 
 CMakeFiles/Skipt.dir/ModifiedType/String.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/ModifiedType/String.cpp.obj: C:/Users/mary/Desktop/Skipt/ModifiedType/String.cpp
+CMakeFiles/Skipt.dir/ModifiedType/String.cpp.obj: E:/C++/Skipt/ModifiedType/String.cpp
 CMakeFiles/Skipt.dir/ModifiedType/String.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/Skipt.dir/ModifiedType/String.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/ModifiedType/String.cpp.obj -MF CMakeFiles\Skipt.dir\ModifiedType\String.cpp.obj.d -o CMakeFiles\Skipt.dir\ModifiedType\String.cpp.obj -c C:\Users\mary\Desktop\Skipt\ModifiedType\String.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/Skipt.dir/ModifiedType/String.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/ModifiedType/String.cpp.obj -MF CMakeFiles\Skipt.dir\ModifiedType\String.cpp.obj.d -o CMakeFiles\Skipt.dir\ModifiedType\String.cpp.obj -c E:\C++\Skipt\ModifiedType\String.cpp
 
 CMakeFiles/Skipt.dir/ModifiedType/String.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/ModifiedType/String.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\ModifiedType\String.cpp > CMakeFiles\Skipt.dir\ModifiedType\String.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\ModifiedType\String.cpp > CMakeFiles\Skipt.dir\ModifiedType\String.cpp.i
 
 CMakeFiles/Skipt.dir/ModifiedType/String.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/ModifiedType/String.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\ModifiedType\String.cpp -o CMakeFiles\Skipt.dir\ModifiedType\String.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\ModifiedType\String.cpp -o CMakeFiles\Skipt.dir\ModifiedType\String.cpp.s
 
 CMakeFiles/Skipt.dir/Extensions/Array.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Extensions/Array.cpp.obj: C:/Users/mary/Desktop/Skipt/Extensions/Array.cpp
+CMakeFiles/Skipt.dir/Extensions/Array.cpp.obj: E:/C++/Skipt/Extensions/Array.cpp
 CMakeFiles/Skipt.dir/Extensions/Array.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/Skipt.dir/Extensions/Array.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Extensions/Array.cpp.obj -MF CMakeFiles\Skipt.dir\Extensions\Array.cpp.obj.d -o CMakeFiles\Skipt.dir\Extensions\Array.cpp.obj -c C:\Users\mary\Desktop\Skipt\Extensions\Array.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/Skipt.dir/Extensions/Array.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Extensions/Array.cpp.obj -MF CMakeFiles\Skipt.dir\Extensions\Array.cpp.obj.d -o CMakeFiles\Skipt.dir\Extensions\Array.cpp.obj -c E:\C++\Skipt\Extensions\Array.cpp
 
 CMakeFiles/Skipt.dir/Extensions/Array.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Extensions/Array.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Extensions\Array.cpp > CMakeFiles\Skipt.dir\Extensions\Array.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Extensions\Array.cpp > CMakeFiles\Skipt.dir\Extensions\Array.cpp.i
 
 CMakeFiles/Skipt.dir/Extensions/Array.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Extensions/Array.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Extensions\Array.cpp -o CMakeFiles\Skipt.dir\Extensions\Array.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Extensions\Array.cpp -o CMakeFiles\Skipt.dir\Extensions\Array.cpp.s
 
 CMakeFiles/Skipt.dir/Compiler/Function/StatisticsFunction.cpp.obj: CMakeFiles/Skipt.dir/flags.make
-CMakeFiles/Skipt.dir/Compiler/Function/StatisticsFunction.cpp.obj: C:/Users/mary/Desktop/Skipt/Compiler/Function/StatisticsFunction.cpp
+CMakeFiles/Skipt.dir/Compiler/Function/StatisticsFunction.cpp.obj: E:/C++/Skipt/Compiler/Function/StatisticsFunction.cpp
 CMakeFiles/Skipt.dir/Compiler/Function/StatisticsFunction.cpp.obj: CMakeFiles/Skipt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Function/StatisticsFunction.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Function/StatisticsFunction.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Function\StatisticsFunction.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Function\StatisticsFunction.cpp.obj -c C:\Users\mary\Desktop\Skipt\Compiler\Function\StatisticsFunction.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/Skipt.dir/Compiler/Function/StatisticsFunction.cpp.obj"
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Skipt.dir/Compiler/Function/StatisticsFunction.cpp.obj -MF CMakeFiles\Skipt.dir\Compiler\Function\StatisticsFunction.cpp.obj.d -o CMakeFiles\Skipt.dir\Compiler\Function\StatisticsFunction.cpp.obj -c E:\C++\Skipt\Compiler\Function\StatisticsFunction.cpp
 
 CMakeFiles/Skipt.dir/Compiler/Function/StatisticsFunction.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Skipt.dir/Compiler/Function/StatisticsFunction.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mary\Desktop\Skipt\Compiler\Function\StatisticsFunction.cpp > CMakeFiles\Skipt.dir\Compiler\Function\StatisticsFunction.cpp.i
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\C++\Skipt\Compiler\Function\StatisticsFunction.cpp > CMakeFiles\Skipt.dir\Compiler\Function\StatisticsFunction.cpp.i
 
 CMakeFiles/Skipt.dir/Compiler/Function/StatisticsFunction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Skipt.dir/Compiler/Function/StatisticsFunction.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mary\Desktop\Skipt\Compiler\Function\StatisticsFunction.cpp -o CMakeFiles\Skipt.dir\Compiler\Function\StatisticsFunction.cpp.s
+	C:\Users\Rob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\C++\Skipt\Compiler\Function\StatisticsFunction.cpp -o CMakeFiles\Skipt.dir\Compiler\Function\StatisticsFunction.cpp.s
 
 # Object files for target Skipt
 Skipt_OBJECTS = \
@@ -382,7 +382,7 @@ Skipt.exe: CMakeFiles/Skipt.dir/build.make
 Skipt.exe: CMakeFiles/Skipt.dir/linklibs.rsp
 Skipt.exe: CMakeFiles/Skipt.dir/objects1.rsp
 Skipt.exe: CMakeFiles/Skipt.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX executable Skipt.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX executable Skipt.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Skipt.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -394,6 +394,6 @@ CMakeFiles/Skipt.dir/clean:
 .PHONY : CMakeFiles/Skipt.dir/clean
 
 CMakeFiles/Skipt.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\mary\Desktop\Skipt C:\Users\mary\Desktop\Skipt C:\Users\mary\Desktop\Skipt\cmake-build-debug C:\Users\mary\Desktop\Skipt\cmake-build-debug C:\Users\mary\Desktop\Skipt\cmake-build-debug\CMakeFiles\Skipt.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" E:\C++\Skipt E:\C++\Skipt E:\C++\Skipt\cmake-build-debug E:\C++\Skipt\cmake-build-debug E:\C++\Skipt\cmake-build-debug\CMakeFiles\Skipt.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Skipt.dir/depend
 

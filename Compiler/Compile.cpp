@@ -576,7 +576,8 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 break;
             }
 
-            std::vector<std::string> expressionOperators = {"+", "-", "/", "*", "%", "(", ")"};
+            std::vector<std::string> expressionOperators = {"+", "-", "/", "*", "(", ")"};
+
             if (lineString.ContainsAny(expressionOperators) && Variable::isNum(var)){
                 size_t startIndex = lineString.Until('=');
                 std::string expression = lineString.Substring(startIndex + 1, (lineString.Length - startIndex)).ToString();

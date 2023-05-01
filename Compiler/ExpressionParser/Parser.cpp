@@ -6,40 +6,36 @@
 #include "Expression.h"
 #include "Tokenizer.h"
 
-Parser::Parser(char* line) : tokens(new Tokenizer(line))
-{
-}
+Parser::Parser(char* line) : tokens(new Tokenizer(line)) {}
 
-Parser::~Parser()
-{
+Parser::~Parser() {
     delete tokens;
 }
 
 Expression* Parser::statement() {
-    Expression *exp = nullptr;
-    if ((exp=assignment()) || (exp=calculation())) ;
-    return exp;
+    Expression *expression = nullptr;
+    if ((expression=assignment()) || (expression=calculation())) ;
+    return expression;
 }
 
 Expression* Parser::assignment()
 {
-    int mark = tokens->mark();
-    VariableExpression *var = nullptr;
-    Expression *rhs = nullptr;
-    if ((var=tokens->variable()) && tokens->character('=') && (rhs=sum()) && tokens->atEnd())
-        return new AssignmentExpression(var, rhs);
-    if (var)
-        delete var;
-    if (rhs)
-        delete rhs;
-    tokens->reset(mark);
+    int tknMark = tokens->mark();
+    VariableExpression *variableExpression = nullptr;
+    Expression *rhsExpression = nullptr;
+    if ((variableExpression=tokens->variable()) && tokens->character('=') && (rhsExpression=sum()) && tokens->atEnd())
+        return new AssignmentExpression(variableExpression, rhsExpression);
+    if (variableExpression)
+        delete variableExpression;
+    if (rhsExpression)
+        delete rhsExpression;
+    tokens->reset(tknMark);
     return nullptr;
 }
 
 Expression* Parser::calculation()
 {
     Expression *result;
-    int mark = tokens->mark();
     if ((result=sum()) && tokens->atEnd())
         return result;
     if(result) {
@@ -123,31 +119,34 @@ Expression* Parser::product()
 }
 
 Expression* Parser::factor() {
-    Expression *exp = nullptr;
-    if ((exp=power()) || (exp=term()))
+    Expression *expression = nullptr;
+    if ((expression=power()) || (expression=term()))
         ;
-    return exp;
+    return expression;
 }
 
 Expression* Parser::power()
 {
-    int mark = tokens->mark();
-    Expression *lhs = nullptr;
-    Expression *rhs = nullptr;
-    if ((lhs=term()) && tokens->character('^') && (rhs=factor()))
-        return new ArithmeticExpression('^', lhs, rhs);
-    if (lhs)
-        delete lhs;
-    tokens->reset(mark);
+    int powerMarker = tokens->mark();
+    Expression *leftHand = nullptr;
+    Expression *rightHand = nullptr;
+
+    if ((leftHand=term()) && tokens->character('^') && (rightHand=factor()))
+        return new ArithmeticExpression('^', leftHand, rightHand);
+
+    if (leftHand)
+        delete leftHand;
+
+    tokens->reset(powerMarker);
     return nullptr;
 }
 
 Expression* Parser::term()
 {
-    Expression *exp = nullptr;
-    if ((exp=group()) || (exp=tokens->variable()) || (exp=tokens->number()))
+    Expression *expression = nullptr;
+    if ((expression=group()) || (expression=tokens->variable()) || (expression=tokens->number()))
         ;
-    return exp;
+    return expression;
 }
 
 Expression* Parser::group() {

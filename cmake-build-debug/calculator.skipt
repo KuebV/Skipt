@@ -32,13 +32,13 @@ int selection = 0;
 
 if (selection < 1)
 {
-    > "\nSelection out of range, must be a number betwee 1 - 5\n";
+    > "\nSelection out of range, must be a number between 1 - 5\n";
     ref System::exit(1)
 }
 
 if (selection > 5)
 {
-    > "\nSelection out of range, must be a number betwee 1 - 5\n";
+    > "\nSelection out of range, must be a number between 1 - 5\n";
     ref System::exit(1)
 }
 
