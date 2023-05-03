@@ -583,7 +583,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 std::string expression = lineString.Substring(startIndex + 1, (lineString.Length - startIndex)).ToString();
                 expression = StringExt::Strip(expression);
 
-                std::string expressionReplaced = ExpressionParser::ReplaceVariableNames(expression);
+                std::string expressionReplaced = Variable::ConvertToVariableValues(expression);
 
                 char* char_array = new char[expressionReplaced.length() + 1];
                 std::strcpy(char_array, expressionReplaced.c_str());
@@ -603,7 +603,7 @@ void Compile::Run(std::string fileName, bool asExternal) {
                 String value(lineString.Substring(lineString.Until('=') + 1,  lineString.Length - 1));
                 value.ptr_Strip(String::StripOptions::All);
 
-                std::string strValue = ExpressionParser::ReplaceVariableNames(value.ToString());
+                std::string strValue = Variable::ConvertToVariableValues(value.ToString());
                 Variable::modifyVariable(potentialVariable->ToString(), strValue);
                 continue;
             }

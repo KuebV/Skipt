@@ -41,6 +41,9 @@ Variable StringFunction::HandleCall(std::string function, std::string arguments)
             Variable::ConvertToTokenValues(args);
 
             std::string initialString = args[0];
+            std::unique_ptr<String> ptrString = std::make_unique<String>(initialString);
+
+            initialString = ptrString->ContentBetween("\"", "\"").ToString();
             for (int i = 1; i < args.size();i++){
                 if (args.size() >= 100)
                     initialString = String(initialString).ReplaceMulti("{" + std::to_string(i - 1) + "}", args[i]).ToString();

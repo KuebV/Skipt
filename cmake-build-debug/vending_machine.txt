@@ -1,5 +1,0 @@
-1A | Oreos | $2
-2A | Chips | $2
-3A | Gummy Bears | $3
-1B | Trail Mix | $4
-2B | Granola Bars | $3

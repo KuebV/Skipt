@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj"
   "CMakeFiles/Skipt.dir/Compiler/Compile.cpp.obj.d"
-  "CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj"
-  "CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj.d"
   "CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.obj"
   "CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Expression.cpp.obj.d"
   "CMakeFiles/Skipt.dir/Compiler/ExpressionParser/Parser.cpp.obj"

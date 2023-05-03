@@ -97,12 +97,6 @@
 		<Unit filename="E:/C++/Skipt/Compiler/ExitMessage.h">
 			<Option target="Skipt"/>
 		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/ExpressionParser.cpp">
-			<Option target="Skipt"/>
-		</Unit>
-		<Unit filename="E:/C++/Skipt/Compiler/ExpressionParser.h">
-			<Option target="Skipt"/>
-		</Unit>
 		<Unit filename="E:/C++/Skipt/Compiler/ExpressionParser/Expression.cpp">
 			<Option target="Skipt"/>
 		</Unit>

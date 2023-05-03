@@ -176,6 +176,9 @@ public:
                         *ptrString = StringExt::Replace(*ptrString, "\\n", "\n");
                         break;
                     }
+                    case 't':
+                        *ptrString = StringExt::Replace(*ptrString, "\\t", "\t");
+                        break;
                 }
             }
         }

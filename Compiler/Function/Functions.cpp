@@ -4,7 +4,6 @@
 
 #include "Functions.h"
 #include "SystemFunction.h"
-#include "../ExpressionParser.h"
 #include "StringFunction.h"
 #include "InternalFunction.h"
 #include "MathFunction.h"
@@ -60,7 +59,6 @@ Variable Functions::HandleCallFunction(std::string functionCall) {
         else if (str == "String") return String;
         else if (str == "Array") return Array;
         else if (str == "Internal") return Internal;
-        else if (str == "Statistics") return Statistics;
         else if (str == "Stats") return Statistics;
         else return Null;
     };

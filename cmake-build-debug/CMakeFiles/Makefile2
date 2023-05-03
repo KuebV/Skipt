@@ -80,12 +80,12 @@ clean: CMakeFiles/Skipt.dir/clean
 CMakeFiles/Skipt.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 "Built target Skipt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=E:\C++\Skipt\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 "Built target Skipt"
 .PHONY : CMakeFiles/Skipt.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Skipt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\C++\Skipt\cmake-build-debug\CMakeFiles 20
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\C++\Skipt\cmake-build-debug\CMakeFiles 19
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Skipt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\C++\Skipt\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/Skipt.dir/rule

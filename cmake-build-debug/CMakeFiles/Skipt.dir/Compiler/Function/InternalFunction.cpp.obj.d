@@ -173,22 +173,21 @@ CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj: \
  C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_base.h \
  C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_lockfree_defines.h \
  C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward/auto_ptr.h \
+ E:/C++/Skipt/ModifiedType/String.h \
+ C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/algorithm \
+ C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_algo.h \
+ C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/algorithmfwd.h \
+ C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_heap.h \
+ C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uniform_int_dist.h \
  E:/C++/Skipt/Compiler/Compile.h E:/C++/Skipt/Compiler/Compile.h \
  E:/C++/Skipt/Compiler/FileReader.h \
  E:/C++/Skipt/Compiler/ExpressionParser/Parser.h \
- E:/C++/Skipt/Compiler/ExpressionParser.h \
- E:/C++/Skipt/Compiler/Variable.h \
  E:/C++/Skipt/Compiler/ExpressionParser/Expression.h \
  E:/C++/Skipt/Compiler/Conditional/Operator.h \
  E:/C++/Skipt/Compiler/Variable.h E:/C++/Skipt/Extensions/StringExt.h \
  E:/C++/Skipt/Extensions/Array.h \
  E:/C++/Skipt/Compiler/Function/ArrayFunctions.h \
  E:/C++/Skipt/Compiler/Variable.h E:/C++/Skipt/ModifiedType/String.h \
- C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/algorithm \
- C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_algo.h \
- C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/algorithmfwd.h \
- C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_heap.h \
- C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uniform_int_dist.h \
  E:/C++/Skipt/Compiler/ExitMessage.h \
  E:/C++/Skipt/Property/PropertyReference.h \
  E:/C++/Skipt/Property/PropertyFile.h \
@@ -209,5 +208,5 @@ CMakeFiles/Skipt.dir/Compiler/Function/InternalFunction.cpp.obj: \
  C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/limits \
  C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ctime \
  C:/Users/Rob/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/parse_numbers.h \
- E:/C++/Skipt/ModifiedType/String.h E:/C++/Skipt/Property/PropertyFile.h \
+ E:/C++/Skipt/Compiler/Variable.h E:/C++/Skipt/Property/PropertyFile.h \
  E:/C++/Skipt/Compiler/ExitMessage.h

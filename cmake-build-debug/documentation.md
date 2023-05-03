@@ -47,7 +47,6 @@ Skipt is very direct with conditional statements, you can only have one conditio
 
 **If-Statements**
 
-```
 bool isAdult;
 int age = 0;
 if (age >= 18)
@@ -62,7 +61,9 @@ else
 }
 
 ```
+
 With If-Statements, there is one key formatting you must keep in mind. There must be a starting bracket the line after the conditional statement is defined. Here are a few examples:
+
 ```
 # Valid
 if (x == y)

@@ -152,30 +152,6 @@ Compiler/Compile.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/Compile.cpp.s
 .PHONY : Compiler/Compile.cpp.s
 
-Compiler/ExpressionParser.obj: Compiler/ExpressionParser.cpp.obj
-.PHONY : Compiler/ExpressionParser.obj
-
-# target to build an object file
-Compiler/ExpressionParser.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.obj
-.PHONY : Compiler/ExpressionParser.cpp.obj
-
-Compiler/ExpressionParser.i: Compiler/ExpressionParser.cpp.i
-.PHONY : Compiler/ExpressionParser.i
-
-# target to preprocess a source file
-Compiler/ExpressionParser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.i
-.PHONY : Compiler/ExpressionParser.cpp.i
-
-Compiler/ExpressionParser.s: Compiler/ExpressionParser.cpp.s
-.PHONY : Compiler/ExpressionParser.s
-
-# target to generate assembly for a file
-Compiler/ExpressionParser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Skipt.dir\build.make CMakeFiles/Skipt.dir/Compiler/ExpressionParser.cpp.s
-.PHONY : Compiler/ExpressionParser.cpp.s
-
 Compiler/ExpressionParser/Expression.obj: Compiler/ExpressionParser/Expression.cpp.obj
 .PHONY : Compiler/ExpressionParser/Expression.obj
 
@@ -596,9 +572,6 @@ help:
 	@echo ... Compiler/Compile.obj
 	@echo ... Compiler/Compile.i
 	@echo ... Compiler/Compile.s
-	@echo ... Compiler/ExpressionParser.obj
-	@echo ... Compiler/ExpressionParser.i
-	@echo ... Compiler/ExpressionParser.s
 	@echo ... Compiler/ExpressionParser/Expression.obj
 	@echo ... Compiler/ExpressionParser/Expression.i
 	@echo ... Compiler/ExpressionParser/Expression.s
